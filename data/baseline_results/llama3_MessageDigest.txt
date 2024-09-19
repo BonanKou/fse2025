@@ -1,0 +1,28 @@
+
+
+Here is the API document summarizing the knowledge snippets:
+
+**MessageDigest API Document**
+
+**Functionality**
+The MessageDigest class provides functionality for generating a message digest (a digital fingerprint) of a given input.
+
+**Concept**
+A message digest is a digital fingerprint of a given input, used for data integrity and authenticity verification.
+
+**Pattern**
+The MessageDigest class follows a streaming pattern, allowing for processing of large files in chunks.
+
+**Performance**
+* Using `digest(byteArr)` can be memory-inefficient for large files, as it requires loading the entire file into memory.
+* Using `update(byteArr)` to process the file in chunks can significantly reduce memory usage.
+
+**Alternative**
+No alternative methods are specified.
+
+**Environment**
+* The MessageDigest class requires the Java Security API.
+* Supports Java execution environment.
+
+**Directive**
+* When working with large files, use `update(byteArr)` to process the file in chunks to reduce memory usage.

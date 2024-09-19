@@ -1,0 +1,32 @@
+0. However, you have the option of giving it real tensors, instead of placeholders.
+1. That kind of input should give as a result like:
+
+...which looks like OK at this stage.
+2. Normally, when a model is created, it has placeholder tensors for the input and output.
+3. This new model contains the same input as the previous model, but the output is the layer right before the GlobalAveragePooling2D() layer.
+4. This is one of the lines that were raised when you execute model(data).
+5. Also, You must compile your model before training/testing.
+6. If you explicitly feed it None for input data, then the model must have been created with existing data tensor(s), and it still is what executes the actual prediction.
+7. consider to specify the shape of model inputs in the strategy scope, you can try one of the below:
+1. call model.build() after the model is created.
+8. The dimensions of input and output should be the same to train the model (otherwise it will show this error "ValueError: Dimensions 11 and 5 are not compatible").
+9. The only reason you can do that is because the data already exists.
+10. When creating a Model, the input should be an Input layer, not a tensor.
+11. It seems that if I construct my model with Sequential API, the network will start learning from scratch when I set base_model.trainable = True.
+12. I was able to replicate this error and found the fixes as below:
+
+
+You need to run this code by selecting Tensorflow 1.x.
+13. In this case, and only this case, you can use fit, predict, or evaluate without feeding it data.
+14. But if I create my model with Functional API, it seems that everything is okay.
+15. TensorFlow Model only accepts Tensors when called during Eager Execution as indicated in their GitHub repository.
+16. Depending on which version of tensorflow you you are using you should enable eager execution before you declare the model.
+17. 3. use a real tensor(ones, zeros, ect.) to call model(tensor) after the model is created.
+18. When you define your model for training on your data set, the head of it should be a global pooling layer followed by one dense layer.
+19. In your code, firstly you need to create a model.
+20. When running the model remember to test the model using inputs in form:
+
+...in case where you input one image and one gender to the network.
+21. You can't predict on placeholders, you need to feed that function real data.
+22. I've encountered this problem before.
+23. Your model should be defined and compiled before you start training.

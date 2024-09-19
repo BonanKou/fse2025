@@ -1,0 +1,31 @@
+# API Document for Android Manifest Class
+
+## Functionality
+- The Android Manifest file is crucial for enabling or disabling hardware acceleration, achieved by setting the `android:hardwareAccelerated` attribute in the `<application>` or individual `<activity>` tags.
+- The Manifest class provides access to permissions, which can be specified using `android.Manifest.permission`, such as `android.Manifest.permission.WRITE_EXTERNAL_STORAGE`.
+- The Manifest defines the application package, which is essential for uniquely identifying the application within the Android ecosystem.
+
+## Concept
+1. **Manifest File in Android**: A configuration file providing critical information such as app metadata, name, icon, version, and required permissions.
+2. **Application Tag**: Used to define global attributes for the entire app, such as `android:name`, `android:allowBackup`, and `android:icon`.
+3. **Hardware Acceleration**: Controlled through the `android:hardwareAccelerated` attribute to optimize performance by leveraging the GPU.
+4. **Activity Tag**: Used to define individual activities within the app, specifying attributes like name and theme.
+5. **Intent Filters**: Define the response to intents and determine the launch activity using `<intent-filter>` tags.
+
+## Pattern
+- The Manifest class often specifies support for different screen sizes using `<supports-screens>` for compatibility across various devices.
+- Hardware acceleration is commonly managed in the Manifest at both the application and activity levels using `android:hardwareAccelerated`.
+
+## Performance
+- To improve graphic performance, enable hardware acceleration by setting `android:hardwareAccelerated="true"` at the application level unless there are specific activities where it needs to be disabled.
+
+## Alternative
+- If targeting Android 11 or higher, the Manifest file must include the `<queries>` element to comply with package visibility requirements.
+
+## Environment
+- Proper configuration of the `android:hardwareAccelerated` attribute is necessary for applications that require enhanced graphic performance.
+- For projects targeting Android 11 (API level 30), update your Manifest with `<queries>` to meet new package visibility requirements.
+
+## Directive
+- Always ensure the application package is defined in the Manifest for unique identification by the Android system.
+- When configuring hardware acceleration, set `android:hardwareAccelerated="true"` in both the application and activity tags if graphic performance enhancement is required throughout the app.

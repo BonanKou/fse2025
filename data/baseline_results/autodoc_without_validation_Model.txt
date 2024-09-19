@@ -1,0 +1,47 @@
+# API Document
+
+## 1. Functionality
+
+- **Model Input Shape Specification:**
+  - Use `model.build()` to define input shapes post-creation.
+  - Specify `input_shape` in the model’s `__init__()` method for the first layer.
+  - Pass a real tensor to `model(tensor)` to specify input shapes.
+- **Model Prediction:**
+  - `model.predict()` is used for making predictions but requires real data unless the model is pre-configured with data tensors.
+
+## 2. Concept
+
+- **Model Definition:**
+  - Models refer to neural network architectures in TensorFlow's Keras API.
+  - Create models using `Model(inputs, outputs)` based on input and output tensors.
+
+## 3. Pattern
+
+- **Model Design:**
+  - Common structures include global pooling layers followed by dense layers for classification.
+  - Post-training, models can be adapted for transfer learning, often omitting classification layers for feature extraction.
+
+## 4. Performance
+
+- **Transfer Learning:**
+  - Leverage existing model weights to improve performance on related tasks.
+  - Save model weights with `new_model.save_weights(file_path)` for reuse or further training.
+
+## 5. Alternative
+
+- **Model Construction Alternatives:**
+  - Use the Functional API or Model subclassing for greater flexibility over the Sequential API.
+
+## 6. Environment
+
+- **Execution Mode:**
+  - Eager Execution is recommended for TensorFlow Models, allowing operations without creating sessions.
+
+## 7. Directive
+
+- **Guidelines for Model Creation:**
+  - Specify input shape during model setup, particularly within distributed strategies.
+  - Avoid creating models inside training loops unless necessary.
+- **Model Usage:**
+  - Ensure real data input (as tensors) for model predictions.
+  - Use distributed strategies and provide input shape beforehand for proper model functionality.

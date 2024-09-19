@@ -1,0 +1,87 @@
+0. If you have an integer value, then start from an integer type such as Int or Long; otherwise, you'll need to start from a String to get an exact value.)
+1. You might get away with using a double if you can format the output appropriately (which is essentially what Microsoft Excel does, along with some very clever tricks for expressions like 1/3 + 1/3 + 1/3).
+2. If nullable properties make the entities more complicated to use, you can of course use default values.
+3. Example code using only BigDecimal while avoiding Double.
+4. So they're great when you care about doing calculations efficiently and flexibly — but not when you need to store exact decimal values.
+5. In Java, using it is awkward and long-winded, but Kotlin's operator overloading makes it very natural, e.g.:
+
+DecimalFormat supports it too:
+
+(Note: do not create a BigDecimal from a Float or Double, as the damage will already have been done.
+6. 0.00200 * 0.00400 = 0.000008 rather than 0.00800.
+7. But that doesn't always give the result you expect.
+8. You must use constructor taking a String, BigDecimal("0.00200") and BigDecimal("0.00400"), with the quotes.
+9. If properties can be missing, I would make them nullable.
+10. Floating-point numbers are great when you need a huge range of values (e.g. in scientific and technical use), but don't care about storing them exactly.
+11. You must not call doubleValue() on the result.
+12. For example, if you only ever need two decimal places (i.e. the number of paise), then simply store the number of paise as an integer.
+13. toBigDecimal converts the value to a String and then uses that which gives the "correct" value
+
+If none of that makes sense, you probably need to read about Floating Point Arithmetic, this is a common problem affecting all/most programming languages
+14. If you need perfect precision then use a type capable of doing that.
+15. You have to check the nullability before doing the comparison.
+16. Why would you want to assign a default value of 0 to weight and height when null is a more accurate representation of the actual data?
+17. In practice, this is usually hidden from you, because when you print out a Double, the formatting routine will round it off, and in many cases that gives back the original number.
+18. , then you should store them some other way.
+19. If your method contains only a single statement you can write it with equal sign as shown in kotlin just a shorthand syntax while the max will prevent the net score from going below zero.
+20. If you care about exact decimal values, then don't use floating-point.
+21. There is no exact double-precision floating point representation for 8875.87 so the rounding has already occurred before you call toBigDecimal.
+22. And because they're exact, you shouldn't need to do any rounding — and probably won't need to do any formatting either.
+23. So if you need your money values to be accurate (and you almost always do!)
+24. In the case of your example:
+
+Integers never store any concept of decimals, in Kotlin the design decision was to use Integer based division following the choices of Java.
+25. There's very little overlap between the two, so in most cases the conversion will need to round the value.
+26. The problem here is not in the setScale() call, but happens before that.
+27. The difference of 64 bit width of a Double, and the 32 bit width of a Float means that when converting from Double to Float, we lose precision.
+28. A – type of the first value
+B – type of the second value
+C – type of the third value
+Constructor –
+In Kotlin, constructor is a special member function that is invoked when an object of the class is created primarily to initialize variables or properties.
+29. Therefore, it is
+generally recommended that the String
+constructor
+be used in preference to this one.
+30. The comparison between two Triple objects is done on the basis of values, i.e. two Triples are equal only if all three component are equal.
+31. Otherwise you will need to use a Double for numbers as large as you are expecting.
+32. Or if you'll only need a certain number of decimal places, you could scale them all up to Ints (or Longs).
+33. The playerId property could be an exception, because the player entity might not be very usable without the identifier.
+34. Or if that doesn't work, have you tried converting it to a String, which will preserve whatever formatting you want?
+35. But not always, e.g.:
+
+(All of this is discussed in other questions, most notably here.)
+36. (In particular: Never store money values in floating-point!
+37. A key part of BigDecimal is that you must use it literally the whole way through: passing Double into BigDecimal destroys any benefit you would get from BigDecimal.
+38. You may also use another value if the live data is null (like 0) using the Elvis operator, but I won't suggest this solution, because the null value is not the same as the zero value.
+39. Or if you don't need to do any calculations, you could store the number as a string (which is otherwise a bad idea…).
+40. This isn't always obvious — when printing them out, they get rounded again to the nearest decimal fraction, and in many cases that ‘recovers’ the number you want — but there are many cases where it's noticeable, especially as the result of calculations.
+41. However, you have a deeper issue here, which is that you should never use a Float or Double to store a value that needs to be exact, such as money.
+42. No Double can store that exactly; the best if can do is store a value very close to it.)
+43. If you are bothered about having to create the BigDecimal over two lines, BigDecimal has constructors that take Int that you can call directly:
+
+This is fine for integer values, BUT for floating-point values like Double the constructor and toBigDecimal actually behave differently.
+44. Or if you're not going to be doing any calculations, you could store them as Strings.
+45. Short answer:
+If you need exact values, don't use floating-point!
+46. If you're working with money, and don't need to worry about currencies that have 1000s (e.g. Tunisian Dinar) or bitcoin (8 decimal places), then working in cents and using integers is one approach.
+47. The BigDecimal then does its best to store that value as precisely as possible.
+48. Kotlin Discuss
+This specifically works by outright dropping the decimal rather than applying any rounding
+Would round up:
+
+Would round down:
+
+In general, division with a double will give the correct enough answer (Floating point math does break down in certain circumstances)
+49. The constructor creates a BigDecimal value of the Double value passed in, which will be "incorrect" if that value is not exactly representable in floating-point arithmetic.
+50. For example, both 1.0 and 1.000000 are represented by exactly the same Double value:
+
+
+I don't know Vert.x, but I'd be surprised if you really needed a Double here.
+51. To keep the precision, you need to pass the values to the BigDecimal constructor as a string:
+52. A double can represent only a sparse subset of the real numbers.
+53. However, just as you can't store 1/3 as a decimal fraction (it's 0.3333333333…, but any finite number of digits will only be an approximation), so you can't store 1/10 as a binary fraction (it's 0.000110011001100…).
+54. One might assume that writing new BigDecimal(0.1) in Java creates a
+BigDecimal which is exactly equal to 0.1 (an unscaled value of 1,
+with a scale of 1), but it is actually equal to
+0.1000000000000000055511151231257827021181583404541015625.

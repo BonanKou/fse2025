@@ -1,0 +1,5 @@
+sentence,labeler_1_knowledge,labeler_2_knowledge,labeler_1_accuracy,labeler_2_accuracy,labeler_1_duplicate,labeler_2_duplicate,labeler_1_overlap,labeler_2_overlap
+"- This declaration exists for convenience, but is never truly compiled to a binary.",1,1,0,0,0,0,0,0
+"- To create an array in Kotlin, you must use a function such as arrayOf or intArrayOf.",1,1,0,0,0,0,0,0
+- Swapping is already expensive; it tends to get more expensive when parallelism is introduced.,1,1,0,0,0,0,0,0
+- You'd think this is only 32 bits.,1,1,0,0,0,0,0,0

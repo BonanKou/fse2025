@@ -1,0 +1,32 @@
+ API Document: GradientTape
+
+Functionality:
+
+* GradientTape is used for automatic differentiation in TensorFlow, computing the gradient of a computation with respect to its input variables.
+* It records relevant operations executed inside its context onto a "tape".
+* The tape can then be used to compute gradients/jacobians of a recorded computation using reverse mode differentiation.
+* The gradient/jacobian can be computed outside the context of the tape after the forward pass has been executed.
+* GradientTape can handle lists of variables and compute gradients for each variable separately, even when they have different shapes.
+* It keeps track of operations for automatic differentiation and computes gradients of a loss function with respect to each variable in a list of variables, without the need for concatenating them.
+* GradientTape can be used to compute gradients of a loss function with respect to multiple variables, including trainable variables from multiple models, in a single training step.
+
+Concept:
+
+* GradientTape is a class in TensorFlow that allows for automatic differentiation and computation of gradients/jacobians of a computation with respect to some inputs.
+* It records relevant operations onto a "tape" and then uses that tape to compute the gradients/jacobians.
+
+Pattern:
+
+* GradientTape is used to compute gradients of a loss function with respect to multiple variables, including trainable variables from multiple models, in a single training step.
+* It can handle lists of variables and compute gradients for each variable separately, even when they have different shapes.
+
+Performance:
+
+* GradientTape holds resources for computing gradients and releases them when the GradientTape.gradient() method is called.
+* It creates a persistent gradient tape to allow multiple calls to the gradient() method.
+* Resources are released when the tape object is garbage collected.
+
+Alternative:
+
+* Minimize() is the equivalent of optimizer.step() in TensorFlow, and it takes care of both computing the gradients and applying them to the variables.
+* If one wants to process the gradients before applying them, they can use the optimizer in three steps: compute the gradients with tf.GradientTape, process the gradients as desired, and apply

@@ -1,0 +1,33 @@
+
+
+Here is the API document for the Manifest class in Android, organized into seven sections: Functionality, Concept, Pattern, Performance, Alternative, Environment, and Directive.
+
+**Functionality**
+
+* The Manifest class is used to store information that is baked into the Android app at compile/build time.
+* The Manifest class is used to identify an Android application by specifying its package name through the "package" attribute.
+* The Manifest class contains an "application" element, which in turn contains an "activity" element that specifies the activity's name.
+* The Manifest class is required for Android to identify and configure an application.
+* The Manifest class provides a way to declare application components, such as activities, to the Android system.
+* The Manifest class is used to provide metadata about the application to the Android system.
+* The Manifest class allows specifying external storage access behavior through the `android:requestLegacyExternalStorage` attribute.
+* The Manifest class is used to declare application settings and configurations.
+* The Manifest class is used to specify Android-specific settings and behaviors.
+* The Manifest class allows the inclusion of a `<queries>` tag inside the `<manifest>` tag.
+* The Manifest class is used to declare the packages that the application can interact with.
+* The Manifest class can set hardware acceleration to true or false at the application level or activity level using the `android:hardwareAccelerated` attribute.
+* The Manifest class can declare activities and their corresponding attributes, such as `android:name`, `android:theme`, and `android:label`.
+* The Manifest class can define intent filters for activities using the `intent-filter` tag.
+
+**Concept**
+
+* A manifest file is used to store information about an Android app.
+* The information in the manifest file is processed and incorporated into the app at compile/build time.
+* The manifest file is not available at runtime, i.e., when the app's code is running.
+* Multiple variants of a manifest file can be created, but this needs to be done outside the Android app, before building the various apps.
+* The Android build process involves compiling and building the app, during which the manifest file is processed.
+* The Android app's code runs separately from the build process, and has no direct access to the manifest file.
+* A Manifest file in Android is an XML file that contains essential information about an Android application.
+* The Manifest file has a root tag called `<manifest>`.
+* The `<queries>` tag is a child element of the `<manifest>` tag in the Manifest file.
+* The `<queries>` tag is

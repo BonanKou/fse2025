@@ -1,0 +1,30 @@
+# API Document for ActionBar
+
+### Functionality
+- Provides a dedicated space for app identity and indicates user location within the app.
+- Ensures predictable access to important actions, such as search.
+- Supports navigation and view switching using tabs or drop-down lists.
+- Reduces UI clutter through the action overflow for infrequently used actions.
+- Consistently sets the title of the ActionBar at the top of the activity screen: `actionBar.setTitle("ACTIONBAR TITLE");`.
+
+### Concept
+- The ActionBar is a salient feature present at the top of activity screens in mobile applications.
+- It offers a consistent presence across all activities, contributing to user familiarity.
+  
+### Pattern
+- Set titles in the ActionBar using `getSupportActionBar()`, and ensure synchronization between ActionBar and any custom Toolbars.
+- Use `actionBar.setTitle("ACTIONBAR TITLE");` to set or update the ActionBar title.
+
+### Performance
+- ActionBar ensures a consistent and familiar user interface, improving user experience by providing an accessible and organized UI element.
+
+### Alternative
+- **Toolbar**: Functions as a View and can be included in layouts like any other View. Offers more flexibility in positioning, animations, and control with the option to utilize multiple Toolbars within a single activity.
+- **AppBarConfiguration with NavigationUI**: For managing navigation UI, it integrates with `DrawerLayout` and `NavigationView`, eliminating the need for `ActionBarDrawerToggle`.
+
+### Environment
+- Suitable for Android applications, especially those leveraging the navigation component to switch between views and ensure consistent UI element presence.
+
+### Directive
+- Avoid setting titles concurrently for the ActionBar and a custom Toolbar to prevent conflicts.
+- Utilize ActionBar for consistent app-wide UI presence, and Toolbar for more localized dynamic use cases.

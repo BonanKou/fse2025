@@ -1,0 +1,95 @@
+ API Documentation
+==================
+
+title: Custom checked extension functions for Kotlin
+
+description: This API provides a set of custom extension functions for the Kotlin language, enhancing the functionality of nullable variables, ensuring their correct usage, and improving code readability in your projects.
+
+## Functionality
+
+The functions `isInitialized`, `require`, and `check` are provided to ensure that a variable is initialized before it is used. The `require` and `check` functions also enforce constraints, throwing exceptions when the provided conditions are not met.
+
+### isInitialized
+
+Checks if a variable has been initialized or not.
+
+#### Syntax
+
+```kotlin
+Jan 27, 2023  -   functional
+fun isInitialized(variable: T): Boolean
+```
+
+#### Example
+
+```kotlin
+val myVar: String?
+
+if (myVar.isInitialized) {
+    /// Do something with myVar
+} else {
+    /// Handle the case where myVar is not initialized
+}
+```
+
+### require
+
+Throws an `IllegalStateException` when the provided condition is false, providing an informative message.
+
+#### Syntax
+
+```kotlin
+Apr 11, 2023  -   functional
+fun require(condition: Boolean, message: String): Unit
+```
+
+#### Example
+
+```kotlin
+val myVar: String? = "example"
+
+require(myVar != null, "myVar is null")
+```
+
+### check
+
+Verifies an intermediate state during runtime, throwing an `IllegalStateException` if the condition is not met.
+
+#### Syntax
+
+```kotlin
+Jan 27, 2023  -   functional
+fun check(condition: Boolean, message: String, noinline predicate: () -> Unit)
+```
+
+#### Example
+
+```kotlin
+val myVar: String? = "example"
+
+check(myVar != null) { "myVar is null" } {
+    /// Perform some actions when myVar is not null
+}
+```
+
+## Concept
+
+'IllegalArgumentException' is a type of exception that gets thrown when a method receives an argument that is inappropriate or invalid for the method to process. Developers can create custom `IllegalArgumentException` instances to represent their specific error cases.
+
+In this context, using 'require' function with 'isInitialized' can help enforce proper variable initialization and prevent `IllegalStateException` from arising due to uninitialized variables being used in methods.
+
+## Performance
+
+The use of these functions does not necessarily have a direct impact on the performance of your code. However, proper usage of these functions can lead to better code readability, fewer runtime errors, and improved code maintainability, indirectly affecting performance in a positive manner.
+
+## Alternative
+
+When working with nullable variables, Kotlin's null-safety features such as the `?.` safe call operator, the `!!` non-null asserted call, and the `let` function can help prevent the occurrence of `IllegalStateException` by enforcing the safe usage of nullable variables.
+
+## Environment
+
+To utilize the functions in this API, you need to have Kotlin version 1.2 or later installed, as the `isInitialized` function is a Kotlin Standard Library function.
+
+## Directive
+
+When using lateinit variables in Kotlin, always ensure they are initialized before being used. Passing an uninitialized variable to a function that uses 'require' will result in an `IllegalStateException`, extending `IllegalArgumentException`.

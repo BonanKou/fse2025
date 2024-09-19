@@ -1,0 +1,34 @@
+# GradientTape API Documentation
+
+## Functionality
+- **Automatic Differentiation**: `tf.GradientTape` provides a mechanism to compute gradients of computations with respect to input variables, typically `tf.Variables`.
+- **Gradient and Jacobian Calculation**: It computes gradients or jacobians of a recorded computation using reverse mode differentiation.
+- **Multi-step Gradient Process**: Allows computing, processing, and applying gradients in multi-step processes.
+
+## Concept
+- **Tape Context**: Operations executed within the context of `tf.GradientTape` are recorded onto a "tape".
+- **Watch Method**: Use `tape.watch(tensor)` to manually track tensors that aren't automatically tracked.
+- **Higher-order Derivatives**: Achieved by creating nested `GradientTape` objects.
+
+## Pattern
+- **Recording Operations**: Utilize `with tf.GradientTape() as tape:` block to record operations for differentiation.
+- **Gradient Calculation**: Use `tape.gradient(target, sources)` to calculate gradients.
+- **Multiple Models**: Aggregate trainable variables from multiple models for joint optimization.
+
+## Performance
+- **Eager Execution**: Compatible with eager execution to monitor gradients, a default in TensorFlow 2.x.
+- **Persistent Tapes**: Create persistent gradient tapes with `persistent=True` for computing multiple gradients over identical computations.
+
+## Alternative
+- **Graph & Eager Modes**: Operates seamlessly in both eager and graph modes, not requiring a `tf.function` wrapper.
+
+## Environment
+- **TensorFlow Installation**: Requires TensorFlow to be installed, especially compatible with TensorFlow 2.x.
+- **Trainable Tensors**: Gradients are computed for "trainable" tensors, necessitating conversion to `tf.Variable` if they aren't already.
+
+## Directive
+- **Tracking Variables**: Implicitly tracks `tf.Variables` in its context, with an option to track specific tensors via `tape.watch()`.
+- **Compute Outside Context**: Calculations using `tape.gradient()` should be performed outside the `with` context.
+- **Persistent Usage**: Use persistent tapes if multiple gradient computations on the same operations are required. 
+
+This API is essential for training neural networks by automatically computing the gradients of loss functions concerning model parameters and effectively applying these gradients to optimize model performance.

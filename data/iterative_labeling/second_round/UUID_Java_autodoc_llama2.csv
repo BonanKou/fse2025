@@ -1,0 +1,27 @@
+sentence,labeler_1_knowledge,labeler_2_knowledge,labeler_1_accuracy,labeler_2_accuracy,labeler_1_duplicate,labeler_2_duplicate,labeler_1_overlap,labeler_2_overlap
+"Knowledge type: functionality
+1.",0,0,0,0,0,0,0,0
+"UUIDs generate unique identifiers with a low likelihood of collision, regardless of origin.",1,1,1,1,0,0,0,0
+2,0,0,0,0,0,0,0,0
+"In Java, UUIDs can automatically assign unique identifiers to entities upon initial saving.",1,1,0,0,0,0,0,0
+3,0,0,0,0,0,0,0,0
+The `UUID.randomUUID()` method is used in Java for generating unique UUIDs.,1,1,1,1,0,0,1,1
+"4. UUIDs help ensure unique, non-null values when persisting entities in a database.",1,1,1,1,0,0,0,0
+5,0,0,0,0,0,0,0,0
+They provide a high level of uniqueness for differentiating entities.,1,1,1,1,0,0,0,1
+"Knowledge type: concept
+
+
+Knowledge type: performance
+
+
+Knowledge type: directive
+
+
+Knowledge type: pattern
+
+
+Knowledge type: environment
+
+
+Knowledge type: alternative",0,0,0,0,0,0,0,0

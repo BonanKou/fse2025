@@ -1,0 +1,45 @@
+
+
+Here is the API document for MediaPlayer, organized into seven sections: Functionality, Concept, Pattern, Performance, Alternative, Environment, and Directive.
+
+**Functionality**
+
+* Play audio files
+* Play audio and video files
+* Provide features such as seeking, looping, and volume control
+* Support equalization through the Equalizer class
+* Request the playback engine of the Android system to play music
+* Have a `release()` method to release system resources
+* Can be used to tell the system that a media session is happening in an app
+* Can inform the system when it is active or playing, which gives the app priority over media controllers on the remote
+* Can be used to indicate when a media session is no longer active, allowing other applications to access the media controllers
+* Can play music and request the playback engine of the Android system to play music
+* Can have a playback state, which can be obtained using `mediaController.playbackState`
+
+**Concept**
+
+* A class in Android used for playing audio and video files
+* Takes an input file as long as it is encoded as an audio or video file
+* Can handle audio and video files with different file extensions as long as the content is still encoded as audio or video
+* Provides features such as seeking, looping, and volume control
+* Supports equalization through the Equalizer class
+* Is an intermediary between the application and the Android system's playback engine
+* Holds a reference to system resources, which need to be explicitly released when no longer in use to prevent resource leaks
+* Can be instantiated using a Builder, which allows for customization of the player
+* Needs to be prepared and started to play the media
+
+**Pattern**
+
+* Commonly used for playing audio files
+* Commonly used with Media Session to notify the system about the media playback state and gain priority over media controllers
+* Commonly used to play sound on Android
+* Commonly used to play audio and video files
+* Commonly used with the Equalizer for audio effects
+* Commonly used to play music, but it doesn't directly play the music, instead, it requests the playback engine of the Android system to play the music
+* Commonly used to get the currently playing media and its playback state
+* Commonly used in conjunction with MediaRecorder to record and play back audio or video content
+* Commonly used to resume playback from a paused state, especially when interrupted by other media playback operations
+
+**Performance**
+
+* Failing to call the `release()`

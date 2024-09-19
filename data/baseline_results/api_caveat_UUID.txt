@@ -1,0 +1,31 @@
+0. If you don't change, you have compromised all your data outside.
+1. About the problem i really dont know where can be the problem but the solution that i suggest will help you to do this replacement also  when specifying @UuidGenerator, we can choose the concrete version of UUID to generate.
+2. You'll have to implement a custom ID generator and your entity will have an ID of String as it's no longer going to be a valid UUID.
+3. This way, you can always control the value of the identifier used.
+4. If not, you can generate a UUID in Java.
+5. You would be able to do this if UUID class was written in Kotlin and had public companion object, so that your extension function would have been on UUID.Companion, but in this case it's impossible.
+6. You will just have to store a secret using which you can encrypt/decrypt the id.
+7. Then your action can search for the entity by UUID, see FindByUUID() using Spring Data's JPA Repository
+make further validations, as of whether the action is valid to be issued by the user with the UUID passed and if so, remove it.
+8. Moreover, you might consider authenticating the request as well if you do not want unauthorised users to access the resources.
+9. I recommend actually validating that a user node always has a userType in security rules to validate data.
+10. If you change your key, all existing data will get corrupted.
+11. The point of UUIDs is that it doesn't matter who generates them and there is no state you need to worry about (i.e. the chance that 2 separate systems both generating random UUIDs happen to generate identical UUIDs, rounds down to zero).
+12. They are exactly designed for your situation: Where you need to generate unique identifiers without depending on a central registration authority, and without coordinating between the parties generating them.
+13. When you write rows in other tables that belong to a particular user, include a column for their UUID.
+14. When creating an account for a user, create a row in that table.
+15. So, if you have UUID, randomly generated for all users and ensuring that it's unique, then a hacker would have no information what UUIDs are valid and which are not, so his efforts would mostly be in vain as the requests he would spend his resources upon would try to remove items that do not even exist.
+16. When a user logs in, look up their credentials in this table, retrieving their previously assigned UUID.
+17. Now, if you have, say, a user with an id of 1234, then a hacker will likely know that there must have been valid ids preceding your id, like 1233, 1232, etc.
+18. I really suggest you to use  @UuidGenerator instead of
+
+Something like this:
+
+Because if you are going to check java docs of the annotation you will see that @UuidGenerator use
+@IdGeneratorType( org.hibernate.id.uuid.UuidGenerator.class ) that you need.
+19. Your system could detect users/IP addresses, etc. that attempt to remove UUIDs that do not exist and block them.
+20. If it is not the case & you are fine with exposing you ids outside, you can think of BASE-64 encoding your ids & use them in third party API.
+21. Your code should probably handle the absence of the node for the user with:
+
+It could also be that the UID node exists, but doesn't have a userType.
+22. Your extension is on the UUID instance, that's why it's not working when called as a static method (but, for example, UUID.randomUUID().fromDatabase(...) would work)

@@ -1,0 +1,33 @@
+# TensorFlow GradientTape API Documentation
+
+## Functionality
+- **Automatic Differentiation**: `tf.GradientTape` is designed for automatic differentiation, computing gradients or jacobians with respect to input `tf.Variables`.
+- **Reverse Mode Differentiation**: Gradients of recorded computations are calculated using reverse mode differentiation.
+- **Multi-step Gradient Computation**: Enables computing gradients, processing them, and subsequently applying them in a multi-step process.
+- **Tensor Observation**: The `watch()` method allows tracking specific tensors for gradient computation.
+
+## Concept
+- **Tape Recording**: Operations executed inside the context of `tf.GradientTape` are recorded onto a "tape," which is then used to compute gradients.
+- **Graph Mode Execution**: While `tf.GradientTape` does not require a `tf.function` wrapper, it automatically operates in Graph mode.
+- **Persistence**: To compute multiple gradients over the same computation, a persistent gradient tape should be created.
+
+## Pattern
+- **Higher-order Derivatives**: Create nested `GradientTape` objects to compute higher-order derivatives.
+- **Gradient Processing**: After recording operations, use `tape.gradient()` outside the `with tf.GradientTape()` block to compute gradients and apply them to variables as necessary.
+- **Training Multiple Models**: Aggregate trainable variables from various models and use a single `tf.GradientTape` to compute and apply gradients.
+
+## Performance
+- **Efficiency with Lists**: Calculations via `tape.gradient()` handle lists of variables, providing gradients for each variable independently, maintaining their shapes without needing concatenation.
+- **Resource Management**: By default, resources are released post-gradient computation; for multiple computations, use persistent tapes.
+
+## Alternative
+- **Persistent Gradient Tapes**: Useful when computing gradients multiple times on the same computation.
+- **Manual Tensor Tracking**: Utilize `tape.watch()` for manually tracking tensors that aren't automatically captured.
+
+## Environment
+- **Eager Execution**: `tf.GradientTape` operates efficiently in TensorFlow's eager execution mode (default in TensorFlow 2.x).
+- **Compatibility**: Suitable for environments where TensorFlow is installed, particularly TensorFlow 2.x.
+
+## Directive
+- **Variable Setup**: Convert inputs into tensors using `tf.Variable` for "trainable" tensors as gradients are computed for such.
+- **Explicit Gradient Paths**: Use `tape.watch()` to track tensors explicitly not automatically managed within the GradientTape context.

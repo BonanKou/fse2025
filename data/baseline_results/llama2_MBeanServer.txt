@@ -1,0 +1,10 @@
+ Based on the given post, the following environment knowledge can be inferred:
+
+* The application is built using Spring Boot 3.
+* The application uses Jakarta Persistence API (JPA) instead of javax.persistence.api.
+* The application requires a DataSource to be injected via @Resource.
+* The application uses LocalContainerEntityManagerFactoryBean to configure the EntityManagerFactory.
+* The application uses JpaTransactionManager to manage transactions.
+* The application uses @EnableJpaRepositories to enable JPA repository support.
+* The application uses @EnableTransactionManagement to enable transaction management.
+* The application uses @Async and @Transactional annotations to mark methods as

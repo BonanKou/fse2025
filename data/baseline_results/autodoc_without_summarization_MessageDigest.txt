@@ -1,0 +1,3 @@
+The post contains performance knowledge related to the memory efficiency of using the `MessageDigest` class in Java: 
+
+- The post suggests that using the `update` method to send chunks of bytes to the `MessageDigest` object can significantly reduce memory usage. For example, processing a large file of 4GB can be efficiently handled with a small memory footprint by using repeated updates, rather than reading the entire file into memory at once. This highlights a performance benefit in terms of memory efficiency when using the `update` method over processing large data sets all at once.

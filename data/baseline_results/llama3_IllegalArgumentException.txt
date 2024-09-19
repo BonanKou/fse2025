@@ -1,0 +1,44 @@
+
+
+Here is the API document summarizing the knowledge snippets into seven sections: functionality, concept, pattern, performance, alternative, environment, and directive.
+
+**API Document: IllegalArgumentException**
+
+**Functionality**
+
+* `IllegalArgumentException` is thrown when an invalid or inappropriate argument is passed to a method in Kotlin.
+* `IllegalArgumentException` is not thrown by the `check` function when the variable is not initialized.
+* `IllegalArgumentException` (or `IllegalStateException`) is used to throw an error when a certain condition is not met, such as when a value is null.
+
+**Concept**
+
+* `IllegalArgumentException` is a type of exception that is thrown when an illegal or inappropriate argument is passed to a method.
+* In Kotlin, the `require` function can throw an `IllegalArgumentException` if the given condition is false.
+* This exception is typically used to signal that a method has been called with an invalid or inappropriate argument.
+* `IllegalArgumentException` is likely to be thrown when an invalid or illegal argument is passed to a method, such as a null value where it's not expected.
+
+**Pattern**
+
+* `IllegalArgumentException` is commonly thrown when an invalid or illegal argument is passed to a function or constructor, such as when a required condition is not met.
+* `IllegalArgumentException` is commonly thrown when calling a method on a nullable receiver that is null, and can be avoided by using safe calls (?.) or non-null asserted calls (!!).
+* `IllegalArgumentException` is commonly used for validating the (user) input to a method.
+* `IllegalArgumentException` is commonly thrown when the compiler cannot infer the type of a type parameter, and can be avoided by explicitly specifying the type.
+
+**Performance**
+
+* Throwing an `IllegalArgumentException` can be an expensive operation, especially if it happens frequently, as it involves creating an exception object and unwinding the call stack, leading to performance overhead.
+
+**Alternative**
+
+* Alternatives to `IllegalArgumentException` include the `require` function.
+
+**Environment**
+
+* `IllegalArgumentException` requires a Kotlin environment and does not have specific system requirements or configurations.
+
+**Directive**
+
+* When using the `require` function, ensure the condition is true to avoid throwing an `IllegalArgumentException`.
+* When throwing an `IllegalArgumentException`, provide a meaningful error message to indicate the reason for the exception.
+* Avoid throwing `IllegalArgumentException` unnecessarily, as it indicates a programming error, and instead, use it to signal invalid arguments or constraints.
+* When using a nullable receiver, ensure that null safety is handled properly to avoid `NullPointerException`, which can lead to an `IllegalArgumentException`.

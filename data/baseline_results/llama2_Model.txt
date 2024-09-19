@@ -1,0 +1,40 @@
+ API Document: TensorFlow Model Class
+
+Functionality:
+
+* Can be used to define a model for training on a dataset
+* Can be used to create a different model based on the graph of the trained model but excludes the head of it
+* Can be used to save the weights of the new model for transfer learning
+* Can be used with the `GlobalAveragePooling2D()` layer and the `Dense()` layer
+* Accepts tensors as inputs when called during eager execution
+* Raises an error if the input is not a tensor
+
+Concept:
+
+* The `Model` class in TensorFlow is used to define a model for training on a dataset
+* The model can be created using the `Model()` constructor and can be based on the graph of a trained model
+* The model can be used for transfer learning by saving the weights of the new model
+
+Pattern:
+
+* The `Model` class follows the builder pattern, where the model's input shape can be specified in the strategy scope using one of the following methods:
+	+ Calling `model.build()` after the model is created
+	+ Defining `input_shape` of the first layer of the model in the `__init__()` method
+	+ Using a real tensor (e.g. ones, zeros, etc.) to call `model(tensor)` after the model is created
+
+Performance:
+
+* The `Model` class is designed to work efficiently with large datasets and complex models
+* The use of the `GlobalAveragePooling2D()` layer and the `Dense()` layer can improve the performance of the model
+
+Alternative:
+
+* There are other ways to define a model in TensorFlow, such as using the `keras` module
+
+Environment:
+
+* The `Model` class can be used in a variety of environments, including Python and JavaScript
+
+Directive:
+
+* It is important to note that the `Model` class is a part of the TensorFlow API and should be used in conjunction with other TensorFlow classes and functions to create and train a model.

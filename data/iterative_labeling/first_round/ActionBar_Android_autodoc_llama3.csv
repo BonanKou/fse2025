@@ -1,0 +1,45 @@
+sentence,labeler_1_knowledge,labeler_2_knowledge,labeler_1_accuracy,labeler_2_accuracy,labeler_1_duplicate,labeler_2_duplicate,labeler_1_overlap,labeler_2_overlap
+"Knowledge type: functionality
+1.",0,0,0,0,0,0,0,0
+"Starting from API level 21, the ActionBar can be represented using a Toolbar widget.",1,1,1,1,1,1,1,1
+2,0,0,0,0,0,0,0,0
+A Toolbar can be designated as the action bar for an Activity using the `setSupportActionBar()` method.,1,1,1,1,1,1,0,0
+"Knowledge type: concept
+1.",0,0,0,0,0,0,0,0
+"Starting from API level 21, the ActionBar can be represented by any Toolbar widget.",1,1,1,1,1,1,1,1
+2,0,0,0,0,0,0,0,0
+An application can designate a Toolbar as the ActionBar for an Activity.,1,1,1,1,0,0,1,0
+"3. Use the method `setSupportActionBar()` to set a Toolbar as the ActionBar.
+4.",1,1,1,1,1,0,0,0
+Set the attribute `windowActionBar` to `false` to disable the ActionBar.,1,1,1,1,0,0,1,0
+5. Use themes such as `.NoActionBar` to forgo the default ActionBar.,1,1,1,1,0,0,1,1
+"Knowledge type: performance
+
+
+Knowledge type: directive
+
+
+Knowledge type: pattern
+1.",0,0,0,0,0,0,0,0
+"To remove the action bar in Android development, use a theme with `.NoActionBar` and set the `windowActionBar` attribute to `false`.",1,1,1,1,1,1,1,1
+2,0,0,0,0,0,0,0,0
+"From API level 21 onward, any toolbar widget can be used to represent the action bar in the application layout.",1,1,1,1,1,1,1,1
+3,0,0,0,0,0,0,0,0
+A `Toolbar` can be designated as the action bar for an `Activity` by using the `setSupportActionBar()` method.,1,1,1,1,1,1,0,0
+"Knowledge type: environment
+1.",0,0,0,0,0,0,0,0
+"Beginning with API level 21, any toolbar widget can represent the ActionBar within an application layout.",1,1,1,1,1,1,1,1
+"2. Use the `setSupportActionBar()` method to designate a Toolbar as the ActionBar for an Activity.
+3.",1,1,1,1,1,1,1,0
+"The `setActionBar()` method requires a framework `Toolbar`.
+4.",1,1,0,0,0,0,0,0
+`MaterialToolbar` extends the AndroidX `Toolbar`.,1,1,1,1,0,0,0,0
+5,0,0,0,0,0,0,0,0
+"When using `MaterialToolbar`, employ `AppCompatActivity` and `setSupportActionBar()`, not `Activity` and `setActionBar()`.",1,1,1,1,0,0,0,0
+6,0,0,0,0,0,0,0,0
+"`setSupportActionBar(toolbar)` is essential for setting a toolbar as the action bar in an `AppCompatActivity`.
+7.",1,1,1,1,1,0,0,0
+This setup integrates with the Android environment using AndroidX libraries.,1,1,0,0,0,0,0,0
+8,0,0,0,0,0,0,0,0
+Access and modify the action bar through the `supportActionBar` property for features like setting the title and enabling the home button with `setDisplayHomeAsUpEnabled()`.,1,1,1,1,0,0,0,1
+Knowledge type: alternative,0,0,0,0,0,0,0,0

@@ -1,0 +1,44 @@
+0. but if we have flexible design we have to use custom Toolbar.
+1. This is related to our design , I think when design is sync with Action bar then it is better to use it
+2. YES if you want the flexible header that comes with the Toolbar,
+3. Just change the activity_navigation.xml to
+
+Also you have to handle the click on the settings item with navigationView.setNavigationItemSelectedListener.
+4. About the DrawerLayout check the doc:
+
+Note: When using NavigationUI, the top app bar helpers automatically transition between the drawer icon and the Up icon as the current destination changes.
+5. As you saw in the documentation
+
+Familiarity to users
+Consistency in design
+
+Users are not comfortable with design changes as in general, because
+
+Most of them do not even care about the design they just have to do what they have to do.
+6. You get the animation because NavigationUI uses ToolbarOnDestinationChangedListener class if you set up it with toolbar, and this class has the following method:
+
+As you can see, this method uses TransitionManager to animate removing of navigation icon, but it also affects the title.
+7. ActionBar Theme: If you're not using any ActionBar or toolbar in your activity then you can create a View(ImageView or Button) in your Activity's layout file with Height and Width as same as the notification icon which is around 28dp and then position it at the top right corner of the screen.
+8. Solution:
+If you want to set title to your Actionbar this is how you can do it:
+
+Now if you want to set title to Custom toolbar that you have created you can do it like this:
+
+Remember:
+ActionBar is the element present at the top of the activity screen.
+9. NO if you don not need those flexible header.
+10. here is a link for the reference
+3.ActionBar Theme: If you're using the action bar theme then you can create a menu file with one item like in Option 2 and then override the onCreateOptionsMenu and inflate then inflate your menu in it.
+11. You don't need to use ActionBarDrawerToggle.
+12. And finaly Should you replace ActionBar with ToolBar?
+13. Some of benefits of an Action bar that cause developers select it at first :
+-Makes important actions accessible in a predictable way (such as Search).
+-Supports consistent navigation and view switching within apps.(If you use navigation component is very simple to use Action bar)
+-Reduces clutter by providing an action overflow for rarely used actions.
+14. Let me know if it you any doubts.
+15. They have to again familiarize themselves to the new design so that they could remember it and navigate through the user interface faster.
+16. To achieve it you need to:
+
+Get the navigation direction (NavDirections)
+17. While creating the menu item make sure that you select showAsAction="always" this way your icon is always visible.
+18. If you use the toolbar inside an activity you can set the toolbar as support action bar by calling setSupportActionBar inside your activity and then set up the action bar with the nav controller by calling NavigationUI.setupActionBarWithNavController.

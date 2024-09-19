@@ -1,0 +1,49 @@
+ API Documentation: BigDecimal in Kotlin
+===========================================
+
+Overview
+--------
+
+`BigDecimal` is a class in Kotlin that provides support for arbitrary-precision decimal numbers. It is intended for cases where exact decimal representation is necessary and as an alternative to floating-point types like `Float` and `Double`.
+
+### Concept
+
+- `BigDecimal` stores decimal numbers exactly and can handle calculations while maintaining precision.
+- When working with decimal numbers, `BigDecimal` offers higher precision than floating-point types due to their limited range of precision.
+- Unlike floating-point types, `BigDecimal` maintains distinct values for decimal numbers and can handle inexact decimal representations that are not representable as binary fractions.
+- Converting `BigDecimal` to `Double` may result in loss of precision due to the limitations of binary floating-point representation.
+
+### Pattern
+
+- When working with decimal numbers, always consider using `BigDecimal` to maintain precision and avoid potential rounding errors.
+- Start with values directly as `String` instead of using `Double` as input for the `BigDecimal()` constructor to avoid rounding issues when converting from `Double`.
+
+### Functionality
+
+- Arithmetic Operations: Addition, subtraction, multiplication, and division of decimal numbers are supported.
+- Rounding: Rounding can be controlled using RoundingMode parameters.
+- Comparison: Decimal numbers can be compared for equality or order.
+- Scale Management: The scale of a `BigDecimal` object can be managed to ensure consistency and precision.
+
+### Performance
+
+- `BigDecimal` is less efficient compared to floating-point types for large-scale computations due to its increased precision requirements.
+- However, the minor performance loss is outweighed by the benefits of increased precision and avoiding rounding errors.
+
+### Alternative
+
+- When no calculations are required, consider storing decimal numbers as `String`.
+- For a Python equivalent, see the `decimal` library. In Java, use `java.math.BigDecimal`.
+
+### Environment
+
+- `BigDecimal` is a class in Kotlin (a Java-based language) and requires Kotlin to be installed for use.
+- The Java Math library is required for the necessary functionality, as Kotlin uses interoperability to work with Java libraries.
+
+### Directive
+
+- Begin all `BigDecimal` calculations with values as `String` input for the `BigDecimal()` constructor.
+- Avoid using `Double` as input for the `BigDecimal()` constructor as it may result in incorrect values due to precision issues in binary floating-point representation.
+- Control rounding using RoundingMode parameters when necessary.
+- Use scale management to ensure consistent and precise results.
+- Pay attention to performance considerations when using large datasets, as `BigDecimal` may be less efficient than floating-point types for these use cases.

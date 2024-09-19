@@ -1,0 +1,62 @@
+0. When I used 2.7.2 instead of 3.0.0(SnapShot) which I originally used
+it started working.
+1. That page actually says it supports only the AdoptOpenJDK 8 distribution.
+2. This might mean not only Spark, but also the libraries that Spark itself needs.
+3. If you are running the JProfiler GUI on the same machine, it is one of those factors.
+4. According to the comment from @LMC, I made a sample project to get the size of HttpSession with JMX: https://github.com/satob/SessionSize
+Note that because you cannot access org.apache.catalina.session.
+5. You will need to change classes if you do some other permutations of inputs and Java code.
+6. Run the Maven compile goal to generate the JSON file:
+mvn compile
+
+The generated JSON file will be located in the target directory, with the name openapi.json
+
+
+With these steps, you should now have a Jakarta Swagger-UI compatible JSON file generated from your source code using Maven.
+7. By use of this annotation, you will tell Spring to use this configuration class to manage your transaction instead of default one.
+8. Disabling the logging will not fix this error, but hide it.
+9. You should configure Datadog Agent to do JMX fetching.
+10. I could then also write a Java class and compile it by writing something like:
+
+And run it by:
+
+Note that the examples above assume that MyClassToCompile is in the default package (otherwise you'd need to append the directories forming the package in the first line and the full qualified name of the class - in the second line).
+11. Regarding your workaround, instantiating an new EntityManager instance for each method is not necessarily shocking, particularly if the method is directly invoked through a dedicated http request (see https://stackoverflow.com/a/22773758/2087640)
+12. You will need to create a custom transaction manager.
+13. Networking operations, like transport.connect(), have to be ran in Threads too!
+14. When upgrading Spring Boot up to version 3, the Persistence API artifact must be also migrated.
+15. If I had to do it, I would create first a minimal, throwaway Maven project depending on Spark, without any code.
+16. Generally speaking using both a jakartaEE server and Spring might lead to additional complexity as their scope often overlap (You can use either Spring or JakartaEE containers in many cases: JPA, DI, Security, etc and problems will emerge if you mix features from both)
+17. See if this helps.
+18. If not here is the link to it: here.
+19. Note that I'am not used to websphere nor to recent version of jakartaEE
+Just some general considerations :
+
+@Async methods defer the process to another thread.
+20. what should be on the classpath: which classes are available.
+21. After Studio starts with JDK 8 it can execute Mule applications with Java 7 or Java 8, depending of the version of Mule runtime.
+22. Reading the documentation we realize the Spring Boot JPA module part of the Spring Boot 3 release turned to work with Jakarta Persistence API (JPA) rather than with javax.persistence.api.
+23. To resolve this, only jakarta.ws.rs:jakarta.ws.rs-api version 2.1.6 should be included in your project.
+24. When you run a pure Java application, you need to give it the list of all directories and zip files to be searched for classes, as well as the name of the main class.
+25. Only then will you be able to export Connect worker and Connector Mbean metrics.
+26. If you want to create a Spark application to compile by hand, you will need to:
+
+Download all the jars that Spark needs.
+27. Mule 4 implements streaming in most components, unlike Mule 3 which implemented it only for some.
+28. I would recommend that you consider creating a Mule Module (ie a connector) using the Mule Java SDK instead of calling this code directly.
+29. Most components in Mule 4 now how to use the stream implementation transparently, so usually a user doesn't need to care if their JSON payload is in a stream or in a Java string.
+30. You have to configure datasource on the WebSphere (I guess you already did) and inject it via @Resource and set that datasource in the LocalContainerEntityManagerFactoryBean bean.
+31. The exception is when you do actual Java code you need to know the actual classes.
+32. Step 2) Download and import the following jar files if you have yet to do so:
+
+https://drive.google.com/drive/folders/1q5n2ROQvlmvkW7DAWyhGxzceRustouhK?usp=sharing
+
+Step 3) Add the following implementations to your build.gradle file:
+
+Step 4) Instead of following the code they provided, this is the modified version that worked:
+
+It is important that you have imported the following jar libraries into your project too:
+
+javax.activation.jar
+javax.additionnal.jar
+javax.mail.jar

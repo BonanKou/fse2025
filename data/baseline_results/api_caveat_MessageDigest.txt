@@ -1,0 +1,61 @@
+0. However, if you're going to use JMS's MessageListener and you want the best performance you'll want to use 1 connection, 2 sessions, 1 consumer on each session, and 1 MessageListener on each consumer.
+1. If message1 and message2 are sent in that order from the same thread, or from the same actor and they are sent to the same actor (and that actor is using a mailbox that does not reorder messages: the default mailbox does not, but one can implement mailboxes which reorder messages, e.g. in order to implement prioritization), message2 will not be received by the target actor before message1.
+2. If you're going to use the simplest JMS pattern then you can use 1 connection, 1 session, and 2 consumers.
+3. In other words, the broker must dispatch messages to consumers in the order in which they were added to the queue.
+4. Selectors only work on the headers or properties of the message so the consumer must know something about the message(s) it wants to consume.
+5. As MQ will completely ignore any value set by message producer, and it will always override your MessageId with arbitary value.
+6. You need to filter if you are waiting for player confirmation.
+7. Observer design pattern should be used when the message contract depends on the Subject.
+8. For example, if a producer sends 100 messages and each message has a property myProperty whose value is 1 to 100 in order and the consumer wants to consume the last message on the queue then it would use the selector myProperty = 100.
+9. When you create a logger you can pass a MessageFactory as second parameter to the LogManager#getLogger call (e.g. LogManager#getLogger(Class<?>, MessageFactory).
+10. These messages will be dispatched in FIFO order relative to each other, but they may jump ahead of other messages that would otherwise be dispatched before them.
+11. Messages with a higher priority may be dispatched by the broker to consumers before messages with a lower priority.
+12. Also, we can make format the dynamic message with properties returned from ValidationMessage.javaclass such as arguments, path e.t.c.
+Take a look at the PR
+With this setup, this line of code:
+
+Should print your customized error message.
+13. If your design depends on what the observers need to know about the message, you should use the pulling style.
+14. You can do it in lot of way, but I suggest you to create a list, and put all players that need to confirm.
+15. The key should be the validation type, and the value should be the custom message.
+16. For example if you have JSON schema like this ( with default message) :
+
+You can customize the error messagge by changing above JSON schema as follows:
+17. Edit: since it is not recommended to add Throwable#toString() to the log message, I changed the example, so that if the last parameter is an instance of Throwable, it is interpreted as the throwable attached to the message.
+18. Because there is always a possibility to change the contract of messages for the sake of observers.
+19. [B. Once you fix this error, you will still not be able to successfully set MessageId.
+20. Finally you need to switch to the default content.
+21. Thus any of the of these four is possible:
+
+message1 is received and then message2
+message1 is received, but message2 is never received
+message1 is never received, but message2 is
+neither message1 nor message2 is ever received
+
+Note that there is no guarantee that two message sends to different actors will be received in any particular order.
+22. Only messages that match the selector will be dispatched to the consumer.
+23. This is because JMS sessions are not thread-safe and each MessageListener will be invoked asynchronously so if you want the listeners to be able to receive messages concurrently you'll want a session for each.
+24. So, after landing on that page and closing the cookies banner and clicking the feedback button you need to switch into that iframe.
+25. There is also no guarantee regarding the ordering of message sends from two different actors (or if outside of any actor (e.g. in a Future callback or the main method), a different thread)).
+26. And that is your error.
+27. But if you really really need to know MessageID of sent message - because of audit, correlation or something else - you can first send message, and the read MessageID field back.
+28. A few more notes:
+
+This code eats a ton of memory if the file is large, and there is absolutely no need for it; you can just repeatedly read a smallish byte array, send it to the MessageDigest object via an update method.
+29. In order to format your messages with a MessageSource you need to create:
+
+a new type of Message:
+
+
+and a matching message factory:
+
+
+then you can use the message factory to instantiate your loggers:
+
+
+
+There are some disadvantages of the example above:
+
+since "code" gives you no information about the number of parameters, if "code" resolves to "Hello {0} and {1}", a call like
+
+will just discard the throwable parameter instead of using it as the throwable of the message.

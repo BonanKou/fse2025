@@ -1,0 +1,21 @@
+0. If you want to read other parts of the ble information, you may want to wrap() the whole ByteArray and then read multiple parts of it with other methods of ByteBuffer.
+1. When targeting the JVM, instances of this class are represented as byte[].
+2. So when getShort is called, the buffer read the first two bytes and return the corresponding short value.
+3. [B.  (You can see this by printing ByteArray(0).toString(), which starts with [B (before the @ and hash code).
+4. It may happen that it's equal to zero, so you need to iterate byteArray until any non-zero least significant bit is met (I believe this is what was meant under "least significant bit of byteArray"):
+
+Note that it will print the least significant bit of your buffer, not the whole image (if it's bigger than the buffer)
+5. From one of your line
+
+[-6, 5, 0, 3, 0, 1, 108, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ========364gm
+
+
+Here, buffer only contains bytes 5 and 6.
+6. when you write a byteArray in kotlin like this :
+
+documentation says
+
+An array of bytes.
+7. But you should carefully know you have enough RAM in the heap to do so
+The ByteArray can be created via ByteArray(100) call, where 100 is the size of it
+For the RandomAccessFile, it is probably better to use at the readFully function, which reads exactly the requested amount of bytes.

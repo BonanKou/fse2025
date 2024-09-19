@@ -1,0 +1,22 @@
+# API Document
+
+## Functionality
+The `MessageDigest` class in Java provides functionality for performing message digest algorithms. It enables the creation of a `MessageDigest` object that can perform hashing operations on data. By utilizing methods such as `update` and `digest`, users can incrementally input data and retrieve the resulting hash value.
+
+## Concept
+The fundamental concept behind the `MessageDigest` class is to provide a way to generate a hash of a given set of data. This ensures data integrity by producing a fixed-size hash value representing the original data content. It is commonly used for verifying data integrity, secure password storage, and other cryptographic purposes.
+
+## Pattern
+A common usage pattern with `MessageDigest` involves initializing an instance for a specific algorithm, such as SHA-256, and then repeatedly calling the `update` method to process data in chunks. This pattern allows for the efficient handling of large data sets by processing smaller portions iteratively instead of all at once, followed by the `digest` method to complete the hashing process and obtain the final digest.
+
+## Performance
+Using the `update` method with `MessageDigest` can significantly improve memory efficiency. By processing data in chunks, such as when handling large files (e.g., 4GB), developers can reduce memory usage as opposed to loading and hashing the entire dataset in one go. This method helps to maintain a low memory footprint and optimize resource usage in applications dealing with large amounts of data.
+
+## Alternative
+As an alternative to loading entire data sets into memory, the `update` method can be employed to hash data effectively and with better control over memory usage. This alternative is particularly useful when dealing with large files or streams where memory constraints are a concern.
+
+## Environment
+The `MessageDigest` class is part of the Java Security API, which is supported across various development environments that utilize Java. It is available in Java's standard library, making it accessible for Java developers across different platforms and applications.
+
+## Directive
+When using the `MessageDigest` class for hashing operations, it is advisable to utilize the `update` method for memory-efficient processing of large data sets. This approach ensures better performance in terms of resource usage. Always ensure to specify the desired algorithm when initializing the `MessageDigest` object to match the required security and functionality needs of your application.

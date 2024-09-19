@@ -1,0 +1,19 @@
+sentence,labeler_1_knowledge,labeler_2_knowledge,labeler_1_accuracy,labeler_2_accuracy,labeler_1_duplicate,labeler_2_duplicate,labeler_1_overlap,labeler_2_overlap
+"Knowledge type: functionality
+- MBeanServer enables running queries using an ObjectName.",1,1,1,1,1,1,1,1
+"Knowledge type: concept
+
+
+Knowledge type: performance
+
+
+Knowledge type: directive
+
+
+Knowledge type: pattern
+
+
+Knowledge type: environment
+
+
+Knowledge type: alternative",0,0,0,0,0,0,0,0

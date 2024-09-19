@@ -1,0 +1,41 @@
+# BigDecimal API Document for Kotlin
+
+## Functionality
+BigDecimal in Kotlin allows for precise representation and manipulation of decimal numbers, avoiding the imprecision inherent in binary floating-point types like Float or Double. It supports:
+- Construction from String to maintain precision and avoid rounding errors associated with floating-point representations.
+- Arithmetic operations with methods like `multiply`.
+- Scale adjustment using `setScale` for consistent precision.
+- Equality testing accommodating scale differences through `compareTo`.
+
+## Concept
+BigDecimal is intended for high-precision arithmetic operations. Key concepts include:
+- Precise storage of decimal fractions to any required precision.
+- Internally uses decimal fractions rather than binary fractions.
+- Designed for scenarios where exact decimal representation is crucial, such as financial calculations.
+- Constructor preferences: Using a String is crucial for maintaining precision, as constructing from Double can introduce inaccuracies due to binary floating-point limitations.
+
+## Pattern
+The typical usage pattern involves:
+- Constructing BigDecimal from Strings to avoid precision loss.
+- Utilizing operator overloading for arithmetic operations.
+- Keeping scale consistent during calculations with `setScale`.
+- Strict comparison using `compareTo`.
+
+## Performance
+While BigDecimal offers higher precision, it is less efficient than floating-point types in terms of time and memory. However, for applications prioritizing precision over performance, such as calculators or financial systems, this trade-off is often acceptable.
+
+## Alternative
+Potential alternatives to BigDecimal include:
+- Strings for static values that don’t require calculations.
+- Scaling to Int or Long for cases with fixed precision needs, allowing minimal overhead.
+
+## Environment
+BigDecimal is highly suitable for applications requiring precise decimal calculations, such as financial software handling currency values. Its use is highly encouraged in Kotlin (and Java) environments where Float and Double imprecision cannot be tolerated.
+
+## Directive
+Guidelines for effective usage:
+- Always initialize BigDecimals from Strings, not Doubles, to preserve precision.
+- Avoid converting BigDecimals to `double` to prevent precision loss.
+- Utilize `setScale` to ensure result consistency.
+- Use `compareTo` for equality checks to handle scale discrepancies correctly.
+- Understand the conversion differences and implications when handling floating-point types to BigDecimal.

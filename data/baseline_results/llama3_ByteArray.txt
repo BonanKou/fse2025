@@ -1,0 +1,38 @@
+
+
+Here is the API document for ByteArray in Kotlin, organized into seven sections: Functionality, Concept, Pattern, Performance, Alternative, Environment, and Directive.
+
+**Functionality**
+
+* Create a ByteArray with a specified size, initializing all elements to zero.
+* Access the `size` property, which returns the number of elements in the array as an `int` value.
+* Iterate over a ByteArray using a for loop, allowing access to each byte in the array.
+* Manipulate each byte in the array using the `takeLowestOneBit()` method.
+* Create a ByteArray using the `byteArrayOf` function, which takes a variable number of byte values as arguments.
+* Use a ByteArray as an argument to the `wrap` function of ByteBuffer, which returns a ByteBuffer that wraps the given byte array.
+* Create a ByteArray from a ByteArrayOutputStream using the `toByteArray()` method.
+* Store and manipulate a sequence of bytes in a ByteArray.
+* Access and modify individual bytes in a ByteArray using indexing.
+* Convert a ByteArray to a String using a custom encoding scheme.
+* Convert a String back to a ByteArray using a corresponding decoding scheme.
+* Use a ByteArray to read the whole file into memory or to read a file by chunks.
+
+**Concept**
+
+* A ByteArray in Kotlin is essentially an array of bytes.
+* When targeting the JVM, instances of ByteArray are represented as `byte[]`.
+* A ByteArray is initialized with all elements set to zero when created with a specified size.
+* The size of a ByteArray is an integer value, which can be accessed using the `size` property.
+* A ByteArray can be wrapped into a ByteBuffer to facilitate decoding of bytes to primitive types.
+* A ByteArray can be indexed, and a subset of bytes can be extracted from it using the `wrap()` function.
+* A ByteArray can be used to store binary data, such as image data.
+* A ByteArray is a low-level data structure that stores a sequence of bytes.
+
+**Pattern**
+
+* Use a ByteArray to create an array of bytes, and when targeting the JVM, it is represented as a `byte[]`.
+* Use the `size` property of a ByteArray to track the number of bytes in the array.
+* Use a ByteArray to store and manipulate binary data.
+* Use a ByteArray in conjunction with ByteBuffer to decode bytes to primitive types in Kotlin JVM.
+* Use a ByteArray to store data received from external sources, such as Bluetooth Low Energy (BLE) devices.
+* Use a ByteArray to extract specific parts of the data by wrapping it into a ByteBuffer and decoding

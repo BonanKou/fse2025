@@ -1,0 +1,29 @@
+0. After train step, as long as no other object has a reference to that tape, the garbage collector will collect it.
+1. Also for optimizer.apply_gradients, you have to pass (grad, model.trainable_variables), but you are passing (zip([grad],[output_processado]).
+2. https://www.tensorflow.org/api_docs/python/tf/custom_gradient
+If you're using eager execution, you can monitor the gradients using Gradient Tape.
+https://www.tensorflow.org/api_docs/python/tf/GradientTape
+3. You need to understand how the GradientTape operates.
+4. For tape.gradient, you have to pass (loss, model.trainable_weights), but you are passing tape.gradient(loss, output_processado).
+5. in tensorflow, there is no need to explicitly lock the weights.
+6. TF.gradients
+tf.gradients is only valid in a graph context.
+7. Gradients can only be computed for "trainable" tensors, so you might want to wrap your input into tf.Variable().
+8. Below is my example of doing it, note that it works in eager execution mode (default in tensorflow 2.0).
+9. There is no need to concatenate w1 and w2 because TensorFlow's gradient computation is capable of handling lists of tensors with differing shapes.
+10. However, there are still issues like numerical stability which can make otherwise mathematically sound operation still fail in practice (e.g. naive softmax computation, or tf.exp in your graph in general).
+11. In your case should be something like that:
+12. If you want to compute higher-order derivatives you have to create nested GradientTape objects
+GradientTape automatically track variables in its context, if you want to track tensors (as in your case, you want to track z and t) you have to call tape.watch(<my_tensor>) otherwise you will not have gradients for it.
+13. Here you pass only the trainable weights of your respective model.
+14. If you want to process the gradients before applying them you can instead use the optimizer in three steps:
+
+Compute the gradients with tf.GradientTape.
+15. Apart from that, TensorFlow differentiation should be correct and taken care of, from the user's point of view.
+16. When you pass a list of variables to the tape.gradient() method, TensorFlow calculates the gradient of the loss with respect to each of the variables in the list, without the need for concatenating them.
+17. To calculate gradients with respect to multiple variables in TensorFlow 2, especially when these variables have different shapes, you don't need to concatenate them.
+18. This allows multiple calls to the gradient() method as resources
+are released when the tape object is garbage collected.
+19. TensorFlow's tf.GradientTape() can handle lists of variables and compute gradients for each variable separately, even when they have different shapes.
+20. If you still want to examine your gradients by hand, you can compute the derivatives in your graph using tf.gradients op, which will get you the gradients that you wish and you can check by hand if TensorFlow did the differentiation correctly.
+21. So if your graph is composed of TensorFlow ops I wouldn't worry about the gradients being wrong (if you would post the code of your layer, I could expand further).

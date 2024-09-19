@@ -1,0 +1,37 @@
+ API Document: VariableSynchronization
+
+Functionality:
+
+* Allows saving and restoring of TensorFlow variables as raw numpy arrays.
+* Enables assignment of trained values to parameters in TensorFlow 1 using the name-value dictionary.
+* Creates a Resource variable as the default with eager execution enabled by default in TensorFlow 2.x.
+* Allows disabling of Resource variable using the option use_resource=False in tf.get_variable().
+* tf.get_variable() gets an existing variable with specified parameters from the graph, and if it doesn't exist, it creates a new one.
+* tf.Variable() will always create a new variable, even if the same name is passed.
+
+Concept:
+
+* VariableSynchronization is a technique used in TensorFlow to synchronize variables across different parts of the system.
+
+Pattern:
+
+* Using VariableSynchronization to save and restore TensorFlow variables as raw numpy arrays.
+* Using VariableSynchronization to assign trained values to parameters in TensorFlow 1 using the name-value dictionary.
+
+Performance:
+
+* The post mentions that using VariableSynchronization might not be the easiest way to run the conversion, and it could be cumbersome and not very performant.
+* It's recommended to explore other options and optimize the code for better performance.
+
+Alternative:
+
+* Other ways to perform the conversion, such as using tf.get_variable() or tf.Variable(), are available and may be more efficient and optimal.
+
+Environment:
+
+* TensorFlow 1 and TensorFlow 2.x are the environments in which VariableSynchronization can be used.
+
+Directive:
+
+* It's recommended to use the option use_resource=False in tf.get_variable() to disable the Resource variable in TensorFlow 2.x.
+* It's recommended to explore other options and optimize the code for better performance.

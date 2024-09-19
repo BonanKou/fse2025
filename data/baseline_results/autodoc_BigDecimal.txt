@@ -1,0 +1,36 @@
+# BigDecimal API Documentation
+
+## Functionality
+- **Precision Representation**: `BigDecimal` allows for the exact representation of decimal numbers, avoiding the approximation issues associated with `Float` and `Double` types in Kotlin (and Java).
+- **Arbitrary Precision**: Capable of storing and calculating decimal fractions to an arbitrary precision.
+- **Arithmetic Operations**: Supports operations like multiplication (`multiply`) with precise arithmetic calculations facilitated by operator overloading.
+- **Scale Management**: Allows setting the scale explicitly using `setScale()` for consistent precision.
+
+## Concept
+- **Exact Decimal Representation**: Unlike floating-point types that use binary representations, `BigDecimal` stores decimal values exactly, making it suitable for exact calculations, such as financial computations.
+- **Construction Recommendations**: Construct `BigDecimal` from a `String` to maintain precision, avoiding initialization from `Double` due to potential precision errors from binary floating-point limitations.
+- **Scale Handling**: Use of `setScale()` helps in matching the scale of inputs for operation results.
+  
+## Pattern
+- **Consistent Use**: To ensure precision benefits, `BigDecimal` should be used consistently without mixing with `Double`.
+- **Equality Checking**: Perform equality checks with `compareTo()` to handle scale differences, as direct equality checks (`==`) may not consider scale.
+- **Lossy Conversion**: Conversion from `BigDecimal` to `Double` is lossy due to the limited precision of `Double`.
+
+## Performance
+- **Efficiency**: Although `BigDecimal` provides precise decimal representation, it is less efficient in terms of performance compared to floating-point types due to potentially higher resource usage.
+- **Applications**: Suitable for projects where precision outweighs concerns of computational efficiency, such as calculators or financial applications.
+
+## Alternative
+- **String Storage**: Store values as `String` if no calculations are necessary, ensuring exact representation without precision loss.
+- **Integer Scaling**: Scale values to `Int` or `Long` if limited decimal precision is sufficient, bypassing decimal arithmetic entirely.
+
+## Environment
+- **Kotlin Extensions**: Kotlin enhances `BigDecimal` usability with operator overloading, making it almost as easy to handle as native numeric types.
+- **Precision Requirement**: Often used where exact decimal representation is crucial, such as in monetary values, making floating-point alternatives unsuitable.
+
+## Directive
+- **Construction Guidelines**: Create `BigDecimal` using `BigDecimal(String)` for precise decimal values and avoid initializing from `Double`.
+- **Avoid DoubleValue()**: Do not convert `BigDecimal` results to `double` to prevent precision loss.
+- **Comparison and Scale**: Use `compareTo()` for comparisons and ensure results are scaled correctly using `setScale()` to match input precision requirements.
+
+This document summarizes the essential features, concepts, patterns, and guidelines for using `BigDecimal` in Kotlin to maintain precision and adequately handle decimal arithmetic.

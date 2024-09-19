@@ -1,0 +1,35 @@
+
+
+Here is the API document organized into seven sections: functionality, concept, pattern, performance, alternative, environment, and directive.
+
+**Functionality**
+
+* BigDecimal can store decimal fractions exactly.
+* BigDecimal can store integers exactly up to a certain value.
+* BigDecimal has effectively unlimited possible values.
+* BigDecimal can make a distinction between different precision levels (e.g., 1.0 and 1.000000).
+* BigDecimal can set the scale to a specific number of digits.
+* BigDecimal can be created with a Double value.
+* BigDecimal can be used for precision arithmetic, allowing setting the scale to a specific number of digits.
+* BigDecimal can be used to work with decimal numbers, allowing creation from a Double value.
+* BigDecimal can be constructed from a string, allowing for precise representation of decimal numbers.
+* BigDecimal has a multiplication operation (i.e., the `*` operator) that can be used to multiply two BigDecimal instances.
+* BigDecimal can be converted from a double value using the `toBigDecimal` method, but this may result in loss of precision due to the limitations of double-precision floating point representation.
+* BigDecimal can store and calculate decimal fractions to an arbitrary precision.
+* BigDecimal uses decimal fractions internally to represent any decimal number exactly, to any precision needed.
+* BigDecimal supports calculations and other manipulations.
+* BigDecimal can be created from a string using the `toBigDecimal()` method.
+* BigDecimal supports operator overloading, allowing for natural arithmetic operations such as addition.
+* BigDecimal can be formatted using `DecimalFormat`.
+
+**Concept**
+
+* BigDecimal can store decimal fractions exactly, whereas Double stores binary fractions, which may lead to precision loss during conversion.
+* BigDecimal is effectively unlimited in terms of possible values, whereas Double has a limited number of possible values (2⁶⁴).
+* BigDecimal has precision, meaning it can make distinctions between different decimal representations (e.g., 1.0 and 1.000000), whereas Double does not.
+* BigDecimal is suitable for storing and manipulating decimal fractions with exact precision, whereas Double is not.
+* BigDecimal is a class that can be used to represent decimal numbers with a specific scale.
+* Decimal numbers may not have an exact representation as a `double` (a type of floating-point number), which can lead to rounding errors.
+* To maintain precision, it's recommended to create a `BigDecimal` instance from a string representation of the decimal number, rather than from a `double` value.
+* `BigDecimal` is a type intended for storing exact decimal values.
+* Exact decimal values are important

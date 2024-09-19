@@ -1,0 +1,33 @@
+The post provides the following functionality knowledge of the Manifest class in Android:
+
+- The Manifest can be used to enable or disable hardware acceleration for the entire application or specific activities. This is done by setting the `android:hardwareAccelerated` attribute to `true` or `false` in either the `<application>` tag or within individual `<activity>` tags in the `AndroidManifest.xml` file.
+The Android Manifest file is a crucial part of an Android application that defines essential information about the app to the Android build tools, the Android operating system, and Google Play. One of the pieces of information you must provide in the Android Manifest file is the application package, which is required for Android to identify your application uniquely.
+The Android `Manifest` class is a part of the Android framework, and you can access its permissions by prefixing with `android.`, such as `android.Manifest.permission.WRITE_EXTERNAL_STORAGE`.
+The post provides concept knowledge about the Android Manifest file related to hardware acceleration. Here are the inferred concept knowledge points:
+
+1. **Manifest File in Android**: The Android Manifest file is a configuration file in an Android application that provides essential information about the app to the Android system. This includes application metadata, such as the name, icon, version, and permissions required.
+
+2. **Application Tag**: Within the manifest file, the `<application>` tag is where global application attributes are defined. This tag can include attributes like `android:name`, `android:allowBackup`, `android:icon`, and others that apply to the entire app.
+
+3. **Hardware Acceleration**: The attribute `android:hardwareAccelerated` can be set within the `<application>` or `<activity>` tag. When set to `true`, it enables hardware acceleration, which can improve performance by using the device's GPU for rendering.
+
+4. **Activity Tag**: Within the manifest, individual activities are defined using the `<activity>` tag. Attributes specific to each activity, such as the activity name and theme, can be specified here.
+
+5. **Intent Filters**: Within an activity, `<intent-filter>` tags define how activities respond to intentions, establishing which activity launches when the app is started (e.g., defining the main launcher activity).
+
+Overall, the post demonstrates how hardware acceleration can be controlled at both the application and activity levels through modifications to the Android manifest file.
+Ensure that you add the application package in the Android manifest file, as it is required for Android to identify your application.
+When configuring the Android Manifest, ensure that hardware acceleration is enabled by setting `android:hardwareAccelerated="true"` at the application level to improve performance unless you have a specific reason to disable it for certain activities.
+Manifest in Android is used to define the application's package name, which is necessary for Android to identify your application.
+The pattern knowledge from this post is: 'The Manifest class is commonly used to specify support for different screen sizes in Android applications by using the <supports-screens> element to define compatibility with various screen types and densities.'
+The pattern knowledge that can be extracted from the post is: 'In Android development, enabling hardware acceleration is commonly specified in the Manifest file either at the application or activity level using the android:hardwareAccelerated attribute.'
+Android Manifest's `<queries>` element must be included in the Manifest.xml file for apps targeting Android 11 (API level 30) or higher.
+The environment knowledge extracted from the post is: 
+
+- The Android Manifest file allows for the configuration of hardware acceleration at both application and activity levels by setting the `android:hardwareAccelerated` attribute. 
+- To ensure hardware acceleration, you must set `android:hardwareAccelerated="true"` in the `application` tag of the manifest or in specific `activity` tags as needed.
+
+Inferred knowledge:
+
+- Properly configuring the `android:hardwareAccelerated` attribute is essential for applications that require graphic performance improvements provided by hardware acceleration.
+The environment knowledge extracted from the post is: "If your project's Target Android version is set to Android 11 (R API 30), you must update your Android Manifest with queries that are used with the new package visibility requirements."

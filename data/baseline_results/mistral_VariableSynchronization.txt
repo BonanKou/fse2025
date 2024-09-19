@@ -1,0 +1,49 @@
+ **API Documentation - VariableSynchronization in TensorFlow**
+
+**Table of Contents**
+1. Functionality
+2. Concept
+3. Pattern
+4. Performance
+5. Alternative
+6. Environment
+7. Directive
+
+**1. Functionality**
+
+VariableSynchronization is a mechanism to save and restore TensorFlow variables as raw numpy arrays. This feature is primarily used to maintain compatibility between TensorFlow 1 and TensorFlow 2 during the conversion of a TensorFlow 1 model to TensorFlow 2. By using this method, it is possible to load the trained values from TensorFlow 2 into TensorFlow 1 and populate the parameters with these values using the `session.run()` function.
+
+**2. Concept**
+
+Conceptually, VariableSynchronization allows for the management of tensorflow variables across different versions (TensorFlow 1 and TensorFlow 2) of the same program. To achieve variable synchronization, a dictionary is created to map the TensorFlow variables in TensorFlow 2 to their names in TensorFlow 1. On the TensorFlow 1 side, `tf.trainable_variables()` function is used to fetch the list of trainable variables, and the serialized dictionary is used to assign the values to the variables using `session.run()`.
+
+**3. Pattern**
+
+The pattern for VariableSynchronization between TensorFlow and TensorFlow 2 involves the following steps:
+
+1. Create a dictionary mapping TensorFlow variables in TensorFlow 2 to their names in TensorFlow 1.
+2. On TensorFlow 2 side, fetch the list of trainable variables using `tf.trainable_variables()`.
+3. Assign the trained values to the TensorFlow 1 variables using `session.run()`.
+
+**4. Performance**
+
+Although the performance impact of VariableSynchronization is not explicitly mentioned in the provided post, it should be noted that the process involves creating dictionaries, serializing data, and using `session.run()`, which are overhead operations when working with large datasets. Expect some performance overhead when working with a large number of variables or large datasets using VariableSynchronization.
+
+**5. Alternative**
+
+As an alternative to VariableSynchronization, consider the following options:
+
+1. Use TensorFlow 2 compatible libraries or functions to maintain compatibility instead of converting a TensorFlow 1 model to TensorFlow 2.
+2. Use other deep learning libraries such as PyTorch or Keras to save and load your models if you encounter performance issues with VariableSynchronization.
+
+**6. Environment**
+
+VariableSynchronization is used in a TensorFlow environment where TensorFlow 1 and TensorFlow 2 are required to maintain compatibility during conversion. To use VariableSynchronization, ensure that both TensorFlow 1 and TensorFlow 2 are compatible with the system and are installed.
+
+**7. Directive**
+
+When using VariableSynchronization, keep the following directives in mind:
+
+1. Ensure that the variables are named consistently in TensorFlow 1 and TensorFlow 2 when saving and loading the models.
+2. Be aware of the potential performance overhead during the conversion process, and optimize the code where possible.
+3. If you encounter any issues with VariableSynchronization, consult the TensorFlow documentation or seek help from the TensorFlow community for guidance.

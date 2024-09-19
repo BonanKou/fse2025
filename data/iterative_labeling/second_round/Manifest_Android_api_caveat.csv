@@ -1,0 +1,24 @@
+sentence,labeler_1_knowledge,labeler_2_knowledge,labeler_1_accuracy,labeler_2_accuracy,labeler_1_duplicate,labeler_2_duplicate,labeler_1_overlap,labeler_2_overlap
+- The manifest folder is automatically created when a new project is started in Android Studio.,1,1,0,0,0,0,0,0
+- You should then see a "manifests" folder.,1,1,0,0,0,0,0,0
+- It is likely you need to change the 'view mode' in the project window.,1,1,0,0,0,0,0,0
+"- For greater flexibility and to avoid potential overwriting when the manifest is merged, you should remove these attributes from the  element and define your version settings in the Gradle build files instead.",1,1,0,0,0,0,0,0
+- Open your manifest in Android Studio then at the bottom there should be a Merged Manifest view,1,1,0,0,0,0,0,0
+"- After checking error as Ivan suggested, I found out that the error was due to",1,1,0,0,0,0,0,0
+java.io.IOException: Cleartext HTTP traffic to * not permitted,1,1,0,0,0,0,0,0
+I fixed the error by adding,1,1,0,0,0,0,0,0
+to AndroidManifest.xml,1,1,0,0,0,0,0,0
+- Application manifest can refer to both the build.gradle declaration or a definition in an android manifest (https://developer.android.com/studio/publish/versioning#appversioning):,1,1,0,0,0,0,0,0
+"Note: If your app defines the app version directly in the  element, the version values in the Gradle build file will override the settings in the manifest.",1,1,0,0,0,0,0,0
+- Factory() instead of CacheDataSourceFactory and StandaloneDatabaseProvider instead of ExoDatabaseProvider.,1,1,0,0,0,0,0,0
+"- You can add the appAuthRedirectScheme attributes to the manifestPlaceholders instead of replacing the whole array, by using += instead of =",1,1,0,0,0,0,0,0
+Example :,1,1,0,0,0,0,0,0
+"- If you target Android 10 (API level 29) or higher, set the value of requestLegacyExternalStorage to true in your app's manifest file:",1,1,0,0,0,0,0,0
+Documentation,1,1,0,0,0,0,0,0
+"- In your case I'm guessing you've just put the PWA in a webview and put it on the store, or directly added the PWA to the (play store only).",1,1,0,0,0,0,0,0
+- The short answer is yes you'll need to make a new release for most changes to take effect when distributed via the play/app stores.,1,1,0,0,0,0,0,0
+"- If I might add a small suggestion to poll a 'latest' version number from the server of what should be the latest version, if the user loads their app/PWA up it can check if the version numbers match and if not automatically perform update steps like clearing caches, unregistering the service worker and reloading the source.",1,1,0,0,0,0,0,0
+"- Apart from the credentials being correctly added to your AndroidManifest.xml file, you also need to ensure that the application package name matches exactly (both in the manifest and the application gradle file).",1,1,1,1,0,0,1,1
+"- When packed into an app, or downloaded from the store the files are hosted locally on the users device.",1,1,0,0,0,0,0,0
+"- You could have libs that add permissions in their manifest, when you compile the project your manifest gets merged with libraries manifests.",1,1,1,1,0,0,0,0
+- ${applicationId} only turns into your application ID in AndroidManifest.xml.,1,1,0,0,0,0,0,0

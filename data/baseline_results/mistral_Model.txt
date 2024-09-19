@@ -1,0 +1,59 @@
+ **Title:** TensorFlow Model API Documentation
+
+**Introduction**
+
+Model is a unique Python class in TensorFlow, used to define and compile machine learning or deep learning models. It logically integrates various layers to create a computational graph for training on a dataset.
+
+**Functionality**
+
+1. The Model class accepts Tensors as inputs and performs a series of operations on them to produce outputs.
+2. A Model is initialized with an Input layer, and the output can be defined as the final layer of the Model.
+3. Global pooling layer (`GlobalAveragePooling2D()`) and Dense layer are often used in the head of the Model for classification tasks.
+4. After training an initial Model, a new Model can be created based on the graph of the trained Model, with the output being a specific layer in the initial Model.
+5. Weights of the new Model can be saved for transfer learning purposes using the `save_weights` method.
+6. Additional functionalities include Data preprocessing, Creating Model, Saving Model, Loading Model, and Making Prediction.
+
+**Concept**
+
+1. The shape of a Model's inputs is essential and can be specified using `model.build()`, defining `input_shape` in `__init__()`, or using a real tensor to call `model(tensor)`.
+2. Calling `model.build()` after the Model is created can specify its shape.
+3. The shape of model inputs in TensorFlow should be specified for the Model to function properly.
+4. TensorFlow Model supports Automatic Mixed Precision when needed.
+5. Model (in TensorFlow) is a fundamental component in creating machine learning or deep learning models with TensorFlow.
+
+**Pattern**
+
+1. A Model is commonly defined with an Input layer, followed by hidden layers (such as Dense layers with activation functions), and the output layer.
+2. To create a new Model for transfer learning, the original Model should be trained first, and then a new Model can be created based on the graph of the trained Model but excluding the head (the GlobalAveragePooling2D layer and the Dense layer following it). The new Model's weights are saved for transfer learning purposes.
+
+**Performance**
+
+1. Proper handling of data structures (i.e., shape, data type) is essential to avoid errors and ensure efficient performance.
+2. Specifying the shape of model inputs in TensorFlow can improve performance by reducing the overhead associated with inferring shapes at runtime.
+3. It's recommended to compile the Model before training for faster inference.
+4. Eager execution should be enabled before declaring the Model, depending on the version of TensorFlow being used.
+
+**Alternative**
+
+1. Alternative global pooling layers could include tf.MaxPooling2D, tf.AvgPooling2D, and third-party layers like KerasPooling2D.
+2. Alternatives to `tf.Dense` can be found in other deep learning libraries such as PyTorch's `torch.nn.Linear`, MXNet's `mxnet.gluon.nn.Dense`, or Caffe's `caffe.layers.Dense`.
+
+**Environment**
+
+1. TensorFlow should be installed and supported for both CPU and GPU execution.
+2. If using certain versions of TensorFlow, eager execution should be enabled before declaring the Model.
+
+**Directive**
+
+1. When creating a Model, strive to define and compile it before starting the training process.
+2. TensorFlow Model only operates in Eager Execution mode; it does not support graph mode.
+3. Enabling eager execution before declaring the Model is essential, especially when using GPU execution.
+4. In Model, the input should be formatted as a tuple with each tensor representing a single 'batch' of samples. The first '1' in the tensors signifies the first 'batch', and it's typically used when inputting a single image along with some additional features (e.g., gender), as shown in the example input: `model([tf.ones((1,512,512,3)), tf.ones((1,1))])`.
+5. After training a Model, a new Model can be created for transfer learning, based on the graph of the trained Model but excluding the head layers.
+6. To create a new Model for transfer learning, weights should be saved without the head layers, to ensure faster learning on the new task.
+
+**References**
+
+- 'Model' class in TensorFlow: <https://www.tensorflow.org/api_docs/python/tf/keras/models/Model>
+- TensorFlow Model source code: <https://github.com/tensorflow/tensorflow/blob/v2.1.0/tensorflow/python/keras/engine/training.py#L81-L2865>
+- Creating a saved model from Keras: <https://www.tensorflow.org/guide/saved_model>

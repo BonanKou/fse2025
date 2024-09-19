@@ -1,0 +1,41 @@
+ API Documentation for UUID in Java:
+
+**Name:** UUID
+
+**Description:**
+`UUID` class is utilized in Java to generate unique identifiers that are independent of a central registration authority or coordination between the parties generating them. The resulting UUIDs can be used to create and manage unique resources.
+
+**Functionality:**
+
+* The `UUID.randomUUID()` function generates a new, randomly created Universally Unique Identifier (UUID).
+* Custom identifiers can be specified by passing the UUID as a parameter to the constructor when creating an object, like the `public User(UUID id, String name)`.
+* UUID can be stored in the database and passed as a column in other tables that belong to the user for linking related data.
+
+**Concept:**
+
+* UUID represents a 128-bit value, used to provide a unique identifier for a resource.
+* UUIDs can be derived from an external source such as a Factory object, a database, or a database mapping.
+* In the context of Hibernate, UUID can be used as an ID generator for entities and database operations.
+
+**Pattern:**
+
+* A common pattern is to use `UUID.randomUUID().toString().replace("-", "")` to generate a UUID string without hyphens when implementing a custom ID generator.
+* When using UUID for generating primary keys in relationships between entities, it can either be derived from another entity or marked as the ID directly, with the UUID value used as the primary key for find-by-key lookups.
+
+**Performance:**
+
+* Generating a new random UUID within an object's constructor can have overhead, especially when the object is instantiated frequently.
+
+**Environment:**
+
+* UUID requires Java Development Kit (JDK) installed and supports various operating systems including Windows, macOS, and Linux.
+
+**Directive:**
+
+* If possible, avoid the default random UUID generation, and consider passing the UUID as a parameter during object creation to maintain a specific UUID value.
+* When using UUID for generating primary keys, additional validations should be implemented to check the authenticity of the user issuing the action with the provided UUID.
+* Use Spring Data's JPA Repository to search for entities by their UUID using the FindByUUID() function.
+* Consider the use of encryption/decryption mechanisms like AES-256 to secure sensitive data manipulated with UUIDs.
+
+**Alternatives:**
+The Hibernate UuidGenerator class can be used as an alternative to the `java.util.UUID` class in the context of Hibernate ID generation. Additionally, other Java-based libraries such as Apache Commons Codec's UUIDCodec and MongoDB's ObjectId may offer similar functionality.

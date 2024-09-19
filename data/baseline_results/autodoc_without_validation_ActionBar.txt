@@ -1,0 +1,39 @@
+# API Document
+
+## Functionality
+
+- **Identity and Location Indication:** The ActionBar provides a dedicated space for giving an app an identity and indicating the user's location within the app.
+- **Access to Important Actions:** Important actions such as search are accessible in a predictable way through the ActionBar.
+- **Navigation and View Switching:** Supports navigation and view switching using tabs or drop-down lists, especially when integrating with the navigation component.
+- **Clutter Reduction:** Provides an action overflow menu for rarely used actions, thus reducing UI clutter.
+
+## Concept
+
+- **Consistent User Interface:** The ActionBar is a key UI element at the top of the activity screen, offering a consistent presence across all activities of a mobile application.
+- **Title Setting:** You can set the title of the ActionBar using `actionBar.setTitle("ACTIONBAR TITLE");`.
+- **Identity and Navigation Support:** Provides a consistent and familiar interface by offering a dedicated space for app identity, user location indication, predictable access to important actions, and support for navigation and view switching.
+
+## Pattern
+
+- **Action Overflow:** Reduces UI clutter by providing an action overflow menu for less frequently used actions.
+- **Navigation Integration:** Works well with the navigation component to provide consistent navigation and view switching within apps.
+- **Identity Space:** Offers a dedicated space for establishing app identity which maintains uniformity across different app screens.
+
+## Performance
+
+- **User Experience Consistency:** Offers a predictable and familiar interface which enhances the user experience by maintaining consistency across various screens of the application.
+
+## Alternatives
+
+- **Toolbar:** Offers more flexibility than ActionBar as it can be included as a View in a layout and supports easier positioning, animations, and control. Multiple Toolbars can exist within a single activity.
+- **AppBarConfiguration with NavigationUI:** An alternative setup that eliminates the need for `ActionBarDrawerToggle` and provides seamless transition handling between drawer and Up icons using `DrawerLayout` and `NavigationView`.
+
+## Environment
+
+- **Android Applications:** Primarily used within Android apps to provide a uniform and predictable UI component for action handling, navigation, and app identity.
+
+## Directive
+
+- When implementing ActionBar, avoid setting titles simultaneously for both the ActionBar and a custom Toolbar unless their roles are clearly understood to prevent conflicts.
+- Utilize `getSupportActionBar()` to retrieve the ActionBar instance for setting titles with `actionBar.setTitle("ACTIONBAR TITLE")`.
+- Choose between ActionBar and Toolbar based on the need for consistency across activities versus localized and flexible UI scenarios.

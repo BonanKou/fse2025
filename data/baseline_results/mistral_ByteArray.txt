@@ -1,0 +1,38 @@
+ API Documentation for Kotlin's ByteArray Class
+==============================================
+
+1. Functionality
+
+    - `ByteArray(size: Int): ByteArray` - Creates a new ByteArray of the specified size with all elements initialized to zero.
+    - `ByteArray.size: Int` - Returns the number of elements in the array as an integer.
+    - `ByteArray.takeLowestOneBit(): Byte` - Obtains the least significant bit (LSB) of a Byte.
+
+2. Concept
+
+    - `ByteArray` is a class used to create and manipulate arrays of bytes in Kotlin. When targeting the JVM, instances of this class are represented as `byte[]`.
+    - `ByteArray` serves as a container for holding bytes as primitive data types.
+
+3. Pattern
+
+    - To create a new `ByteArray`, use the constructor that takes the size of the array as an argument.
+    - To ensure good performance, consider using a `ByteBuffer` when working with large byte arrays.
+
+4. Performance
+
+    - The `takeLowestOneBit()` method has a time complexity of O(1) for a single byte operation, while iterating over a `ByteArray` to find the least significant bit has a time complexity of O(sz) (linear scaling with the size).
+    - Using `ByteBuffer` can lead to improved performance when dealing with complex data types.
+
+5. Alternative
+
+    - For hexadecimal to binary conversion, consider using the `hexToByteArray()` method (experimental API).
+    - For common coding and decoding operations, Apache Commons Codec library provides helper functions.
+
+6. Environment
+
+    - The Kotlin standard library is required to use the `ByteArray` class.
+    - Works on JVM platforms like Android, Java SE, etc.
+
+7. Directive
+
+    - When using `ByteArray.takeLowestOneBit()`, handle the case where the least significant bit is zero by iterating through the `ByteArray` to find a non-zero LSB.
+    - When decoding bytes to primitives, consider using `ByteBuffer`.

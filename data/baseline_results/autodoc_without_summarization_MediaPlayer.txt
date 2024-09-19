@@ -1,0 +1,31 @@
+MediaPlayer is used to play audio files encoded as audio, regardless of the file extension.
+- MediaPlayer is used to play sound in Android.
+- MediaPlayer can play audio and video files.
+- MediaPlayer provides features such as seeking, looping, and volume control.
+- MediaPlayer supports the use of an Equalizer.
+MediaPlayer requests the playback engine of the Android system to play music. MediaPlayer's release() method is used to release system resources when you no longer use the playback engine.
+The concept knowledge extracted from the post is: 'The MediaPlayer class in Android is used to play audio, taking input in the form of an encoded audio file.'
+1. MediaPlayer is a class in Android used to play sound.
+2. MediaPlayer can play both audio and video files.
+3. The class provides features such as seeking, looping, and volume control.
+4. MediaPlayer supports the use of an equalizer for audio effects.
+- The MediaPlayer class in Android requests the playback engine of the Android system to play music, rather than directly playing it itself. 
+- The release() method should be called on the MediaPlayer to release system resources when the playback engine is no longer in use.
+When you no longer use the playback engine of the Android system, you should call the `release()` method of the `MediaPlayer` to release system resources.
+MediaPlayer is commonly used to manage and play audio by leveraging the Android system's playback engine, and it is important to call the release() method to free up system resources when playback is no longer needed.
+MediaController.getPlaybackState() is used to determine the playback state of each MediaController to identify which MediaController is currently playing or buffering.
+The provided post illustrates a pattern of iterating over a list of `MediaController` instances to find out which `MediaController` is currently playing media. This is achieved by checking the `PlaybackState` of each `MediaController` and comparing the `lastPositionUpdateTime` to find the most recent state. Consequently, the following pattern knowledge can be derived:
+
+"MediaPlayer's MediaController can be used to determine the currently playing media by iterating over active sessions and comparing their PlaybackState's last position update times, updating the current media controller to the one with the most recent and active playing state."
+MediaPlayer can sometimes be unexpectedly paused by VideoView, and calling `mediaplayer.start()` again can resume playback from where it stopped without noticeable interruptions.
+The environment knowledge that can be inferred from this post for the `MediaPlayer` (specifically in the context of the Media3 library used in Android development) is:
+
+- The `MediaPlayer` functionality in the context of background audio playback requires the implementation of a `Service` in Android (e.g., `MusicPlayerService`) to separate it from the activity (`MainActivity`) and allow it to run independently in the background.
+- The `Service` needs to be declared in the Android manifest with the appropriate intent filters for media playback, such as `androidx.media3.session.MediaLibraryService` and `android.media.browse.MediaBrowserService`.
+- The `Service` uses the `MediaLibrarySession` or `MediaSession` to manage audio playback, notifications, and interactions with other clients (e.g., Android Auto, WearOS).
+- The `ExoPlayer` is used as the player implementation within the service, and it is built with an `ExtensionRendererMode` that prefers extensions like FFmpeg.
+- Interaction between the UI (`MainActivity`) and the `Service` is handled through a `MediaController` that is linked using a `SessionToken`. 
+
+This indicates that using `MediaPlayer` for background playback requires services, proper manifest configuration, and usually a player like `ExoPlayer` within a media session framework to handle the media items correctly.
+Alternatives to the MediaPlayer class in Android include androidx.media3, androidx.media, and ExoPlayer.
+Alternatives to MediaPlayer include AudioTrack for low-level audio playback, MediaExtractor for extracting media data, and MediaCodec for decoding media content.

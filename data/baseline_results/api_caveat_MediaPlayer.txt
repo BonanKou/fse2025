@@ -1,0 +1,36 @@
+0. For a simple implementation for audio playback, which also supports background playback, we need to have our player separated from our activity, and rather live in something isolated from it but can still be part of our application, the answer is a Service, and services can use application context freely, and can run in the background.
+1. If the PlaybackState indicates that the media is playing, latestMediaController is updated accordingly.
+2. According to
+https://developer.android.com/guide/topics/media-apps/working-with-a-media-session
+We would need to use Media Session to tell the System that there is a media session happening in your app and each time you tell the system that your player is active or playing then your application would have priority over the media controllers on the remote and no other application can access it unless you state that your media session is no longer active.
+3. About using the Equalizer you can check that if the MediaPlayer and AVFoundation support the equalizer.
+4. If for whatever reason you cannot use androidx.media3, my recommendation is to stick with androidx.media instead of androidx.media2 due to the latter not being supported by other media integrations, such as Cast Connect.
+5. If two MediaControllers have the same PlaybackState object (i.e., they are both playing the same media), this code may not work correctly.
+6. When you use media player to play music, the media player does not directly play the music, but requests the playback engine of the android system to play the music.
+7. If you have an existing Media1 implementation using MediaSession (preferably using ExoPlayer with MediaSessionConnector), and have no need for the permission controls in Media2, you can either stick with Media1 or upgrade to Media3.
+8. Factory
+
+If all you want is to play a media item or create a playlist then you probably only need to use MediaItem - there are some good examples in the latest CodeLabs: https://developer.android.com/codelabs/exoplayer-intro#0
+9. Note that this code assumes that each MediaController has a unique PlaybackState object.
+10. So, in our MainActivity:
+
+Now for the most interesting part, we create a class called MusicPlayerService which extends MediaLibraryService (or MediaSessionService, depends on your app needs), it is like this:
+
+One last thing, if you want to load a media item in an activity, use this:
+
+Hope this gives you a better approach on Media3.
+11. When you no longer use the playback engine of the android system, you should call the release() method of the media player to release system resources.
+12. To determine which MediaController is currently playing when there are multiple active sessions, you can use the MediaController.getPlaybackState() method to get the current playback state of each MediaController.
+13. If a MediaController has a PlaybackState that is newer than the previous PlaybackState seen, it becomes the new "latest" PlaybackState, and the corresponding MediaController becomes the new latestMediaController.
+14. Well, Android has this library/class called MediaPlayer:
+https://developer.android.com/guide/topics/media/mediaplayer
+The MediaPlayer is what you use when you play audio,
+the MediaPlayer takes the input(the file) as long as it is still encoded as an audio file.
+15. I Think,change your mediaRecorder?.setoutFormat to
+
+Or
+
+prepare your MediaPlayer mediaPlayer?.prepare() before starting of your recording
+And, play your Background music (with volume as you want) and start the recorder .
+16. it did resume where it had stopped all the times before.
+17. So, you need to decode your source audio track into raw PCM before feeding it into the AudioTrack.

@@ -1,0 +1,35 @@
+ API Document: Java Message Service (JMS) API
+
+Functionality:
+
+* The MessageDigest class is used to create a message object that can be published to a destination.
+* The class has a private constructor, indicating that it is not meant to be instantiated directly.
+* The class has a static method, main, which is used to demonstrate the usage of the class.
+* The main method creates a MessageSender object and sets a MessageID field, which is an array of 24 bytes.
+* The MessageID field cannot be set to a string value.
+* Alternative fields such as Message Type and CorrelationID headers can be used instead of MessageID.
+* CorrelationID is functionally identical to MessageID.
+
+Concept:
+
+* The JMS API does not distinguish between end-user interfaces and messaging driver programmer interfaces, which can cause confusion.
+
+Pattern:
+
+* The MessageDigest class follows the Singleton pattern, with a private constructor and a static method for creating a message object.
+
+Performance:
+
+* The MessageDigest class is optimized for performance, with a static method for creating a message object and a private constructor to prevent unnecessary instantiation.
+
+Alternative:
+
+* Alternative fields such as Message Type and CorrelationID headers can be used instead of MessageID.
+
+Environment:
+
+* The MessageDigest class is designed to work in a messaging environment, where messages are published to destinations and consumed by message listeners.
+
+Directive:
+
+* The post suggests sending the message first and then reading the MessageID field back to obtain the generated value for auditing, correlation, or other purposes.

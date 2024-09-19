@@ -1,0 +1,38 @@
+# MediaPlayer API Document
+
+## Functionality
+- MediaPlayer can play both audio and video files in Android devices.
+- It supports features like seeking, looping, volume control, and an equalizer for enhancing audio effects.
+- MediaPlayer leverages the Android system's playback engine, which it requests to handle the actual music playback.
+- The `release()` method must be used to free system resources after media playback is no longer needed.
+
+## Concept
+- MediaPlayer is a class in Android designed to handle the playback of audio and video files by interacting with the system's playback engine.
+- Audio files are taken as input in an encoded format for playback.
+- It is essential for managing media playback efficiently and integrating seamlessly with the Android ecosystem.
+
+## Pattern
+- To determine currently playing media, a pattern involves iterating over a list of `MediaController` instances.
+- Checking each `MediaController`’s `PlaybackState` and its `lastPositionUpdateTime` allows developers to identify the most recently active session.
+
+## Performance
+- MediaPlayer can occasionally be paused unexpectedly by VideoView.
+- Using `mediaplayer.start()` can resume playback without disruptions.
+
+## Alternative
+- Alternatives to MediaPlayer include:
+  - **ExoPlayer**: A robust player with advanced features like playlist management, leveraging `MediaItem` and `MediaSource`.
+  - **AudioTrack**: Suitable for low-level audio playback.
+  - **MediaExtractor** and **MediaCodec**: For extracting and decoding media content, respectively.
+  - **External Libraries**: Such as AVPlayer in iOS, and Android-related frameworks like androidx.media3 and androidx.media.
+
+## Environment
+- For background audio playback, implementing a `Service` (e.g., `MusicPlayerService`) is necessary, separating it from UI activities.
+- Android manifest must declare this service with intent filters like `androidx.media3.session.MediaLibraryService`.
+- Use of `MediaLibrarySession` or `MediaSession` is recommended for managing playback, client interactions, and notifications.
+- ExoPlayer is commonly used within the service for playback, utilizing `ExtensionRendererMode` for enhanced media handling.
+
+## Directive
+- Ensure to implement background services with proper manifest configurations for a seamless background audio playback experience.
+- Choose the appropriate alternative depending on the complexity and needs of the media application, such as ExoPlayer for more advanced features.
+- Maintain control over system resources by always releasing the MediaPlayer when not in use to avoid unnecessary resource consumption.

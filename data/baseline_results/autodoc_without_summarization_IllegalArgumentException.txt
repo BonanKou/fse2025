@@ -1,0 +1,5 @@
+IllegalArgumentException is thrown if the condition in the require function evaluates to false.
+An IllegalArgumentException is thrown if the value passed to the require function is false.
+IllegalArgumentException in Kotlin is commonly used with the require function to enforce parameter constraints and validate input, throwing an exception if a condition is not met.
+IllegalArgumentException is commonly used in Kotlin to validate user input to methods, ensuring that the arguments passed to a function meet the expected criteria. This prevents the function from executing with invalid or out-of-range arguments.
+Alternatives to IllegalArgumentException in Kotlin include using the require function, which can be used to enforce constraints and will throw an IllegalArgumentException if the condition is false.

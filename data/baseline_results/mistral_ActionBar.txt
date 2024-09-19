@@ -1,0 +1,44 @@
+ # Android ActionBar API Documentation
+
+## Functionality
+
+* ActionBar is designed to make important actions accessible, support consistent navigation, reduce clutter by providing action overflow, and provide a dedicated space for app identity.
+* Custom Toolbar might be preferred to gain features like adding background images, animations, etc. when design flexibility is needed.
+* ActionBar can be customized by implementing the `ActionMode.Callback` object and managing the Action Mode within a ClickListener.
+* ActionBar provides a way to initiate actions defined in the navigation graph, which can lead to the execution of a launch intent associated with a new activity (when used with Android Navigation Component).
+
+## Concept
+
+1. ActionBar - A UI element in Android found at the top of the screen providing app name, menu items, navigation, and other controls.
+2. ActionMode.Callback - An interface for creating, customizing, and managing an Action Mode.
+3. Action Mode - User interface element, triggered by a long press on a UI element, showing additional options.
+4. Start Action Mode - Start an Action Mode by calling the Activity's `startActionMode(ActionMode.Callback)` method from a ClickListener or similar event handler.
+
+## Pattern
+
+1. Use ActionBar within Android activities for navigation and accessing important actions.
+2. Implement the Navigation Component to manage navigation between different activities more efficiently.
+3. Declutter the navigation graph by using global actions instead of multiple levels of fragments.
+4. Consider custom Toolbar when more flexibility in header design is required.
+
+## Performance
+
+* Performance information is not explicitly mentioned in the provided post, but using default UI elements like ActionBar may result in better performance due to cache, CPU, or other system optimization advantages.
+
+## Alternative
+
+* Toolbar can serve as an alternative to ActionBar for greater customization options.
+* BottomNavigationView or NavigationView can be used as alternatives for navigation purposes.
+
+## Environment
+
+* ActionBar functions within the Android environment, including API level 11 (Honeycomb) or higher, and it can be accessed with the Android Support Library.
+
+## Directive
+
+1. Maintain consistency with other Android apps for user familiarity.
+2. Optimize for usability and efficiency in UI design.
+3. Leverage default UI elements for better system performance.
+4. Avoid combining ActionBar and Toolbar titles within the same line of code.
+5. Use the Navigation Component to simplify navigation between activities.
+6. Consider custom Toolbar for greater flexibility in header design.

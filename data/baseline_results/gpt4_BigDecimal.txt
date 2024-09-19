@@ -1,0 +1,60 @@
+# BigDecimal API Document
+
+BigDecimal is a Kotlin class used for representing and handling arbitrary-precision decimal numbers. This class is essential for computations that demand high precision and accuracy, such as financial calculations. Below is a comprehensive API document comprising seven critical sections: functionality, concept, pattern, performance, alternative, environment, and directive.
+
+## 1. Functionality
+
+- **High Precision Arithmetic**: BigDecimal provides methods for precise arithmetic operations like addition, subtraction, multiplication, and division.
+- **Scale Management**: Supports scale, which defines the number of digits to the right of the decimal point.
+- **Rounding Modes**: Offers various rounding modes to control and manage precision during division or conversion operations.
+- **Comparison and Equality**: You can compare BigDecimal instances using `compareTo()`, and check equality using `equals()`.
+- **Decimal Conversion**: Methods are available to convert BigDecimal to other numerical types, such as `toFloat()`, `toDouble()`, etc.
+- **String and BigDecimal Conversion**: Offers functions to convert a string to BigDecimal and vice versa.
+- **Immutable Operations**: All operations on BigDecimal result in a new instance, preserving the immutability of the original object.
+
+## 2. Concept
+
+The BigDecimal class is designed to handle large and exact numeric computations without the limitations of primitive data types like `Double` or `Float`. It employs an internally managed `BigInteger` for the significant digits and a `scale` for the decimal point handling. BigDecimal is ideal for exact numeric operations, especially in domains like finance, where precision is more critical than speed.
+
+## 3. Pattern
+
+- **Instantiation**: BigDecimal can be instantiated using various constructors, typically with a `String`, `Int`, `Long`, or `Double`. The preferred way is via `String` to avoid precision issues.
+  
+  ```kotlin
+  val bigDecimalFromString = BigDecimal("123.456")
+  val bigDecimalFromInt = BigDecimal(123)
+  ```
+
+- **Arithmetic Operations**: Use instance methods like `add()`, `subtract()`, `multiply()`, and `divide()`.
+
+  ```kotlin
+  val result = bigDecimalFromString.add(BigDecimal("100.000"))
+  ```
+
+## 4. Performance
+
+BigDecimal trades off performance for precision. Arithmetic operations using BigDecimal are considerably slower than using primitive numeric types because of the overhead associated with its arbitrary precision arithmetic and immutability (creating new instances for every operation). Performance impacts are often acceptable in financial or scientific applications where accuracy is paramount.
+
+To maximize performance while using BigDecimal:
+- Minimize the number of operations in performance-critical code.
+- Pre-define constants rather than creating new BigDecimal objects repeatedly.
+
+## 5. Alternative
+
+For computations that do not require high precision, consider using Kotlin's primitive numeric data types (`Double`, `Float`, `Long`, `Int`). For scenarios where performance is more critical than precision, these types may offer significant advantages in terms of speed.
+
+## 6. Environment
+
+BigDecimal is part of the `java.math` package and is available in the Kotlin Standard Library due to interoperability with Java. Ensure your development environment targets a JVM ecosystem and has access to the relevant Kotlin libraries to utilize BigDecimal.
+
+- **Dependencies**: No additional dependencies are required beyond the Kotlin and Java Standard Libraries.
+- **JVM Compatibility**: Requires a JVM version compatible with your Kotlin setup, generally Java 6 or later.
+
+## 7. Directive
+
+- **Precision over Performance**: Use BigDecimal when accuracy is critical and should not be compromised for speed.
+- **Avoid Double Construction**: Avoid constructing BigDecimal using `Double` or `Float` to prevent precision errors.
+- **Use Rounding in Division**: Always specify a rounding mode when using the `divide()` method to avoid `ArithmeticException`.
+- **Immutable Handling**: Always use returned BigDecimal objects after operations rather than expecting in-place modifications.
+
+By adhering to these guidelines and understanding the BigDecimal API's capabilities, developers can ensure precise and reliable numerical computations in their Kotlin applications.

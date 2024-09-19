@@ -1,0 +1,48 @@
+
+
+Here is the API document for MBeanServer, organized into seven sections: functionality, concept, pattern, performance, alternative, environment, and directive.
+
+**Functionality**
+
+* Get a reference to the MBeanServer instance
+* Run a query with an ObjectName
+* Build and provide access to MBeans (Managed Beans) in a Java application, specifically in a WebLogic server instance
+
+**Concept**
+
+* MBeanServer is an object that can be referenced
+* MBeanServer is used to run queries
+* Queries on MBeanServer are executed using an ObjectName
+* MBeanServer is related to Java Management Extensions (JMX) technology
+* MBeanServer is a builder-based architecture
+* MBeanServer is specific to a Java EE application server (in this case, WebLogic)
+* MBeanServer is responsible for managing and providing access to MBeans (Managed Beans)
+* MBeanServer is likely a singleton or a global instance
+
+**Pattern**
+
+* MBeanServer is commonly used to run a query with an ObjectName
+* MBeanServer is commonly used to provide access to WebLogic's MBeans in a server instance
+* MBeanServer is commonly used to expose application-specific management data through a JMX interface
+
+**Performance**
+
+* MBeanServer has overhead when accessing a large number of sessions through the `findSessions()` method, which can consume a significant amount of memory
+
+**Alternative**
+
+* None mentioned
+
+**Environment**
+
+* MBeanServer requires a JVM instance with the javax.management.builder.initial property set to weblogic.management.jmx.mbeanserver.WLSMBeanServerBuilder, and a WebLogic server instance
+* MBeanServer requires JDK 8 to function correctly, specifically the AdoptOpenJDK 8 distribution
+* MBeanServer requires Java 1.7 or lower
+* MBeanServer requires JMX (Java Management Extensions) configured and enabled, specifically with Datadog Agent for JMX fetching
+
+**Directive**
+
+* When using MBeanServer, get a reference to it before running a query with the ObjectName
+* When using MBeanServer, ensure that the JVM property "javax.management.builder.initial" is set to "weblogic.management.jmx.mbeanserver.WLSMBeanServerBuilder" to get access to WebLogic's MBeans
+* When using MBeanServer, ensure that the MBean object is properly registered and initialized before accessing its methods
+* When implementing an MBean interface, ensure that the methods are thread-safe and can handle concurrent access

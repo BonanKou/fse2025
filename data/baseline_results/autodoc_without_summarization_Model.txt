@@ -1,0 +1,44 @@
+1. `model.build()` is used to specify the shape of model inputs after the model is created.
+2. You can define `input_shape` of the first layer in the model's `__init__()` method to specify the shape of model inputs.
+3. Passing a real tensor (such as ones or zeros) to `model(tensor)` specifies the shape of model inputs after the model is created.
+- `model.predict()` executes the actual prediction.
+- `model.predict()` requires real data to be fed and cannot be used with placeholders for predictions.
+- If `None` is explicitly fed for input data during prediction, the model must have been created with existing data tensors.
+- A model can be created with real tensors for input and output instead of placeholders, allowing `fit`, `predict`, and `evaluate` to be used without feeding it data when the data already exists.
+1. "Model" refers to an object in TensorFlow's Keras API that defines a neural network architecture with specified inputs, layers, and outputs.
+
+2. A Keras "Model" can be instantiated using `Model(inputs, outputs)` where `inputs` are the input tensor(s) and `outputs` are the output tensor(s) of the network.
+
+3. The functional API in TensorFlow allows for the creation of complex model architectures by specifying the input and output layers.
+
+4. "Global pooling layer" typically refers to a layer used to reduce the spatial dimensions of feature maps by computing the average or maximum of all the elements in each feature map.
+
+5. "Dense layer", also known as a fully connected layer, is used for making predictions based on the output of previous layers, often seen in a model's head for classification tasks.
+
+6. After training a model, you can reuse parts of its architecture and weights for creating new models, facilitating transfer learning.
+
+7. "Transfer learning" involves leveraging the weights of a pre-trained model (or parts of it) to improve the training performance on a different but related task.
+
+8. You can create a new model from an existing model's graph by excluding certain layers (e.g., the final classification layers), enabling customization for different tasks.
+
+9. Saving the weights of a model can be done through a method like `new_model.save_weights(file_path)`, which stores the model's learned parameters for later use or further training.
+When using TensorFlow's Model class, it is recommended to specify the shape of model inputs within the strategy scope. You can do this by: 
+
+1. Calling `model.build()` after the model is created.
+2. Defining `input_shape` of the first layer of the model in the `__init__()` method.
+3. Using a real tensor (e.g., ones, zeros) to call `model(tensor)` after the model is created.
+When defining and compiling a Model in TensorFlow, do so before starting the training loop. Do not create the Model inside the training loop unless you intend to train a new version at each epoch. Additionally, if using a version of TensorFlow that supports it, enable eager execution before declaring the Model to facilitate training without creating a session and a scope.
+- When using `model.predict()`, ensure that you provide real data, not placeholders.
+- If feeding `None` as input data to `model.predict()`, the model must have been created with existing data tensors, not placeholders. 
+- When creating a model, you have the option to provide real tensors for inputs and outputs, which allows you to use methods like `fit`, `predict`, or `evaluate` without feeding additional data.
+When using a TensorFlow Model during Eager Execution, ensure that the input data is converted to Tensor objects, as the model only accepts Tensors in this execution mode.
+The post contains the following pattern knowledge about TensorFlow's `Model` class:
+
+- When defining a model for training, it is common to have a global pooling layer followed by a dense layer at the head of the model for classification purposes.
+- After training, you can create a new model by reusing the graph of the trained model but excluding the head (i.e., the pooling and dense layers). This new model can be used for transfer learning by saving its weights.
+- The code demonstrates creating a new `Model` instance that retains all layers up to, but not including, the final dense classification layer. This is useful for applications like feature extraction or further fine-tuning on new datasets.
+
+These patterns illustrate common practices in designing models for training and adaptation in transfer learning scenarios using TensorFlow’s functional API.
+Specifying the shape of model inputs can be done by calling `model.build()`, defining `input_shape` in the model's first layer during `__init__()`, or using a real tensor to call `model(tensor)`. These methods are used to ensure the model is aware of the input shape, often necessary when working with distributed strategies or before model training and inference.
+'model.predict() is used to execute actual predictions, and requires real data unless the model was created with existing data tensors instead of placeholders.'
+TensorFlow Model requires Eager Execution to be enabled and accepts Tensor variables when called.

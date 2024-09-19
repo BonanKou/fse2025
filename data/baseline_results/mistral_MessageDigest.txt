@@ -1,0 +1,52 @@
+ API Documentation for Java MessageDigest and MessageFactory:
+
+**API Name:** MessageDigest
+
+**Description:** MessageDigest is a utility class of the Java Cryptography Architecture (JCA) used to calculate digital message digests (MD5, SHA-1, SHA-256, etc.) for ensuring data integrity and security, especially useful in the context of messaging APIs like JMS for verifying messages' authenticity.
+
+**Usage:**
+
+```java
+import javax.crypto.MessageDigest;
+
+// ...
+
+MessageDigest md = MessageDigest.getInstance("SHA-256");
+byte[] messageDigest = md.digest(message.getBytes());
+```
+
+**Notes:**
+- MessageDigest has a set of predefined algorithms such as MD5, SHA-1, SHA-256, etc. which you can use to obtain a message digest for your data.
+- To improve performance, use `update()` method to add more data to the message being digested incrementally, rather than using the entire message at once.
+
+---
+
+**API Name:** MessageFactory
+
+**Description:** MessageFactory is a utility class in Apache Log4j 2.x used to format and create custom messages used in logging. It can create a MessageSourceMessage, which allows end-users to specify their custom formatting, headers, and message parameters.
+
+**Usage:**
+
+```java
+import org.apache.logging.log4j.core.Message;
+import org.apache.logging.log4j.core.MessageFactory;
+import org.apache.logging.log4j.core.config.plugins.spi.MessageSourceFactory;
+import java.util.Locale;
+import java.util.Map;
+
+// ...
+
+MessageFactory messageFactory = new MessageFactory("MyMessageFactory", new MyMessageSourceFactory());
+Message message = messageFactory.newMessage("Hello, %s!");
+
+// Attach the parameters
+message = message.withParam("John", Locale.ENGLISH);
+
+// Log using this custom message
+logger.info(message);
+```
+
+**Notes:**
+- MessageFactory requires a MessageSourceFactory implementation that defines how to process the raw messages.
+- The message format can include message parameters and Throwables if needed.
+- ReusableMessage can be used for improved performance by reusing the same instance of a message for multiple log entries.

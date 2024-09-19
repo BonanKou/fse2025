@@ -1,0 +1,10 @@
+ API Document: Kotlin Null Safety and SharedPreferences
+
+Functionality:
+
+* Kotlin has a Null-Safety feature that prevents null references from being passed as arguments to methods.
+* The `getString` method in the `SharedPreferences` class in Android can accept a null value as its second parameter, which is the default value to return if the key is not found.
+
+Concept:
+
+* Kotlin's type system does not allow passing a null value as a parameter to a method that expects a non-

@@ -1,0 +1,45 @@
+ API Document: ByteArray in Kotlin
+
+Functionality:
+
+* Can be used to create an array of bytes with all elements initialized to zero.
+* Can be represented as a byte[] array when targeting the JVM.
+* Size of the array can be accessed using the size property, which returns an int value.
+* Can be used to get the least significant bit of any byte with the .takeLowestOneBit() method.
+* Can be used to iterate through the bytes in a buffer to find the least significant bit of the buffer.
+* Can be used to store and manipulate data in a buffer, specifically for reading and writing short values.
+* Can be used in conjunction with ByteBuffer class methods to perform various operations on byte data.
+* Can be used to convert objects to bytes arrays and vice versa using the ObjectSerializer class.
+
+Concept:
+
+* ByteArray is a class in Kotlin that represents a byte array.
+* It compiles down to a simple primitive array, similar to byte[] in Java.
+* It has the JVM descriptor [B.
+* It can be printed as a string, starting with [B.
+* It can be used with [B as a suggestion for working with byte arrays.
+
+Pattern:
+
+* Using ByteArray to create a new array of bytes with a specified size.
+* Accessing the size of a ByteArray using the size property.
+* Using the .takeLowestOneBit() method to get the least significant bit of any byte.
+* Iterating through the bytes in a buffer to find the least significant bit of the buffer.
+* Wrapping a ByteArray into a ByteBuffer to read and write short values.
+* Using the ObjectSerializer class to convert objects to bytes arrays and vice versa.
+
+Performance:
+
+* No specific performance information is provided in the post.
+
+Alternative:
+
+* The post does not provide any information about alternatives to ByteArray.
+
+Environment:
+
+* No specific environment information is provided in the post.
+
+Directive:
+
+* The post does not provide any directives or recommendations for using ByteArray.

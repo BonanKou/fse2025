@@ -1,0 +1,43 @@
+# API Document
+
+## Functionality
+- **Model Input Shape Specification**: 
+  - Use `model.build()` after creating the model.
+  - Define `input_shape` in the first layer of the model's `__init__()` method.
+  - Call `model(tensor)` using a real tensor (e.g., ones or zeros) to specify the input shape post-creation.
+  
+- **Model Prediction**: 
+  - `model.predict()` requires real data input and cannot use placeholders.
+  - If `None` is fed as input data during prediction, the model must be created with existing data tensors.
+  - Models created with real tensors for inputs/outputs allow `fit`, `predict`, and `evaluate` methods to operate without additional data feeding if data already exists.
+
+## Concept
+- **Model Definition**: 
+  - A "Model" in TensorFlow's Keras API represents a neural network architecture.
+  - Instantiate using `Model(inputs, outputs)`, where `inputs` and `outputs` are the input and output tensors, respectively.
+  
+- **Layer Types**: 
+  - **Global Pooling Layer**: Reduces spatial dimensions by averaging or max pooling feature maps.
+  - **Dense Layer**: Fully connected layer for making predictions, typically used at a model's head in classification tasks.
+
+- **Transfer Learning**: 
+  - Use of pre-trained model weights to improve training performance on related tasks.
+  - Customize new models by reusing existing graph portions and excluding certain layers.
+
+## Pattern
+- Common setup involves a global pooling layer followed by a dense layer for classification.
+- Post-training, a model's architecture and weights can be adapted for transfer learning by redefining a new model without final dense layers, useful for feature extraction or fine-tuning.
+
+## Performance
+- Define and compile a model before starting the training loop for optimal training efficiency.
+- Avoid creating a model inside the training loop unless training from scratch at each epoch.
+
+## Alternative
+- Instead of placeholders, models can be created with real tensors for inputs and outputs to facilitate easier use of `fit`, `predict`, or `evaluate` methods.
+
+## Environment
+- **Eager Execution**: Enable it to facilitate training without traditional session and scope, and ensure models accept Tensor objects during execution.
+
+## Directive
+- For distributed strategies or when preparing for training/inference, specify the input shape using `model.build()`, `input_shape` in `__init__()`, or `model(tensor)`.
+- Ensure the real data is provided to `model.predict()`.

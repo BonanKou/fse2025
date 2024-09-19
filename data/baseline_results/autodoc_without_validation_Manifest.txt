@@ -1,0 +1,38 @@
+# Android Manifest API Document
+
+## Functionality
+
+- The Manifest is used to enable or disable hardware acceleration for the entire application or specific activities through the `android:hardwareAccelerated` attribute in the `AndroidManifest.xml` file.
+- This attribute can be set to `true` or `false` within either the `<application>` tag or individual `<activity>` tags to control GPU-based rendering.
+
+## Concept
+
+1. **Manifest File in Android**: It is a configuration file that provides essential app information, including metadata like the name, icon, version, and required permissions.
+2. **Application Tag**: Defines global application attributes and can include settings like `android:name`, `android:allowBackup`, and `android:icon`.
+3. **Hardware Acceleration**: Improves performance by leveraging the device's GPU, enabled or disabled using `android:hardwareAccelerated`.
+4. **Activity Tag**: Used to define each activity, specifying the activity name, theme, and other attributes.
+5. **Intent Filters**: Attached within an activity to establish application launching behavior, like defining the main launcher activity.
+
+## Pattern
+
+- The `<supports-screens>` element specifies support for different screen sizes and densities, enhancing app compatibility.
+- Hardware acceleration is commonly enabled in the Manifest file at the application or activity level using the `android:hardwareAccelerated` attribute.
+
+## Performance
+
+- To enhance performance, it’s recommended to enable hardware acceleration by setting `android:hardwareAccelerated="true"` at the application level unless specific activity constraints dictate otherwise.
+- Proper configuration of hardware acceleration is crucial for applications requiring significant graphic performance enhancements.
+
+## Alternative
+
+- In scenarios where graphic performance improvement is not necessary, hardware acceleration can be selectively disabled at the activity level.
+
+## Environment
+
+- For apps targeting Android 11 (API level 30) or higher, the `<queries>` element must be included in the Manifest for compliance with package visibility requirements.
+- Updating the Manifest with these queries is essential if the Target Android version is set to Android 11 (R API 30).
+
+## Directive
+
+- Always ensure the application package is defined in the Manifest file, as it uniquely identifies your application to Android.
+- Configure the `android:hardwareAccelerated` attribute appropriately to manage hardware acceleration needs across applications and individual activities.

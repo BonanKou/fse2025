@@ -1,0 +1,56 @@
+sentence,labeler_1_knowledge,labeler_2_knowledge,labeler_1_accuracy,labeler_2_accuracy,labeler_1_duplicate,labeler_2_duplicate,labeler_1_overlap,labeler_2_overlap
+"Knowledge type: functionality
+- MediaPlayer is used to play audio and video in Android applications.
+- MediaPlayer handles audio input independent of file extension, provided it is encoded as audio.
+- MediaPlayer can play media from local sources and supports streaming.
+-",1,1,1,1,1,1,1,1
+"The `isPlaying()` method checks if media is currently playing.
+- `stop()` method halts playback, and `prepare()` must be called before playback can resume.
+- MediaPlayer allows playback speed adjustment and supports seeking.",1,1,1,1,1,1,1,1
+- It supports looping functionality for continuous playback.,1,1,1,1,0,0,1,1
+"- Volume control is available during playback.
+- MediaPlayer works with the Equalizer for audio enhancements.
+-",1,1,1,1,0,0,1,1
+The state transitions of MediaPlayer require referring to a state diagram for clarity.,1,1,1,1,1,1,1,1
+"Knowledge type: concept
+1.",0,0,0,0,0,0,0,0
+"**MediaPlayer Class**: Used in Android for controlling playback of common media types, allowing operations like starting, pausing, and stopping media.",1,1,1,1,1,1,1,1
+"2. **Static MediaPlayer**: Ensures only one media file is played application-wide by sharing the `MediaPlayer` instance across different class instances.
+
+3.",1,1,0,0,0,0,0,0
+*,0,0,0,0,0,0,0,0
+"*Avoiding Private MediaPlayer**: Suggests not using private instances to enable application-wide access and prevent conflicts with multiple instances.
+
+4.",1,1,0,0,0,0,0,0
+**Listener Interfaces**: Implements `OnCompletionListener` and `OnAudioFocusChangeListener` for handling media playback completion and audio focus changes in Android apps.,1,1,1,1,0,0,1,1
+5. **Activity and Lifecycle**: Uses `AppCompatActivity` for compatibility with older Android versions and additional development features via the AndroidX library.,1,1,0,1,0,0,0,0
+6,0,0,0,0,0,0,0,0
+"**UI Components Integration**: Utilizes UI components like `TextView`, `SeekBar`, and `ImageView` for displaying song details and controlling media playback.
+
+7. *",1,1,1,1,0,0,0,0
+"*Multithreading**: Employs `Thread` objects to perform operations in separate threads, likely for UI updates or media tasks without blocking the main UI thread.",1,1,1,1,0,0,1,1
+8,0,0,0,0,0,0,0,0
+"**Song Management**: Uses a static `ArrayList<Song>` for managing multiple songs, supporting navigation and playlist functionality, while maintaining single-instance playback through a static `MediaPlayer`.",1,1,0,0,0,0,0,0
+"Knowledge type: performance
+
+
+Knowledge type: directive
+1.",0,0,0,0,0,0,0,0
+"Initialize the URI (e.g., SongUri) before using it.",0,0,0,0,0,0,0,0
+2,0,0,0,0,0,0,0,0
+Ensure the URI is not null before passing it to MediaPlayer.create().,0,0,0,0,0,0,0,0
+3. Avoid NullPointerException by checking URI validity.,0,0,0,0,0,0,0,0
+"Knowledge type: pattern
+- Use `MediaPlayer`'s `isPlaying()` method to check current audio or video playback status, assisting in controlling playback functions such as pausing or starting media.",1,1,1,1,0,0,0,0
+"- After calling `stop()` on `MediaPlayer`, use `prepare()` before `start()` to resume playback, due to required state transitions.
+- Proper playback control with `MediaPlayer` necessitates managing media states like playing, paused, and stopped, using methods like `stop()`, `prepare()`, and `start()` appropriately.
+- Understanding `MediaPlayer` state transitions, as shown in the Android documentation's state diagram, is crucial for error-free media management.",1,1,1,1,1,1,1,1
+"- Consulting the `MediaPlayer` state diagram is necessary to ensure valid method sequences, preventing runtime errors and unexpected behaviors.",1,1,1,1,1,1,0,0
+"Knowledge type: environment
+
+
+Knowledge type: alternative
+1.",0,0,0,0,0,0,0,0
+**ExoPlayer (Android):**,1,1,0,0,0,0,0,0
+"A customizable and extensible alternative to MediaPlayer, suitable for streaming media from various sources.",0,0,0,0,0,0,0,0
+"2. **AVPlayer (iOS):** Part of the AVFoundation framework, providing media playback functionalities similar to MediaPlayer for audio and video.",1,1,0,1,0,0,0,1

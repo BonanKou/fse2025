@@ -1,0 +1,28 @@
+ API Document
+
+Functionality
+
+* The manifest file in Android provides information that is baked into the app at compile/build time.
+* The manifest file is not available at runtime.
+* Variations of the manifest file can be created outside of the Android app before building the various apps.
+* Build variables can be injected into the manifest file.
+* Build variants can be configured in Android.
+
+Concept
+
+* Manifest is used to declare permissions, features, and package queries for an Android app.
+* The Android manifest file has an `<Application>` tag that can contain a `name` attribute.
+* The `name` attribute is used to specify the name of the application.
+* The `<Application>` tag can also contain other attributes such as `icon`, `label`, `theme`, and `activity`.
+* The `activity` attribute specifies the name of the main activity of the application.
+* The Android manifest file has a tag called "hardwareAccelerated" that can be set to "true" or "false" to enable or disable hardware acceleration for an application or activity.
+
+Directive
+
+* When targeting Android 11 (API level 30) or higher, include the <queries> element in the Manifest.xml file inside the <manifest> tag.
+* When using the `tf.gather` API, ensure that the indices are within the shape of the input tensor.
+* When setting up hardware acceleration in an Android application, add the `android:hardwareAccelerated="true"` attribute to the `application` tag in the manifest file, either at the application level or activity level.
+* It is important to follow the guidelines for hardware acceleration as outlined in the Android documentation to ensure proper functionality and performance.
+* The `manifest.xml` file is an essential file in an Android project that defines the application's metadata, including its name, icon, label, and hardware acceleration settings.
+* The `allowBackup`, `icon`, `label`, `roundIcon`, `supportsRtl`, and `theme` attributes are also important in the `application` tag of the manifest file, as they define various aspects of the application's behavior and appearance.
+* The `activity` tag in the manifest file is used to define individual activities within the application, and the `android:name` attribute specifies the name of the activity

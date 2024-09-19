@@ -1,0 +1,31 @@
+
+
+Here is the API document for GradientTape, organized into seven sections: functionality, concept, pattern, performance, alternative, environment, and directive.
+
+**Functionality**
+
+* GradientTape is used for automatic differentiation, specifically for computing the gradient of a computation with respect to some inputs, usually tf.Variables.
+* GradientTape records relevant operations executed inside its context onto a "tape".
+* GradientTape can be used to compute the gradients of a "recorded" computation using reverse mode differentiation.
+* GradientTape needs to record the operations that are executed in its context to compute a gradient (or a jacobian).
+* GradientTape can be used to compute the gradient/jacobian outside its context, after the forward pass has been executed.
+* GradientTape has a jacobian method that can be used to compute the jacobian of a computation with respect to some inputs.
+* GradientTape can be used to compute gradients, not just jacobians.
+* GradientTape can be used in a context manager (with statement) to record operations.
+* GradientTape can handle lists of variables and compute gradients for each variable separately, even when they have different shapes.
+* GradientTape keeps track of operations for automatic differentiation.
+* The tape.gradient() method can compute the gradient of the loss with respect to each of the variables in the list, without the need for concatenating them.
+* GradientTape can release resources held by it when the gradient() method is called.
+* GradientTape can be made persistent to compute multiple gradients over the same computation.
+* GradientTape allows multiple calls to the gradient() method if it is made persistent.
+
+**Concept**
+
+* Automatic differentiation: GradientTape is used for automatic differentiation, which means computing the gradient of a computation with respect to some inputs.
+* Recording operations: GradientTape "records" relevant operations executed inside its context onto a "tape", which is used to compute the gradients of a "recorded" computation.
+* Context: GradientTape has a context, and operations need to be executed within this context to be recorded.
+* Forward pass: The forward pass needs to be executed before computing the gradient/jacobian using the tape.
+* Variables: GradientTape is usually used with tf.Variables as inputs.
+* Reverse mode differentiation: TensorFlow uses reverse mode differentiation to compute the gradients of a "recorded" computation.
+* Gradient computation: GradientTape is used to compute the gradients of a computation.
+* Context management: GradientTape is used as

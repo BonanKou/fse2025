@@ -1,0 +1,57 @@
+0. As you can see in the error log, the tensorflow hub internally trying to assign FLAGS = tf.flags.
+1. Upgrading Tensorflow Hub should resolve your issue.
+2. It's worth noting some additional pieces may be required for this loss function - for example, bounding output since it's linear and can go to infinity (which the model may do to minimize the loss -  tf.reduce_max(tf.abs(tf_y - output)) means that output being infinity results in a negative infinity loss) - but this should be a starting point.
+3. If you want to run in Tensorflow 1.x, just remove compat.v1.
+4. You'll then probably need to serialize the name-value dictionary to a file, unless you can manage to load both versions of tensorflow simultaneously into the same program.
+5. Without any annotations, TensorFlow automatically decides whether to use the GPU or CPU for an operation—copying the tensor between CPU and GPU memory, if necessary.
+6. It will be removed after 2020-04-01.
+7. But if you still need to use variable_scope you can use it in the following way.  
+
+to control variable naming users can use tf.name_scope + tf.
+8. Though I can't guarantee this is the easiest way to run the conversion, I have run into the need to save and restore tensorflow variables as raw numpy arrays, and this could definitely help you with your conversion.
+9. You don't have to worry about this warning unless you are facing behavior in your variables usage.
+10. you are using which only supports Tensorflow 1.x versions.
+11. If you want to disable the resource variable  tf.compat.v1.disable_resource_variables() is depreciated instead you can use use_resource= False in tf.get_variable() which will be forced to true when eager excecution is enabled by default in Tensorflow 2.x.
+12. Also if you go into the link, it states -
+
+Warning: THIS FUNCTION IS DEPRECATED.
+13. Solution:
+if 'Variable_weights/initial_value' in n.name:
+     var = tensor_util.
+14. If you don't want TensorFlow to allocate the totality of your VRAM, you can either set a hard limit on how much memory to use or tell TensorFlow to only allocate as much memory as needed.
+15. Variable will always create a new variable, even if the same name is passed, Tensorflow will assign the new name with the suffix variable_name_1.
+16. It also supports leveraging GPU and/or hardware accelerator if any of this is available to you.
+https://www.tensorflow.org/lite
+17. Alternatively, if you use Tensorflow 2.0, which defaults to Eager mode, you have no graph and therefore no problem.
+18. Tensorflow will only allocate memory and place operations on visible physical devices, as otherwise no LogicalDevice will be created on them.
+19. Note that TensorFlow treats all CPUs on a machine as a single device, and uses threads internally for parallelism.
+20. The loss function is a bit weird looking because of the problem statement - we're learning both the function f(x) which approximates y and the residual error h.
+21. Resolved:
+After debugging and observing the TensorBoard graph I realized that only the Variable_weights/initial_value node has the actual values after session run.
+22. There should be performance improvement and GPU Utilization using tf.distribute.
+23. To set a hard limit
+Configure a virtual GPU device as follows:
+
+Only use as much as needed
+
+You can set the environment variable TF_FORCE_GPU_ALLOW_GROWTH=true
+
+OR
+
+Use tf.config.experimental.set_memory_growth as follows:
+
+
+All code and information here is taken from https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth
+24. tf.get_variable gets an existing variable with specifies parameters from the graph, and if it doesn't exist it creates a new one, whereas tf.
+25. If no GPUs are found, it will use the available CPUs.
+26. To sanity check, we can run again with the same outputs, but change the input to 7:
+
+It's fairly accurate, as the residual error is about 2.1 (7 - 4.89) and h is output as 1.8.
+27. See this example:
+
+If you want anything else, look at this thread over at Data Science Stack Exchange
+28. if run only one thread on each GPU, session running time is quite stable.
+from these appearence, we can conclude that ,thread in tensorflow not cowork well,
+the mechanism of tensorflow has problem.
+29. If no devices are specified in the constructor argument of the strategy then it will use all the available GPUs.
+30. But in the process, you need to note that there are many things which won't fall under Tensorflow 2.x implementations such as placeholders, sessions, collections,tf.contrib, and other 1.x functionalities including changes in the behavior of variables.

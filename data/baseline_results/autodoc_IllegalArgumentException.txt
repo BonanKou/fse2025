@@ -1,0 +1,22 @@
+# API Document
+
+## Functionality
+IllegalArgumentException is a mechanism in Kotlin used to enforce parameter constraints and ensure that the arguments passed to a function meet the expected criteria. It prevents functions from executing with invalid or out-of-range arguments by throwing an exception when certain conditions are not met.
+
+## Concept
+IllegalArgumentException in Kotlin is tightly integrated with the `require` function. The exception is thrown if the condition specified within the `require` function evaluates to false, serving as a validation tool for input parameters.
+
+## Pattern
+When using the `require` function, an IllegalArgumentException is automatically thrown if the condition it checks is false. This pattern simplifies the process of input validation by embedding condition checks directly within the function logic.
+
+## Performance
+Using IllegalArgumentException with the `require` function helps in early detection of invalid values being passed into functions. This can lead to more robust and error-free code execution, as potential issues are caught early in the execution process.
+
+## Alternative
+Although IllegalArgumentException is commonly used for input validation, other conditional checks and exception types can be employed based on specific application needs. However, the `require` function remains a popular choice for its simplicity and direct integration with IllegalArgumentException.
+
+## Environment
+IllegalArgumentException and its usage with the `require` function are specific to Kotlin, where these constructs are part of the standard library provided by the Kotlin language environment.
+
+## Directive
+To use IllegalArgumentException for validating input in Kotlin, incorporate the `require` function within your methods. It automatically throws an IllegalArgumentException if the provided input does not meet the specified condition, ensuring that your function only processes valid arguments.

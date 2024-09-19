@@ -1,0 +1,70 @@
+# Kotlin IllegalArgumentException API Documentation
+
+## 1. Functionality
+
+### Overview
+`IllegalArgumentException` is a class in Kotlin that signals that a method has been passed an illegal or inappropriate argument. It extends the `RuntimeException` class, allowing developers to notify and handle errors related to invalid arguments passed to methods or constructors. Being a type of unchecked exception, it does not require explicit handling but can be caught if necessary.
+
+### Key Features
+- **Inheritance**: Inherits from `RuntimeException`.
+- **Use Case**: Typically thrown to indicate invalid or out-of-bounds arguments.
+- **Constructor Variants**: 
+  - `IllegalArgumentException()`: Constructs a basic exception with no detail message.
+  - `IllegalArgumentException(message: String)`: Constructs an exception with a specified detail message.
+  - `IllegalArgumentException(message: String, cause: Throwable)`: Constructs an exception with a specific detail message and cause.
+
+## 2. Concept
+
+`IllegalArgumentException` is used to enforce method contracts, ensuring arguments passed to a method meet certain criteria. It is implemented as a safeguard to detect and respond to erroneous data states during runtime, thereby helping maintain robust software development practices.
+
+## 3. Pattern
+
+### Usage Pattern
+When invoking methods, use `IllegalArgumentException` within parameter validation sections to verify and enforce the integrity of inputs. Example pattern:
+```kotlin
+fun calculateSquareRoot(value: Double): Double {
+    if (value < 0) {
+        throw IllegalArgumentException("Value must be non-negative.")
+    }
+    return Math.sqrt(value)
+}
+```
+Such patterns ensure arguments conform to expected guidelines, protecting the method from operating on unsuitable data.
+
+## 4. Performance
+
+`IllegalArgumentException` has minimal impact on performance due to its nature as an unchecked exception. It only incurs overhead when thrown and its stack trace is generated, which is typical behavior for exceptions. Thus, it is efficient for argument validation during development and debugging phases.
+
+## 5. Alternatives
+
+### Alternative Options
+- **Custom Exceptions**: Define custom exceptions for more specific argument-related errors by extending `RuntimeException`.
+- **Preconditions Check**: Use built-in methods like `require()` to simplify the throwing mechanism.
+
+Example using `require()` function:
+```kotlin
+fun calculateSquareRoot(value: Double): Double {
+    require(value >= 0) { "Value must be non-negative" }
+    return Math.sqrt(value)
+}
+```
+
+## 6. Environment
+
+### Compatibility
+- **Kotlin Version**: Fully compatible with Kotlin 1.x and above.
+- **JVM**: Runs on any JVM supporting Kotlin compilation.
+- **IDE Support**: Recognized and supported by major Kotlin IDEs like IntelliJ IDEA and Android Studio.
+
+### Dependencies
+No special dependencies are required apart from Kotlin standard library.
+
+## 7. Directive
+
+### Best Practices
+- **Documentation**: Clearly document expected input ranges and scenarios where `IllegalArgumentException` might be thrown.
+- **Consistency**: Maintain consistent parameter validation practices using `IllegalArgumentException` for uniform error handling across the codebase.
+- **Error Messages**: Provide informative error messages detailing the argument validation failure for easy debugging.
+
+### Warning
+Avoid overuse in highly recurring methods to prevent cluttering code with exception handling logic unless necessary for input validation and control flow clarity.

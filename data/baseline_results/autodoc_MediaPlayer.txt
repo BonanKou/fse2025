@@ -1,0 +1,37 @@
+# MediaPlayer API Documentation
+
+## Functionality
+- **MediaPlayer** is an Android class designed to manage and play audio and video files. 
+- It includes functionalities such as seeking within tracks, looping audio, and volume control. 
+- Supports the integration of an **Equalizer** for enhanced audio effects.
+
+## Concept
+- The **MediaPlayer** class requests the Android system's playback engine to handle music playback, thus not performing the playback directly. 
+- Essential to invoke the `release()` method to free system resources when playback is complete or no longer needed.
+  
+## Pattern
+- Utilize `MediaController.getPlaybackState()` to verify the playback state, identifying which **MediaController** is currently active, either playing or buffering.
+- Iterate over multiple `MediaController` instances, comparing their `PlaybackState` `lastPositionUpdateTime` to ascertain the most recent active session and update the current media controller accordingly.
+
+## Performance
+- It's noted that **MediaPlayer** can be unexpectedly paused by **VideoView**; invoking `mediaplayer.start()` again resumes playback without noticeable delays.
+  
+## Alternative
+- Alternatives include:
+  - **ExoPlayer**: A more feature-rich library often preferred for extensive media functionalities.
+  - **AudioTrack**: For low-level audio playback.
+  - **MediaExtractor**: For extracting media data.
+  - **MediaCodec**: For decoding media content.
+  - Additional libraries include `androidx.media3` and `androidx.media`.
+
+## Environment
+- For background audio playback with **MediaPlayer**:
+  - Must implement a `Service` (e.g., `MusicPlayerService`) to allow background execution apart from the activity.
+  - Declare the `Service` in the Android manifest with necessary media playback intent filters like `androidx.media3.session.MediaLibraryService` and `android.media.browse.MediaBrowserService`.
+  - Use a `MediaLibrarySession` or `MediaSession` within the `Service` to manage interactions and media playback.
+  - Employ **ExoPlayer** within the service as the player, configured with `ExtensionRendererMode` for broader codec support.
+  - Interaction between the `Service` and UI (e.g., `MainActivity`) through a `MediaController` linked by a `SessionToken`.
+
+## Directive
+- Always call `release()` on the **MediaPlayer** instance after use to free up resources efficiently.
+- When using **MediaController**, ensure sessions are actively managed and updated based on `PlaybackState` to reflect the currently playing media accurately.

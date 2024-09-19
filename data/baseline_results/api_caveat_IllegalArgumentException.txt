@@ -1,0 +1,110 @@
+0. This is done to prevent the dreaded NullPointerException, an effect of the so-called billion dollar mistake (programmers the world over forgetting to check for null before assuming a variable's value is not null, and causing a NPE).
+1. I honestly don't know if it works and if it does the same things (it should but as i saidall those if are difficult to understand)
+2. However I have the case where I just want to return if the value is null.
+3. Well, it is kinda suggesting what you have to do:
+
+"Only safe (?.) or non-null asserted (!!.)
+4. First, you can use the traditional if/else.
+5. Remember that in order to remove all if !
+6. This way, you only ever have an Foo object when its in a valid state.
+7. Required String, found String?"
+
+You can fix the problem by enabling nullable for your String variable with:
+
+though this against Kotlin type system purpose:
+
+Kotlin's type system is aimed at eliminating the danger of null references from code, also known as the The Billion Dollar Mistake.
+8. Exceptions in Kotlin should be handled as such, being an Exception that should not occur regularly.
+9. Now you can use this function like this
+
+But its not seems so useful if your using this function just to check nullability.
+10. Alternatively, if you want / need to keep the interface as described in your question but also avoid the invalid state, you could make use of an intermediate copy.
+11. Null Safety does not mean that you do not get nulls.
+12. If you want to throw an exception, go with require or check as @hotkey suggested.
+13. The methods all incorporate a null check.
+14. The question is, what do you want to do if your variable is null?
+15. If myValue is null, the block of code following let will not execute.
+16. Unfortunately, Intrinsics.checkNotNullExpressionValue throws a NullPointerExeption, as ArgumentMatchers.any() returnes null.
+17. So, the way to fix this error is to specify an explicit type after useHandle.
+18. All failures will be reported in a single exception at the end of the block.
+19. But myValue?.let tells Kotlin to do this only if myValue is non-null.
+20. This should fix the error:
+
+The key difference here is jdbi.useHandle<Exception>{ ... 
+rather than just jdbi.useHandle{ ...
+21. And then, we can convert your test to use assertSoftly:
+
+It's necessary to wrap verify in shouldNotThrowAny to make assertSoftly aware of it when it throws an exception
+22. So, Kotlin try to guard it and give you the matching error:
+23. Kotlin, unlike Java and many other languages, requires that you explicitly identify a nullable value as nullable or it will throw up a compiler error (as you've discovered).
+24. If any assertions inside the block failed, the test will continue to run.
+25. I just enjoy using the other methods because they're "new" to me, coming from C-like languages, where if/else is old hat.
+26. There are three ways to go about handling what you're asking about in Kotlin, and it boils down to a stylistic preference on your part plus a bit about how much code is conditioned upon the null/non-null status of the value.
+27. If this were in a function, you could also do myVal ?:
+28. The difference stems from the fact that Kotlin adds null-checking code.
+29. This is currently not documented – or anyway I couldn't find any documentation – so it's surprisingly hard to find an answer but from what I observed/found:
+
+@Suppress("all") is defined by Detekt: https://detekt.dev/docs/introduction/suppressing-rules/
+The Kotlin compiler gives you an indication of the value you should use if you want to suppress a specific warning (e.g., @Suppress("KotlinConstantConditions"))
+30. You can use the function: isInitialized docs
+Code example:
+
+Note: check will throw an IllegalStateException if the variable is not initialized.
+31. If you put a ?: and some code after the block of code, that will be run if myValue is null:
+
+In the above, throw ... only executes if myVal is null.
+32. In KotlinTest, I believe you can use assertSoftly for the behavior you want:
+
+Normally, assertions like shouldBe throw an exception when they fail.
+33. Based on the error message, the compiler can't infer what type X is.
+34. The only conclusion I can reach is that the compiler is doing guess work;
+
+From the above snippet from your question,
+
+The tricky part is that it is not sure whether the value returned by BarKt.bar($completion); will be COROUTINE_SUSPENDED | kotlin.
+35. So the first thing to embrace with kotlin is: Null Safety.
+36. You may use your function simply like this:
+
+Otherwise  you can check for null by following inline function and then perform any functions directly on the variable.
+37. So if you tried running
+
+this might end up as:
+
+which (you may already know) will cause a crash
+All kotlin is asking for is an alternative (when the variable is in fact null) or a "promise" that the variable is not null (!!)
+38. after MainActivity
+(more on .?
+39. =null you can use ?.
+40. The matchers stack is checked upon MockedStaticImpl.when call, and the InvalidUseOfMatchersException is reported.
+41. It operates as a type guard and ensures that for any subsequent code, myVal cannot be null (because myVal is immutable and we've now determined it's not null).
+42. It's because kotlin Null-Safety is kick in when reading the following code:
+
+if you visit the SharedPreferences code, you can see the following code:
+
+which is give us a probability to use null as defValue parameter.
+43. Unit, it seems that compiler some how not sure for the right part will always kotlin.
+44. Rather than providing a function on Foo, that mutates the internal state of Foo, you could create new instances of Foo based on the Iterable<Int> / Sequence<Int>.
+45. If you are not sure of the fields which can come null, write code like this:
+
+For more clarity please check Safe(nullable)-Cast operator in kotlin docs
+46. That's it again, and it operates the same way: if myVal is null, it will execute what comes to the right of it.
+47. If myVal is non-null, it will not throw.
+48. X is a type parameter for the useHandle method, which is meant to specify what type of exception (if any) our HandleConsumer will return.
+49. But one great thing about explicit nullability in Kotlin is it forces you to think about how you actually want to handle null values (is it an error that halts your code?
+50. It means, that if something is possibly null, the compiler forces you to think about it and handle it at a point that makes sense.
+51. calls are allowed on a nullable reciever"
+
+Means that whatever variable you are using, might be null.
+52. If you don't, you potentially get the notorious NullPointerException at an unexpected and possibly ugly point of execution.
+53. If you take a look at the definition of the useHandle method, it becomes a lot easier to understand what you need to do :).
+54. think about where you want to handle the possibility of it being null -> check it -> handle it in an elegant way, and then safely pass the checked result without a ?
+55. More idiomatic way to apply constrains in Kotlin is to use require function:
+
+It throws an IllegalArgumentException if the value is false.
+56. Kotlin is a lot more expressive than a lot of cascading if...
+Also, Kollin handles nullity at compile time so IDE should notify you if is null or not.
+57. As I have understood, your errors are generating from this code block:
+
+Here one of the variables from document is coming as null which cannot be cast to non-nullable String type in kotlin.
+58. For purposes of this answer, I'll assume if the latitude property is null, you want to throw an error.
+59. In Kotlin, we represent the HandleConsumer with an anonymous function, so really this type parameter should be whatever exception our lambda might throw.

@@ -1,0 +1,51 @@
+ API Documentation for Android Manifest:
+
+**Name:** Android Manifest
+
+**Package:** android. manifest
+
+**Description:** The Android Manifest is an XML file that contains application metadata, declarations of components, intents, permissions, and other essential configuration settings for an Android application.
+
+**Key Concepts:**
+- Package attribute
+- Application tag
+- Activity tag
+- Intent filter
+- Permissions
+- Services
+- Receivers
+- Supports-screens tag
+- Queries tag
+
+**Functionality:**
+1. Declare application metadata, such as name, version, and icon.
+2. Define application components, including activities, services, receivers, and providers.
+3. Configure application requirements, such as permissions, hardware acceleration, and external storage access.
+4. Set up intent filters to create interaction between components.
+5. Request API level dependencies or query other applications through the `<queries>` tag (API 30 and above).
+6. Utilize build variables and configure build variants to create different application versions and configurations.
+7. Inject build variables into the manifest to dynamically insert values during build time.
+
+**Pattern:**
+- Utilize the `<manifest>` tag as the root element for the Manifest XML file.
+- Place the application and component elements within the `<manifest>` tag.
+
+**Performance:**
+- Optimize build times by configuring build variants and using build variables.
+- Minimize potential performance impacts during runtime by baking the manifest information at compile/build time.
+
+**Alternative:**
+- No direct alternatives to the Android Manifest, but understanding Android Studio's build process and manifest management is essential.
+
+**Environment:**
+- The Manifest file should be located in the `res/manifest/` directory of an Android Studio project.
+- Manifests should be modified outside the application before building the respective apps.
+
+**Directives:**
+- Ensure proper handling of the Duplication tag and File Provider integration.
+- Inject build variables into the manifest and configure build variants.
+- For Android 10, set `android:requestLegacyExternalStorage="true"` in the manifest to allow legacy external storage access.
+- For Android 11 (Api level 30), include the `<queries>` tag within the `<manifest>` tag for specific functionalities, such as querying the permissions of other packages in the system.
+- To enable hardware acceleration, set `android:hardwareAccelerated="true"` in the application or activity level of the manifest.
+- To request permission for cleartext network traffic, set `android:usesCleartextTraffic="true"` in the application tag, but note that this feature is deprecated since API 21.
+- Consider using the MediaStore and DocumentsProvider for persistent storage in Android 10+.

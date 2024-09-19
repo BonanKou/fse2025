@@ -1,0 +1,32 @@
+ API Documentation for TensorFlow's GradientTape:
+
+**Name:** `tf.GradientTape`
+
+**Description:** Automatic differentiation API. Records relevant operations onto a tape within its context and computes gradients using reverse mode differentiation. Computes gradients for lists of variables having different shapes, without the need for concatenating them.
+
+**Functions:**
+
+1. `tf.GradientTape()`: Create a tape object used for automatic differentiation.
+
+2. `tape.watch(<my_tensor>)`: Manually track a specific tensor for automatic differentiation.
+
+3. `tape.gradient(y, x)`: Compute the gradient of y with respect to x outside the tape's context.
+
+4. `tape.jacobian(output, input_to_track)`: Compute the Jacobian of the output with respect to the input tensor(s).
+
+**Performance:** Resource usage (memory and CPU) depends on the complexity of the computation and the number of nested tape objects. The tape is automatically released after either calling `tape.gradient()` or as the tape object goes out of scope. For continuous gradient computations, use persistent tapes.
+
+**Examples:**
+
+```python
+import tensorflow as tf
+
+with tf.GradientTape() as tape:
+    # Perform relevant computations
+    y = some_function()
+
+gradients = tape.gradient(y, variables_list)
+# Process gradients and apply to variables using optimizer
+```
+
+For more information, visit the official [GradientTape API documentation](https://www.tensorflow.org/api_docs/python/tf/GradientTape).
