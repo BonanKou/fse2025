@@ -1,0 +1,32 @@
+# TensorFlow Model API Documentation
+
+## 1. Functionality Knowledge
+- The `Model` class in TensorFlow is used to define a machine learning model with specified input and output layers.
+- It allows for the creation of a new model based on an existing model's graph, excluding certain layers, which is useful for tasks like transfer learning.
+- The `Model` class provides functionality to save the weights of a model using the `save_weights` method.
+- `model.predict()` is used to execute predictions with real data.
+
+## 2. Concept Knowledge
+- The `Model` class integrates various layers logically to form a neural network architecture.
+- The head of the model typically consists of a global pooling layer followed by a dense layer for classification.
+
+## 3. Pattern Knowledge
+- A common use case is to create a new model excluding the head after training, to facilitate transfer learning by saving the weights.
+- TensorFlow Model requires input data to be in the form of Tensors during Eager Execution.
+
+## 4. Directive Knowledge
+- Specify the shape of model inputs by calling `model.build()`, defining `input_shape` in the first layer's `__init__()`, or using a real tensor to call `model(tensor)` after the model is created.
+- Ensure the model is defined and compiled before starting the training process.
+- Avoid creating the model inside the training loop unless training a new version at each epoch.
+- When creating a Model, the input should be an Input layer, not a tensor.
+- Use real data instead of placeholders with `model.predict()`, unless the model was created with existing data tensors.
+
+## 5. Performance Knowledge
+- No specific performance knowledge was extracted from the provided snippets.
+
+## 6. Environment Knowledge
+- The TensorFlow Model only accepts Tensors when called during Eager Execution.
+- Depending on the TensorFlow version, enable eager execution before declaring the model to allow training without creating a session and a scope.
+
+## 7. Alternative Knowledge
+- Alternatives to the TensorFlow Model class include using the Sequential API and the Functional API for constructing machine learning models.

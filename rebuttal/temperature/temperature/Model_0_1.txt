@@ -1,0 +1,32 @@
+# TensorFlow Model API Knowledge Summary
+
+## 1. Functionality Knowledge
+- The `Model` class in TensorFlow's functional API is used to define a machine learning model by specifying its inputs and outputs.
+- It allows for creating a new model based on an existing model's graph, excluding certain layers, which is useful for tasks like transfer learning.
+- The `Model` class provides functionality to save the weights of the model using the `save_weights` method.
+- `model.predict()` executes the actual prediction and requires real data unless the model was created with existing data tensors.
+
+## 2. Concept Knowledge
+- Inputs to a TensorFlow model should be formatted as tensors, with the first dimension representing the batch size.
+- A model in TensorFlow can be defined using the functional API, where you specify the input and output layers.
+- The head of the model typically consists of a global pooling layer followed by a dense layer for classification.
+
+## 3. Pattern Knowledge
+- TensorFlow Model requires input data to be in the form of Tensors during Eager Execution.
+- After training, a new model can be created by excluding the head of the trained model, which allows for saving weights for transfer learning purposes.
+
+## 4. Directive Knowledge
+- When creating a Model, the input should be an Input layer, not a tensor.
+- Ensure that the model is defined and compiled before starting the training process.
+- Avoid creating the model inside the training loop unless you intend to train a new version at each epoch.
+- When constructing a model with the Sequential API and setting `base_model.trainable = True`, consider using the Functional API to avoid starting learning from scratch.
+
+## 5. Performance Knowledge
+- No specific performance knowledge was extracted from the provided snippets.
+
+## 6. Environment Knowledge
+- The TensorFlow Model requires Eager Execution to be enabled before declaring the model, depending on the TensorFlow version used.
+- Inputs must be Tensors when called during Eager Execution.
+
+## 7. Alternative Knowledge
+- No specific alternative knowledge was extracted from the provided snippets.

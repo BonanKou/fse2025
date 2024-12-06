@@ -1,0 +1,30 @@
+# TensorFlow Model API Documentation
+
+## 1. Functionality Knowledge
+- The `Model` class in TensorFlow's functional API is used to define machine learning models by specifying their inputs and outputs.
+- It allows for creating a new model based on an existing model's graph, excluding certain layers for operations like saving weights for transfer learning.
+- The `model.predict()` function executes predictions using real data and cannot predict on placeholders unless created with existing data tensors.
+
+## 2. Concept Knowledge
+- Inputs to a TensorFlow model should be structured as tensors with shapes that include a batch dimension, e.g., `tf.ones((1,512,512,3))` for an image batch.
+- The first dimension of input tensors typically represents the batch size, which is the number of samples processed at once.
+- When creating a Model, the input should be an Input layer, not a tensor.
+
+## 3. Pattern Knowledge
+- A common pattern is defining a model with a global pooling layer followed by a dense layer for classification. After training, a new model can be created from the trained model's graph, excluding the classification head, to facilitate transfer learning.
+- TensorFlow Model is often used with Tensor inputs during Eager Execution to avoid errors.
+
+## 4. Directive Knowledge
+- Define and compile your TensorFlow model before starting the training process; avoid creating the model inside the training loop unless necessary.
+- Enable eager execution before declaring the model if using a compatible TensorFlow version to train without creating a session and scope.
+- Ensure to test the model using appropriately formatted inputs, e.g., `model([tf.ones((1,512,512,3)), tf.ones((1,1))])`.
+
+## 5. Performance Knowledge
+- Specifying the shape of model inputs is crucial for efficient model operation, which can be achieved by calling `model.build()`, defining `input_shape` during initialization, or using a real tensor to call `model(tensor)`.
+
+## 6. Environment Knowledge
+- TensorFlow Model requires Eager Execution and only accepts Tensors when called.
+- Depending on the TensorFlow version, enable eager execution before declaring the model.
+
+## 7. Alternative Knowledge
+- Consider using the Functional API instead of the Sequential API when setting `base_model.trainable = True` to prevent the network from learning from scratch.
