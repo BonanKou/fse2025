@@ -1,0 +1,87 @@
+# BigDecimal API Documentation
+
+## API Description
+The BigDecimal class provides a set of methods for precise arithmetic operations on floating-point numbers. It is particularly advantageous for financial and monetary calculations where accuracy is paramount, avoiding the pitfalls of floating-point arithmetic errors.
+
+---
+
+## 1. Functionality
+
+The BigDecimal API offers the following operations:
+
+- **Arithmetic Operations**: Addition, subtraction, multiplication, division, and power functions.
+- **Rounding**: Various rounding modes (e.g., UP, DOWN, CEILING, FLOOR, HALF_UP, HALF_DOWN, HALF_EVEN).
+- **Scale Manipulation**: Methods to set and get the scale of a BigDecimal.
+- **Comparison Operations**: Compare, equals, max, min.
+- **Precision Handling**: Methods to control the precision of calculations.
+
+---
+
+## 2. Concept
+
+### Fundamental Ideas:
+- **Immutability**: BigDecimal instances are immutable, meaning any operation that modifies a BigDecimal returns a new instance.
+- **Scale and Precision**: Scale refers to the number of digits to the right of the decimal point, while precision is the total number of significant digits.
+- **Rounding Modes**: These determine how rounding is handled when the result of an operation has more digits than the specified scale.
+
+### Terminologies:
+- **ArithmeticException**: Thrown when a division operation cannot be performed exactly.
+- **MathContext**: An object specifying the precision and rounding mode for operations.
+
+---
+
+## 3. Pattern
+
+### Common Use Cases:
+
+1. **Financial Calculations**:
+   ```java
+   BigDecimal price = new BigDecimal("19.99");
+   BigDecimal tax = new BigDecimal("0.20");
+   BigDecimal total = price.add(price.multiply(tax));
+   ```
+
+2. **Rounding to Specific Decimal Places**:
+   ```java
+   BigDecimal value = new BigDecimal("123.456789");
+   BigDecimal roundedValue = value.setScale(2, RoundingMode.HALF_UP);
+   ```
+
+---
+
+## 4. Directive
+
+### Guidelines and Best Practices:
+- **Use String Constructor**: Prefer `new BigDecimal(String)` over `new BigDecimal(double)` to avoid precision issues.
+- **Immutable Operations**: Always assign the result of an operation to a new or existing BigDecimal variable.
+- **Consistent Scale**: Maintain a consistent scale across related BigDecimal instances to avoid ArithmeticExceptions.
+
+### Things to Avoid:
+- **Avoid `double` Constructor**: Using `new BigDecimal(double)` can lead to unexpected results due to binary floating-point representation.
+- **Do Not Ignore Rounding**: Always specify a rounding mode when reducing scale to avoid runtime exceptions.
+
+---
+
+## 5. Performance
+
+- **Time Efficiency**: BigDecimal operations are generally slower than primitive arithmetic due to their precision and immutability.
+- **Memory Usage**: BigDecimal objects consume more memory than primitive types, as they store additional information such as scale and precision.
+
+### Recommendations:
+- Use BigDecimal only when necessary for precision; otherwise, consider primitive types for performance-critical applications.
+
+---
+
+## 6. Environment
+
+### System Requirements:
+- **Java Version**: The BigDecimal class is part of the `java.math` package and requires Java 5 or later.
+- **Memory**: Ensure sufficient memory allocation for applications with extensive BigDecimal calculations to prevent `OutOfMemoryError`.
+
+## 7. Alternative
+
+### Other APIs:
+- **Double**: For applications where performance is more critical than precision.
+- **Apache Commons Math**: Offers additional mathematical utilities and can complement BigDecimal for complex calculations.
+
+By understanding and leveraging the BigDecimal API, developers can ensure precise and reliable results in their financial and scientific applications.
