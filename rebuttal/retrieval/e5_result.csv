@@ -1,0 +1,781 @@
+,api,knowledge_type,post_id,cleaned_post,creation_date
+0,ByteArray,functionality,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+1,ByteArray,functionality,62829880,"Here is the kotlin code
+
+",1594368500
+2,ByteArray,functionality,56185257,"ByteArray is an object (reference type), so you can create an array of it: Array<ByteArray>.
+",1558091583
+3,ByteArray,functionality,64805430,"
+source: Android : How to read file in bytes?
+",1605189899
+4,ByteArray,functionality,61137291,"example for Kotlin
+
+",1586510288
+5,ByteArray,functionality,56920232,"Using kotlin Int class will do
+
+",1562485438
+6,ByteArray,functionality,66126809,"Java:
+
+Kotlin:
+
+",1612903365
+7,ByteArray,functionality,71723371,"
+here how it works with fragment
+
+
+",1648965484
+8,ByteArray,functionality,72599846,"In Kotlin API interface:
+
+",1655109097
+9,ByteArray,functionality,64518071,"Api Interface
+
+Kotlin code
+
+",1603574159
+10,ByteArray,concept,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+11,ByteArray,concept,56185257,"ByteArray is an object (reference type), so you can create an array of it: Array<ByteArray>.
+",1558091583
+12,ByteArray,concept,62829880,"Here is the kotlin code
+
+",1594368500
+13,ByteArray,concept,61137291,"example for Kotlin
+
+",1586510288
+14,ByteArray,concept,64805430,"
+source: Android : How to read file in bytes?
+",1605189899
+15,ByteArray,concept,66126809,"Java:
+
+Kotlin:
+
+",1612903365
+16,ByteArray,concept,72599846,"In Kotlin API interface:
+
+",1655109097
+17,ByteArray,concept,64852886,"The following is an object serializable class which is helpful to convert the object to bytes array and vice versa in Kotlin.
+
+",1605502757
+18,ByteArray,concept,64518071,"Api Interface
+
+Kotlin code
+
+",1603574159
+19,ByteArray,concept,55570269,"Kotlin (since 1.3) provides the extension method InputStream.readBytes() for reading all bytes of an InputStream into a ByteArray.
+In your case use:
+
+",1554715878
+20,ByteArray,performance,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+21,ByteArray,performance,62829880,"Here is the kotlin code
+
+",1594368500
+22,ByteArray,performance,61137291,"example for Kotlin
+
+",1586510288
+23,ByteArray,performance,64852886,"The following is an object serializable class which is helpful to convert the object to bytes array and vice versa in Kotlin.
+
+",1605502757
+24,ByteArray,performance,66126809,"Java:
+
+Kotlin:
+
+",1612903365
+25,ByteArray,performance,72599846,"In Kotlin API interface:
+
+",1655109097
+26,ByteArray,performance,64805430,"
+source: Android : How to read file in bytes?
+",1605189899
+27,ByteArray,performance,63145875,"using kotlin function as
+
+using from  your data
+
+",1595993086
+28,ByteArray,performance,64518071,"Api Interface
+
+Kotlin code
+
+",1603574159
+29,ByteArray,performance,56920232,"Using kotlin Int class will do
+
+",1562485438
+30,ByteArray,directive,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+31,ByteArray,directive,62829880,"Here is the kotlin code
+
+",1594368500
+32,ByteArray,directive,61137291,"example for Kotlin
+
+",1586510288
+33,ByteArray,directive,64852886,"The following is an object serializable class which is helpful to convert the object to bytes array and vice versa in Kotlin.
+
+",1605502757
+34,ByteArray,directive,72599846,"In Kotlin API interface:
+
+",1655109097
+35,ByteArray,directive,64805430,"
+source: Android : How to read file in bytes?
+",1605189899
+36,ByteArray,directive,63145875,"using kotlin function as
+
+using from  your data
+
+",1595993086
+37,ByteArray,directive,66126809,"Java:
+
+Kotlin:
+
+",1612903365
+38,ByteArray,directive,64518071,"Api Interface
+
+Kotlin code
+
+",1603574159
+39,ByteArray,directive,58628253,"You have to use TypedArray
+
+A TypedArray defined in XML. You can use this to create an array of
+  other resources, such as drawables.
+
+Example :
+XML
+
+Kotlin
+
+",1572447679
+40,ByteArray,pattern,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+41,ByteArray,pattern,56185257,"ByteArray is an object (reference type), so you can create an array of it: Array<ByteArray>.
+",1558091583
+42,ByteArray,pattern,61137291,"example for Kotlin
+
+",1586510288
+43,ByteArray,pattern,62829880,"Here is the kotlin code
+
+",1594368500
+44,ByteArray,pattern,64852886,"The following is an object serializable class which is helpful to convert the object to bytes array and vice versa in Kotlin.
+
+",1605502757
+45,ByteArray,pattern,63145875,"using kotlin function as
+
+using from  your data
+
+",1595993086
+46,ByteArray,pattern,66126809,"Java:
+
+Kotlin:
+
+",1612903365
+47,ByteArray,pattern,72599846,"In Kotlin API interface:
+
+",1655109097
+48,ByteArray,pattern,64805430,"
+source: Android : How to read file in bytes?
+",1605189899
+49,ByteArray,pattern,58628253,"You have to use TypedArray
+
+A TypedArray defined in XML. You can use this to create an array of
+  other resources, such as drawables.
+
+Example :
+XML
+
+Kotlin
+
+",1572447679
+50,ByteArray,environment,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+51,ByteArray,environment,62829880,"Here is the kotlin code
+
+",1594368500
+52,ByteArray,environment,61137291,"example for Kotlin
+
+",1586510288
+53,ByteArray,environment,66126809,"Java:
+
+Kotlin:
+
+",1612903365
+54,ByteArray,environment,64805430,"
+source: Android : How to read file in bytes?
+",1605189899
+55,ByteArray,environment,72599846,"In Kotlin API interface:
+
+",1655109097
+56,ByteArray,environment,64518071,"Api Interface
+
+Kotlin code
+
+",1603574159
+57,ByteArray,environment,64852886,"The following is an object serializable class which is helpful to convert the object to bytes array and vice versa in Kotlin.
+
+",1605502757
+58,ByteArray,environment,57765409,"Use obtainTypedArray
+
+",1567487667
+59,ByteArray,environment,64578940,"Hi your json file content must be
+
+",1603908864
+60,ByteArray,alternative,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+61,ByteArray,alternative,61137291,"example for Kotlin
+
+",1586510288
+62,ByteArray,alternative,62829880,"Here is the kotlin code
+
+",1594368500
+63,ByteArray,alternative,56185257,"ByteArray is an object (reference type), so you can create an array of it: Array<ByteArray>.
+",1558091583
+64,ByteArray,alternative,66126809,"Java:
+
+Kotlin:
+
+",1612903365
+65,ByteArray,alternative,64805430,"
+source: Android : How to read file in bytes?
+",1605189899
+66,ByteArray,alternative,72599846,"In Kotlin API interface:
+
+",1655109097
+67,ByteArray,alternative,64852886,"The following is an object serializable class which is helpful to convert the object to bytes array and vice versa in Kotlin.
+
+",1605502757
+68,ByteArray,alternative,63789514,"Kotlin:
+
+",1599551697
+69,ByteArray,alternative,76830156,"Kotlin 1.9 introduced experimental fun String.hexToByteArray(): ByteArray.
+It can be used as follows:
+
+",1691081758
+70,BigDecimal,functionality,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+71,BigDecimal,functionality,62829880,"Here is the kotlin code
+
+",1594368500
+72,BigDecimal,functionality,59944261,"if use kotlin
+
+",1580197941
+73,BigDecimal,functionality,61137291,"example for Kotlin
+
+",1586510288
+74,BigDecimal,functionality,56920232,"Using kotlin Int class will do
+
+",1562485438
+75,BigDecimal,functionality,69732541,"As per the BigDecimal docs, BigDecimal extends Number which implements Serializable, which means it is supported just like any other Serializable type in Navigation, as per the table you linked.
+
+",1635306641
+76,BigDecimal,functionality,65687675,"
+or for custom classes use
+
+",1610467924
+77,BigDecimal,functionality,57637304,"Here how can you use that in Kotlin
+
+",1566644214
+78,BigDecimal,functionality,73232094,"
+and with timerTask kotlin
+
+
+",1659598896
+79,BigDecimal,functionality,76814327,"Assuming that you want to keep all the significant digits you should use BigDecimal to do the conversion and transformation without missing information:
+
+Output:
+
+valueOf() is needed to create a BigDecimal from a floating point type without representation errors. intValueExact() will throw an exception if the result is out of range for an int.
+Note that this solution keeps the 5 at the end of the number unlike your example.
+",1690914491
+80,BigDecimal,concept,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+81,BigDecimal,concept,62829880,"Here is the kotlin code
+
+",1594368500
+82,BigDecimal,concept,61137291,"example for Kotlin
+
+",1586510288
+83,BigDecimal,concept,59944261,"if use kotlin
+
+",1580197941
+84,BigDecimal,concept,56920232,"Using kotlin Int class will do
+
+",1562485438
+85,BigDecimal,concept,65687675,"
+or for custom classes use
+
+",1610467924
+86,BigDecimal,concept,69732541,"As per the BigDecimal docs, BigDecimal extends Number which implements Serializable, which means it is supported just like any other Serializable type in Navigation, as per the table you linked.
+
+",1635306641
+87,BigDecimal,concept,57637304,"Here how can you use that in Kotlin
+
+",1566644214
+88,BigDecimal,concept,72599846,"In Kotlin API interface:
+
+",1655109097
+89,BigDecimal,concept,63789514,"Kotlin:
+
+",1599551697
+90,BigDecimal,performance,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+91,BigDecimal,performance,62829880,"Here is the kotlin code
+
+",1594368500
+92,BigDecimal,performance,59944261,"if use kotlin
+
+",1580197941
+93,BigDecimal,performance,61137291,"example for Kotlin
+
+",1586510288
+94,BigDecimal,performance,56920232,"Using kotlin Int class will do
+
+",1562485438
+95,BigDecimal,performance,65687675,"
+or for custom classes use
+
+",1610467924
+96,BigDecimal,performance,57637304,"Here how can you use that in Kotlin
+
+",1566644214
+97,BigDecimal,performance,73232094,"
+and with timerTask kotlin
+
+
+",1659598896
+98,BigDecimal,performance,72599846,"In Kotlin API interface:
+
+",1655109097
+99,BigDecimal,performance,63789514,"Kotlin:
+
+",1599551697
+100,BigDecimal,directive,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+101,BigDecimal,directive,59944261,"if use kotlin
+
+",1580197941
+102,BigDecimal,directive,62829880,"Here is the kotlin code
+
+",1594368500
+103,BigDecimal,directive,61137291,"example for Kotlin
+
+",1586510288
+104,BigDecimal,directive,56920232,"Using kotlin Int class will do
+
+",1562485438
+105,BigDecimal,directive,57637304,"Here how can you use that in Kotlin
+
+",1566644214
+106,BigDecimal,directive,65687675,"
+or for custom classes use
+
+",1610467924
+107,BigDecimal,directive,73232094,"
+and with timerTask kotlin
+
+
+",1659598896
+108,BigDecimal,directive,72599846,"In Kotlin API interface:
+
+",1655109097
+109,BigDecimal,directive,63789514,"Kotlin:
+
+",1599551697
+110,BigDecimal,pattern,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+111,BigDecimal,pattern,59944261,"if use kotlin
+
+",1580197941
+112,BigDecimal,pattern,61137291,"example for Kotlin
+
+",1586510288
+113,BigDecimal,pattern,62829880,"Here is the kotlin code
+
+",1594368500
+114,BigDecimal,pattern,65687675,"
+or for custom classes use
+
+",1610467924
+115,BigDecimal,pattern,57637304,"Here how can you use that in Kotlin
+
+",1566644214
+116,BigDecimal,pattern,56920232,"Using kotlin Int class will do
+
+",1562485438
+117,BigDecimal,pattern,60777236,"Use Unit as generic Type
+
+",1584718786
+118,BigDecimal,pattern,75321473,"use weight
+
+",1675332252
+119,BigDecimal,pattern,72599846,"In Kotlin API interface:
+
+",1655109097
+120,BigDecimal,environment,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+121,BigDecimal,environment,62829880,"Here is the kotlin code
+
+",1594368500
+122,BigDecimal,environment,61137291,"example for Kotlin
+
+",1586510288
+123,BigDecimal,environment,59944261,"if use kotlin
+
+",1580197941
+124,BigDecimal,environment,65687675,"
+or for custom classes use
+
+",1610467924
+125,BigDecimal,environment,57637304,"Here how can you use that in Kotlin
+
+",1566644214
+126,BigDecimal,environment,56920232,"Using kotlin Int class will do
+
+",1562485438
+127,BigDecimal,environment,72599846,"In Kotlin API interface:
+
+",1655109097
+128,BigDecimal,environment,73232094,"
+and with timerTask kotlin
+
+
+",1659598896
+129,BigDecimal,environment,63789514,"Kotlin:
+
+",1599551697
+130,BigDecimal,alternative,66396834,"Xml:
+
+Kotlin:
+
+",1614413494
+131,BigDecimal,alternative,61137291,"example for Kotlin
+
+",1586510288
+132,BigDecimal,alternative,59944261,"if use kotlin
+
+",1580197941
+133,BigDecimal,alternative,62829880,"Here is the kotlin code
+
+",1594368500
+134,BigDecimal,alternative,69732541,"As per the BigDecimal docs, BigDecimal extends Number which implements Serializable, which means it is supported just like any other Serializable type in Navigation, as per the table you linked.
+
+",1635306641
+135,BigDecimal,alternative,65687675,"
+or for custom classes use
+
+",1610467924
+136,BigDecimal,alternative,57637304,"Here how can you use that in Kotlin
+
+",1566644214
+137,BigDecimal,alternative,56920232,"Using kotlin Int class will do
+
+",1562485438
+138,BigDecimal,alternative,76814327,"Assuming that you want to keep all the significant digits you should use BigDecimal to do the conversion and transformation without missing information:
+
+Output:
+
+valueOf() is needed to create a BigDecimal from a floating point type without representation errors. intValueExact() will throw an exception if the result is out of range for an int.
+Note that this solution keeps the 5 at the end of the number unlike your example.
+",1690914491
+139,BigDecimal,alternative,63789514,"Kotlin:
+
+",1599551697
+140,Model,functionality,68001567,"Here is the model
+
+",1623841991
+141,Model,functionality,55409692,"train.py
+
+model.py
+
+",1553826729
+142,Model,functionality,61213569,"This is what you need to load the model
+
+",1586884909
+143,Model,functionality,70680647,"Working sample BERT model
+
+",1641986362
+144,Model,functionality,68957658,"https://www.tensorflow.org/tutorials/images/classification
+
+",1630087107
+145,Model,functionality,62793810,"Try this
+
+Then load model using
+
+",1594207749
+146,Model,functionality,66577280,"When you call model.fit it should be
+
+",1615442791
+147,Model,functionality,69432000,"In Tensorflow 1 use like,
+
+",1633330627
+148,Model,functionality,65896466,"There are multiple ways you can deploy a tensorflow model. Read through the following official documentation.
+TensorFlow - Serving Models
+",1611640161
+149,Model,functionality,70065925,"If you using Keras or Tf:
+To save model:
+
+To load and compile model for example:
+
+",1637584957
+150,Model,concept,55409692,"train.py
+
+model.py
+
+",1553826729
+151,Model,concept,68001567,"Here is the model
+
+",1623841991
+152,Model,concept,68957658,"https://www.tensorflow.org/tutorials/images/classification
+
+",1630087107
+153,Model,concept,69635668,"Tensors are the core datastructure of TensorFlow.js They are a generalization of vectors and matrices to potentially higher dimensions.
+
+",1634666365
+154,Model,concept,64890584,"
+tf.keras.models.load_model
+
+is a method to load model.
+Model is not history.
+In tensorflow. After you define a model. You train it with:
+
+Then, you should save both your model and history. And load history to draw picture.
+Which is :
+
+Then you should load your history with:
+
+",1605692752
+155,Model,concept,61149485,"Assuming tensorflow 2.0:
+
+",1586557108
+156,Model,concept,77297601,"Referring to the tensorflow guide:
+
+",1697387914
+157,Model,concept,61213569,"This is what you need to load the model
+
+",1586884909
+158,Model,concept,70065925,"If you using Keras or Tf:
+To save model:
+
+To load and compile model for example:
+
+",1637584957
+159,Model,concept,69432000,"In Tensorflow 1 use like,
+
+",1633330627
+160,Model,performance,68001567,"Here is the model
+
+",1623841991
+161,Model,performance,55409692,"train.py
+
+model.py
+
+",1553826729
+162,Model,performance,68957658,"https://www.tensorflow.org/tutorials/images/classification
+
+",1630087107
+163,Model,performance,61149485,"Assuming tensorflow 2.0:
+
+",1586557108
+164,Model,performance,69432000,"In Tensorflow 1 use like,
+
+",1633330627
+165,Model,performance,61213569,"This is what you need to load the model
+
+",1586884909
+166,Model,performance,59837821,"with TENSORFLOW 2
+
+",1579598657
+167,Model,performance,66000880,"In TensorFlow 2 it is
+
+",1612217556
+168,Model,performance,58818009,"Tested with tensorflow
+
+",1573558979
+169,Model,performance,62475588,"A little late, but nevertheless. This is the output of an object detection .tflite model from Custom Vision. It has a single output tensor.
+
+",1592587708
+170,Model,directive,55409692,"train.py
+
+model.py
+
+",1553826729
+171,Model,directive,68001567,"Here is the model
+
+",1623841991
+172,Model,directive,61213569,"This is what you need to load the model
+
+",1586884909
+173,Model,directive,65896466,"There are multiple ways you can deploy a tensorflow model. Read through the following official documentation.
+TensorFlow - Serving Models
+",1611640161
+174,Model,directive,70065925,"If you using Keras or Tf:
+To save model:
+
+To load and compile model for example:
+
+",1637584957
+175,Model,directive,69432000,"In Tensorflow 1 use like,
+
+",1633330627
+176,Model,directive,77297601,"Referring to the tensorflow guide:
+
+",1697387914
+177,Model,directive,68957658,"https://www.tensorflow.org/tutorials/images/classification
+
+",1630087107
+178,Model,directive,60013993,"Look at TensorFlow's tutorial on saving and loading models. You can use model.save(""path""), and if you do not include an extension, the model will be saved in the SavedModel format.
+
+",1580531211
+179,Model,directive,61149485,"Assuming tensorflow 2.0:
+
+",1586557108
+180,Model,pattern,68001567,"Here is the model
+
+",1623841991
+181,Model,pattern,55409692,"train.py
+
+model.py
+
+",1553826729
+182,Model,pattern,70065925,"If you using Keras or Tf:
+To save model:
+
+To load and compile model for example:
+
+",1637584957
+183,Model,pattern,61213569,"This is what you need to load the model
+
+",1586884909
+184,Model,pattern,69432000,"In Tensorflow 1 use like,
+
+",1633330627
+185,Model,pattern,65896466,"There are multiple ways you can deploy a tensorflow model. Read through the following official documentation.
+TensorFlow - Serving Models
+",1611640161
+186,Model,pattern,60982283,"In Keras, to save model weights, do:
+
+To load model weights:
+
+Also see additional example on saving/loading weights by layer name from here.
+",1585786119
+187,Model,pattern,57274899,"Here you have two models, in Tensorflow and in Keras, that are correspondent:
+
+Tensorflow
+
+Keras
+
+",1564499542
+188,Model,pattern,60013993,"Look at TensorFlow's tutorial on saving and loading models. You can use model.save(""path""), and if you do not include an extension, the model will be saved in the SavedModel format.
+
+",1580531211
+189,Model,pattern,62793810,"Try this
+
+Then load model using
+
+",1594207749
+190,Model,environment,55409692,"train.py
+
+model.py
+
+",1553826729
+191,Model,environment,68001567,"Here is the model
+
+",1623841991
+192,Model,environment,61213569,"This is what you need to load the model
+
+",1586884909
+193,Model,environment,61149485,"Assuming tensorflow 2.0:
+
+",1586557108
+194,Model,environment,68957658,"https://www.tensorflow.org/tutorials/images/classification
+
+",1630087107
+195,Model,environment,70065925,"If you using Keras or Tf:
+To save model:
+
+To load and compile model for example:
+
+",1637584957
+196,Model,environment,69432000,"In Tensorflow 1 use like,
+
+",1633330627
+197,Model,environment,59837821,"with TENSORFLOW 2
+
+",1579598657
+198,Model,environment,72898299,"Example:
+
+Source: TensorFlow docs
+",1657198868
+199,Model,environment,72838435,"Tensorflow model usually expects a batch of images. Thank means, after your preprocess step, you need to add one more dimension for the batch and add the image as first in the set. You can use numpy and do this by:
+
+",1656758767
+200,Model,alternative,55409692,"train.py
+
+model.py
+
+",1553826729
+201,Model,alternative,68001567,"Here is the model
+
+",1623841991
+202,Model,alternative,61149485,"Assuming tensorflow 2.0:
+
+",1586557108
+203,Model,alternative,63071077,"conv.shape or maybe tf.shape(conv)
+",1595584054
+204,Model,alternative,69432000,"In Tensorflow 1 use like,
+
+",1633330627
+205,Model,alternative,59837821,"with TENSORFLOW 2
+
+",1579598657
+206,Model,alternative,70783279,"Replace this code in model.py
+
+",1642669076
+207,Model,alternative,57274899,"Here you have two models, in Tensorflow and in Keras, that are correspondent:
+
+Tensorflow
+
+Keras
+
+",1564499542
+208,Model,alternative,57539537,"Tensorflow_probabilty.Uniform is a continuous distribution, not discrete. So it’s not really going to model dice rolls appropriately.
+",1566071957
+209,Model,alternative,64059929,"Try tf.data.experimental.cardinality:
+
+",1601019820
