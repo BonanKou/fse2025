@@ -1,0 +1,46 @@
+GradientTape API for automatic differentiation.
+# The operations that the layer applies
+      # to its inputs are going to be recorded
+      # on the GradientTape.
+      
+TensorFlow's tf.GradientTape() can handle lists of variables and compute gradients for each variable separately, even when they have different shapes.
+
+# Define a simple loss function
+def f(w1, w2):
+    return tf.reduce_sum(w1 ** 2) + tf.reduce_sum(w2 ** 3)
+
+# Using GradientTape for automatic differentiation
+with tf.GradientTape() as tape:
+    loss = f(w1, w2)
+
+# Compute gradients with respect to each variable
+grads = tape.gradient(loss, [w1, w2])
+
+# grads is a list of tensors corresponding to the gradients of the loss
+# with respect to each of w1 and w2, regardless of their shape
+print(&quot;Gradient w.r.t w1:&quot;, grads[0])
+print(&quot;Gradient w.r.t w2:&quot;, grads[1])
+
+
+GradientTape API for automatic differentiation - computing the gradient of computation with respect to its input variables.
+According to https://www.tensorflow.org/api_docs/python/tf/GradientTape:
+
+By default, the resources held by a GradientTape are released as soon
+as GradientTape.gradient() method is called.
+TensorFlow has an automatic differentiation engine, that takes any TensorFlow graph and computes derivatives w.r.t.
+You have 2 problems in your code which prevents you from getting the result you want.
+
+If you want to compute higher-order derivatives you have to create nested GradientTape objects
+GradientTape automatically track variables in its context, if you want to track tensors (as in your case, you want to track z and t)
+As far as I understood from my previous experience, Tensorflow needs to use GradientTape in order to record the activity of a certain variable and so to compute its gradients.
+GradientTape API for automatic differentiation - computing the gradient of a computation with respect to its input variables.
++ u_zz - tf.cast(0.5, dtype=tf.float32)
+When you pass a list of variables to the tape.gradient() method, TensorFlow calculates the gradient of the loss with respect to each of the variables in the list, without the need for concatenating them.
+Here's a minimal example to illustrate this:
+import tensorflow as tf
+
+# Define the model variables
+w1 = tf.Variable(tf.random.normal([3, 2]), name='w1')
+
+For that, you can follow the guide: Introduction to gradients and automatic differentiation.
+The tf.GradientTape() keeps track of operations for automatic differentiation.

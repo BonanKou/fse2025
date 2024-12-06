@@ -1,0 +1,82 @@
+The variations in the system load can be due to multiple factors.
+static final String HOST = &quot;email-smtp.us-west-2.amazonaws.com&quot;;
+    
+    //
+This might mean not only Spark, but also the libraries that Spark itself needs.
+Define your classpath, i.e., a full list of the paths to all the jars downloaded (NOT just the directory storing the jars, but rather the list of the jars within) and your code.
+Find a setting in VC that allows you to set the classpath manually; I can't help you with this, but such a setting exists in IntelliJ, Eclipse, and Netbeans - so I guess it might also exist in VC.
+
+If I had to do it, I would create first a minimal, throwaway Maven project depending on Spark, without any code.
+static final String FROM = &quot;sender@example.com&quot;;
+    static final String FROMNAME = &quot;Sender Name&quot;;
+    
+    //
+When you run a pure Java application, you need to give it the list of all directories and zip files to be searched for classes, as well as the name of the main class.
+static final String SMTP_PASSWORD = &quot;smtp_password&quot;;
+    
+    //
+static final String CONFIGSET = &quot;ConfigSet&quot;;
+    
+    // Amazon SES SMTP host name.
+the private key contained in the jks file
+    PrivateKey privateRSAKey = (PrivateKey) ks.getKey(keyStoreAlias, keyStorePassword.toCharArray());
+
+    //Fetch
+I didn't find any documentation on spring to do that either.
+
+your certificate to spring relying party bean
+    RelyingPartyRegistration registration = RelyingPartyRegistrations
+        .fromMetadataLocation(assertingPartyMetadataLocation)
+        
+try
+        {
+            System.out.println(&quot;Sending...&quot;);
+            
+            // Connect to Amazon SES using the SMTP username and password you specified above.
+            
+static final String SMTP_USERNAME = &quot;smtp_username&quot;;
+    
+    // Replace smtp_password with your Amazon SES SMTP password.
+    
+Properties props = System.getProperties();
+        props.put(&quot;mail.transport.protocol&quot;, &quot;smtp&quot;);
+        props.put(&quot;mail.smtp.port&quot;, PORT); 
+        props.put(&quot;mail.smtp.starttls.enable&quot;, &quot;true&quot;);
+        props.put(&quot;mail.smtp.auth&quot;, &quot;true&quot;);
+
+        //
+TO, new InternetAddress(TO));
+        msg.setSubject(SUBJECT);
+        msg.setContent(BODY,&quot;text/html&quot;);
+        
+        //
+static final String TO = &quot;recipient@example.com&quot;;
+    
+    //
+Object)&quot; outputMimeType=&quot;application/java&quot;&gt;
+        &lt;java:args &gt;&lt;![CDATA[#[{payload : payload}]]]&gt;&lt;/java:args&gt;
+&lt;/java:invoke-static&gt;
+
+
+MimeMessage;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
+public class AmazonSESSample extends Thread{
+
+    // Replace sender@example.com with your &quot;From&quot; address.
+    
+I don't think this is reasonably expected from Karate, it depends a lot on your environment and how you can set up the previous and current versions.
+Instead an easier solution is to let DataWeave do its transformation magic and convert to a Java object  automatically, in this case a String.
+Example:
+&lt;sockets:listener doc:name=&quot;Listener&quot; config-ref=&quot;UDP_Config&quot; outputMimeType=&quot;text/json&quot;/&gt; 
+&lt;ee:transform doc:name=&quot;Transform Message&quot;&gt;
+   &lt;ee:message &gt;
+      &lt;ee:set-payload &gt;&lt;![CDATA[%dw 2.0
+output application/java
+---
+write(payload,&quot;application/java&quot;)
+]]&gt;
+      &lt;/ee:set-payload&gt;
+   &lt;/ee:message&gt;
+&lt;/ee:transform&gt;
+&lt;java:invoke-static doc:name=&quot;Data Wrapper&quot; class=&quot;com.test.

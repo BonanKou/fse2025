@@ -1,0 +1,48 @@
+The MediaPlayer class can play audio and video files, and it provides a rich set of features such as seeking, looping, and volume control.
+On iOS, you can use the AVFoundation framework to play sound.
+This code iterates over all the MediaControllers in the list and checks their PlaybackState.
+= null
+
+        list?.forEach { mediaController -&gt;
+            val playbackState = mediaController.playbackState
+            if (playbackState !
+It's called MediaLibraryService, we're gonna be experimenting with this one today (but the process of implementation is almost the same).
+
+We use setMediaId as a unique identifier for the media (which is needed for mediasession and we do NOT use setUri because we're gonna do
+       something like setUri(mediaItem.mediaId) when we need to load the media like we did above in the MusicPlayerService and more precisely when we were building the session */
+    val newItem = MediaItem.
+Builder()
+        .setMediaId(&quot;$uri&quot;) /* setMediaId and NOT setUri */
+        .build()
+    
+    /
+To determine which MediaController is currently playing when there are multiple active sessions, you can use the MediaController.getPlaybackState() method to get the current playback state of each MediaController.
+Well, Android has this library/class called MediaPlayer:
+https://developer.android.com/guide/topics/media/mediaplayer
+
+mSessionsChangedListener =
+    MediaSessionManager.OnActiveSessionsChangedListener { list: List&lt;MediaController&gt;?
+If the PlaybackState indicates that the media is playing, latestMediaController is updated accordingly.
+Note that this code assumes that each MediaController has a unique PlaybackState object.
+On Android, you can use the MediaPlayer class to play sound.
+-&gt;
+        list?.forEach { mediaController -&gt;
+            val playbackState = mediaController.playbackState
+            if (playbackState?.state == PlaybackState.STATE_PLAYING || 
+                playbackState?.state == PlaybackState.STATE_BUFFERING) {
+                val mediaMetadata = mediaController.metadata
+                // Use the metadata to get information about the currently playing song
+                //
+            }
+        }
+    }
+
+
+MediaPlayer has the Equalizer you can refer to Equalizer for MediaPlayer for more information.
+
+null
+
+private val mSessionsChangedListener =
+    MediaSessionManager.OnActiveSessionsChangedListener { list: List&lt;MediaController&gt;?
+If a MediaController has a PlaybackState that is newer than the previous PlaybackState seen, it becomes the new &quot;latest&quot; PlaybackState, and the corresponding MediaController becomes the new latestMediaController.
+There is a special version of media session which controls also the media items (playlist and its info) and exposes it to other clients (such Android Auto, WearOS, etc).

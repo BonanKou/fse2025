@@ -1,0 +1,54 @@
+There is no exact double-precision floating point representation for 8875.87 so the rounding has already occurred before you call toBigDecimal.
+To keep the precision, you need to pass the values to the BigDecimal constructor as a string:
+val a = BigDecimal(&quot;8875.87&quot;)
+val b = BigDecimal(&quot;778.55&quot;)
+println(&quot;${a*b}&quot;)
+
+
+Then call <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html#multiply(java.math.
+As a note, Double is limited to 16 significant digits for precision
+
+You can use the editor suggestion for larger based numbers
+
+If you are bothered about having to create the BigDecimal over two lines, BigDecimal has constructors that take Int that you can call directly:
+
+ val bigDecimalInt = BigDecimal(1)
+
+
+
+This specifically works by outright dropping the decimal rather than applying any rounding
+Would round up:
+Int   : 11 / 4 = 2
+Double: 11 / 4 = 2.75
+
+Would round down:
+
+The best alternative is usually BigDecimal which can store and calculate decimal fractions to an arbitrary precision.  
+You're constructing the BigDecimal
+From the BigDecimal docs:
+
+
+The results of this constructor can be somewhat unpredictable.
+Decimal division versus Integer division are very likely to have large swings in output values.
+
+However, just as you can't store 1/3 as a decimal fraction (it's 0.3333333333…, but any finite number of digits will only be an approximation), so you can't store 1/10 as a binary fraction (it's 0.000110011001100…).  
+A key part of BigDecimal is that you must use it literally the whole way through: passing Double into BigDecimal destroys any benefit you would get from BigDecimal.
+
+Most of the questions about floating-point on this site seem to be for the latter cases, unfortunately…)
+Kotlin has lots of extensions making it almost as easy to handle BigDecimals as the native types. 
+we see that the max decimal digits of a floating point, 32 bit number is 7 digits.
+That uses decimal fractions internally to represent any decimal number exactly, to any precision you need, and you can easily do calculations and other manipulations.
+
+For example, if you only ever need two decimal places (i.e. the number of paise), then simply store the number of paise as an integer.  
+The best solution is to avoid floating-point binary numbers entirely, and use the BigDecimal(String)
+Int division   : 9 / 5 = 1
+Double division: 9 / 5 = 1.8
+
+Integers never store any concept of decimals, in Kotlin the design decision was to use Integer based division following the choices of Java.
+Corrected your inputs.
+var a = &quot;0.002000&quot; ;
+var b = &quot;0.004000&quot; ;
+var expected = &quot;0.000008&quot; ;
+
+var actual = new BigDecimal( a ).multiply( new BigDecimal( b ) ) ;
+actual = actual.setScale( new BigDecimal( a ).scale() ) ;  //

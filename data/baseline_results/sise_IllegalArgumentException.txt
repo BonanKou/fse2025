@@ -1,0 +1,86 @@
+The key difference here is jdbi.useHandle&lt;Exception&gt;{ ... 
+
+rather than just jdbi.useHandle{ ...
+
+
+= document.get(&quot;noteTitle&quot;) as?
+This way, you only ever have an Foo object when its in a valid state.
+private class Foo(source: Iterable&lt;Int&gt;) {
+
+    private val elementArray = ArrayList&lt;Int&gt;()
+    private val moduleCount: Int
+
+    init {
+        var internalCount = 0
+
+        for (count in source) {
+            require(count &gt; 0)
+
+            elementArray.add(count)
+            internalCount +
+As I have understood, your errors are generating from this code block:
+val userEmail = document.get(&quot;userEmail&quot;) as String
+val noteTitle = document.get(&quot;noteTitle&quot;) as String
+val yourNote = document.get(&quot;yourNote&quot;) as String
+val downloadUrl = document.get(&quot;downloadUrl&quot;) as String
+
+Here one of the variables from document is coming as null which cannot be cast to non-nullable String type in kotlin.
+If you are not sure of the fields which can come null, write code like this:
+val userEmail : String?
+String
+
+For more clarity please check Safe(nullable)-Cast operator in kotlin docs
+
+As the type of the Exceptions suggest, former is suited for validating the (user) input to a method whereas the latter is designed to check intermediate states during the runtime.
+
+For personal aesthetic reasons, I tend not to use this in Kotlin.
+= document.get(&quot;userEmail&quot;) as?
+In general you avoid situations like this, by reducing the scope of mutability in your code.
+The difference between require and check is mostly a convention.
+It definitely tripped me up for a minute too.
+If myValue is null, the block of code following let will not execute.
+You may use your function simply like this:
+
+x.test().length
+
+
+Otherwise  you can check for null by following inline function and then perform any functions directly on the variable.
+The expected event sequence is:
+
+argument matcher is called and registered on stack
+mocked method call is intercepted and MockMethodAdvice.handleStatic is called
+this calls ArgumentMatcherStorageImpl.pullLocalizedMatchers and clears the matchers stack.
+
+See: How do Mockito matchers work?
+Unfortunately, Intrinsics.checkNotNullExpressionValue throws a NullPointerExeption, as ArgumentMatchers.any() returnes null.
+
+
+A simple fix would be just to use:
+(activity as MainActivity?)!!.enableButtons(buttonState)
+
+or just remove ? after MainActivity
+(more on .? and !! you can find here: What&#39;s the difference between !!
+.thenReturn(&quot;hello&quot;);
+    Intrinsics.checkNotNullExpressionValue(parcel, &quot;parcel&quot;);
+    Assertions.assertEquals(&quot;hello&quot;, TextUtilsWrapper.createFromParcel(parcel));
+  }
+  
+  private static final void testWrapperStatic$lambda$0() {
+    Intrinsics.checkNotNullExpressionValue(ArgumentMatchers.any(), &quot;any()&quot;);
+    TextUtilsWrapper.createFromParcel((Parcel)ArgumentMatchers.any());
+  }
+}
+
+
+= document.get(&quot;downloadUrl&quot;) as?
+= document.get(&quot;yourNote&quot;) as?
+
+
+if you visit the SharedPreferences code, you can see the following code:
+
+@Nullable
+String getString(String key, @Nullable String defValue);
+
+
+which is give us a probability to use null as defValue parameter.
+Kotlin, unlike Java and many other languages, requires that you explicitly identify a nullable value as nullable or it will throw up a compiler error (as you've discovered).

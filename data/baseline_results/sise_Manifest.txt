@@ -1,0 +1,26 @@
+This may be because you have  set the hardware acceleration to false on the manifest(application level) or on the activity level ,if this is the case then add this piece of code to your manifest's application tag
+&lt;application android:hardwareAccelerated=&quot;true&quot; ...&gt;
+or in your activity level (in the manifest)
+&lt;application android:hardwareAccelerated=&quot;true&quot;&gt;
+&lt;activity ...
+Specificy a name attribute on the Application tag of your Android manifest file:
+&lt;application
+     // Declare a name tag here:
+         android:name=&quot;&quot;
+         android:icon=&quot;@drawable/ic_launcher&quot;
+         android:label=&quot;@string/app_name&quot;
+         android:theme=&quot;@style/AppTheme&quot; &gt;
+
+         &lt;activity
+              android:name=&quot;.MainActivity&quot;
+              android:label=&quot;@string/title_activity_main&quot; &gt;
+         &lt;/activity&gt;
+&lt;/application&gt;
+
+
+Your problem is that the class is not included in the manifest file.
+If you look, you'll notice that following code is in your manifest:
+&lt;activity android:name=&quot;.MainActivity&quot;&gt;
+       &lt;intent-filter&gt;
+            &lt;action android:name=&quot;android.intent.action.
+For android 10 and 11 add this line to your &lt;application&gt; element in the android manifest file.

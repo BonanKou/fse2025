@@ -1,0 +1,30 @@
+It can be used as follows:
+@OptIn(ExperimentalStdlibApi::class)
+val byteArray = &quot;16665373b6bf396f75914a0bed297d44&quot;.hexToByteArray()
+
+
+ByteArray.
+On Kotlin/JVM, ByteArray compiles down to a simple primitive array — what would be called byte[] in Java.
+And that has the JVM descriptor [B.  
+ByteArray = 
+    ByteArray (size) {i -&gt; (data.toLong() shr (i*8)).toByte()}
+
+Optionally setting the number of bytes (size), you can convert Shorts, Ints, Longs.
+Just call it like this:
+var yourByteArray = numberToByteArray (yourNumberHere)
+
+
+It works for an empty ByteArray, as well as one which you already know the contents of.
+val
+/api/latest/jvm/stdlib/kotlin.text/to-byte-array.html" rel="noreferrer">toByteArray returns a ByteArray which (for Kotlin/JVM) is actually the same type as byte[].
+
+when you write a byteArray in kotlin like this :
+
+ val byteArray = ByteArray(1024)
+ var length = byteArray.size
+
+
+documentation says
+
+
+  An array of bytes.

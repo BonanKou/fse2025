@@ -1,0 +1,57 @@
+I couldn't see your messageConverter bean.
+The method I used here clickVisible is implemented as following:
+public static boolean clickVisible(WebDriver driver, By locator, int timeout) {
+    try {
+        Wait&lt;WebDriver&gt; wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+        return true;
+    } catch (Exception e) {
+        ConsoleLogger.error(&quot;Failed to click on element&quot; + e.getMessage());
+        return false;
+    }
+}
+
+public static boolean clickVisible(WebDriver driver, By locator) {
+    return clickVisible(driver, locator, 30);
+}
+
+
+The key should be the validation type, and the value should be the custom message.
+&quot;message&quot;: {
+    [validationType] :
+The following code works
+driver.get(&quot;https://store.liverpoolfc.com/&quot;);
+WebdriverUtils.clickVisible(driver,By.id(&quot;onetrust-accept-btn-handler&quot;));
+WebdriverUtils.clickVisible(driver,By.id(&quot;nebula_div_btn&quot;));
+driver.switchTo().frame(driver.findElement(By.cssSelector(&quot;iframe[id*='kampyleForm']&quot;)));
+WebdriverUtils.clickVisible(driver,By.xpath(&quot;//label[contains(@class,'rating-label')][contains(.,'6')]&quot;));
+WebdriverUtils.clickVisible(driver,By.cssSelector(&quot;.panel-footer-web .submit-btn&quot;));
+WebdriverUtils.clickVisible(driver,By.cssSelector(&quot;button[aria-label='Close Survey']&quot;));
+driver.switchTo().defaultContent();
+
+
+Imagine this file is 4GB large; such a setup can easily do it in a tiny memory footprint, whereas your code would require 4GB worth of memory.
+A hash's size is what it is, you can't &quot;resize&quot; it, that doesn't make sense.
+(Y/N) Write to chat.&quot;);
+         player.closeInventory(); 
+         waitingConfirmations.add(player); // here add to list
+    }
+}
+
+
+The API of MessageDigest is: Send as many bytes as you want in chunks via the update method, and then do a final call with a digest method.
+For example:
+public static List&lt;Player&gt; waitingConfirmations = new ArrayList&lt;&gt;(); // create the list
+
+public static void jlvlup(Player player,int currentLevel) {
+    if(currentLevel == 1) {
+         player.sendMessage(ChatColor.
+In other words, the broker must dispatch messages to consumers in the order in which they were added to the queue.
+The best way to do this is to use a messaging system.
+The consumer's side is more likely to be changed.
++ &quot;Do you confirm upgrade spawner to Level 2 for 5000000$ ?
+If you're going to use the simplest JMS pattern then you can use 1 connection, 1 session, and 2 consumers.
+
+Then, for the chat, do:
+if(message.equalsIgnoreCase(&quot;Y&quot;) &amp;&amp; waitingConfirmations.contains(player))
+If your design depends on what the observers need to know about the message, you should use the pulling style.

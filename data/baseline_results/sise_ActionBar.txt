@@ -1,0 +1,26 @@
+As written in the google documentation https://developer.android.com/training/appbar
+&quot;The app bar, also known as the action bar, is one of the most important design elements in your app's activities because it provides a visual structure and interactive elements that are familiar to users.
+It is a salient feature of a mobile application that has a consistent presence over all its activities.
+Toolbar is a View included in a layout like any other View.
+ActionBar actionBar = getSupportActionBar();
+ actionBar.setTitle(&quot;ACTIONBAR TITLE&quot;);
+
+
+If you use the toolbar inside an activity you can set the toolbar as support action bar by calling setSupportActionBar inside your activity and then set up the action bar with the nav controller by calling NavigationUI.setupActionBarWithNavController.
+You get the animation because NavigationUI uses ToolbarOnDestinationChangedListener class if you set up it with toolbar, and this class has the following method:
+@Override
+    protected void setNavigationIcon(Drawable icon,
+            @StringRes int contentDescription) {
+        Toolbar toolbar = mToolbarWeakReference.get();
+        if (toolbar != null) {
+            boolean useTransition = icon == null &amp;&amp; toolbar.getNavigationIcon() !
+OnItemSelectedListener() {
+            @SuppressLint(&quot;NonConstantResourceId&quot;)
+            @Override
+            public boolean
+In your code remove the code about the ActionBarDrawerToggle and use:
+AppBarConfiguration appBarConfiguration =
+        new AppBarConfiguration.
+That is why its not working.
+Solution:
+If you want to set title to your Actionbar

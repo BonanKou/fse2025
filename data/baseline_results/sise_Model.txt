@@ -1,0 +1,30 @@
+From a software perspective Model is a unique python class, likewise as the various layers ( https://www.tensorflow.org/api_docs/python/tf/keras/models/Model is from TF 1.13 documentation ).
+I was able to replicate this error and found the fixes as below:
+
+
+You need to run this code by selecting Tensorflow 1.x.
+The dimensions of input and output should be the same to train the model (otherwise it will show this error <
+Go through your code and check this &quot;stage&quot; first and then go forward in your program.
+
+pip install tensorflow_hub
+
+import tensorflow as tf
+import tensorflow_hub as hub
+import numpy as np
+print(tf.__version__)
+
+
+elmo_model_path = &quot;https://tfhub.dev/google/elmo/3&quot;
+
+The first &quot;1&quot; in the tensors means the first &quot;batch&quot; of samples, and so on.
+Like for any python class there are unique methods, so is for Model.
+
+How the Model class integrates the various layers logically is in the source code of the Model class that is in https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/engine/training.py ( for TF 1.13, source code for TF 2.0 is very likely similar, to easier find search for class Model with Ctrl+F in the file )
+
+This new model contains the same input as the previous model, but the output is the layer right before the GlobalAveragePooling2D() layer.
+
+x = Embedding(top_words, embedding_vector_length)(input)
+x = Dense(2, activation='sigmoid')(x)
+modelx = Model(inputs=input, outputs=x)
+
+...in case where you input one image and one gender to the network.

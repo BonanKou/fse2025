@@ -1,0 +1,27 @@
+This is referred to as a derived ID, and there are a number of ways to do it based on what you need in your entity:
+public class AdditionalInformation {
+
+    @Id
+    private UUID projectId;
+
+    
+The reason for the criticism is that usually the id is the primary key and it's a sequential number.
+They look something like:
+cc26d321-58fc-4cc1-978a-03f2bbdb2a55
+
+Just add a column of type UUID in your document entity and use it as the unique identifier.
+It will solve your problem as well because it will be difficult to guess the next uuid in comparison to the integer numbers.
+
+In both cases, you would use the UUID projectId value as the AdditionalInformation primary key for find by key lookups.
+
+= &quot;UUID&quot;, type = org.hibernate.id.uuid.UuidGenerator.class)
+
+
+Something like this:
+  @Id
+  @UuidGenerator
+  private UUID id; // or String
+
+
+But in case the key gets compromised, you would be in a mess.
+If you change your key, all existing data will get corrupted.
