@@ -1,0 +1,30 @@
+## Functionality Knowledge
+- BigDecimal is used for precise arithmetic operations, particularly in financial and monetary calculations.
+- It allows setting a specific scale, such as 4 digits, for precision.
+- BigDecimal can perform multiplication using the `multiply` method and handle equality comparisons using `compareTo`.
+
+## Concept Knowledge
+- BigDecimal is a class designed for storing and manipulating exact decimal values, avoiding issues with floating-point arithmetic.
+- It can store and calculate decimal fractions to arbitrary precision, making it suitable for use cases where exact values are required.
+- Unlike floating-point numbers, BigDecimal uses decimal fractions internally, providing precise arithmetic operations.
+
+## Pattern Knowledge
+- Commonly used for storing and calculating monetary values to ensure precision and avoid errors associated with floating-point arithmetic.
+- BigDecimal instances are often created directly from strings to maintain precision and avoid issues with floating-point representations.
+- Using `BigDecimal(String)` is a common pattern to ensure accurate representation of decimal values.
+
+## Directive Knowledge
+- Always use the String constructor (e.g., `new BigDecimal("0.1")`) to maintain precision, instead of using Double.
+- Avoid converting BigDecimal results back to Double using `doubleValue()` to preserve precision.
+- Use `compareTo` for equality testing to handle scale differences.
+- Ensure the scale of the BigDecimal result matches the inputs by using `setScale`.
+- Consistently use BigDecimal throughout calculations to maintain precision.
+
+## Performance Knowledge
+- BigDecimal is less efficient than floating-point types like Float and Double, but the difference in efficiency is not significant for projects where exact decimal representation is critical.
+
+## Environment Knowledge
+- BigDecimal is made easier to use in Kotlin due to operator overloading, facilitating its use compared to Java.
+
+## Alternative Knowledge
+- Alternatives to BigDecimal include storing values as Strings or scaling them up to Ints or Longs if calculations are not required or if only a certain number of decimal places are needed.

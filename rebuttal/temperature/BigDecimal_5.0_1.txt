@@ -1,0 +1,28 @@
+## Functionality Knowledge
+- BigDecimal provides precise arithmetic operations on floating-point numbers, especially useful for financial and monetary calculations.
+- It can store and calculate decimal fractions to arbitrary precision, allowing for exact decimal representation and manipulation.
+- BigDecimal includes methods such as `multiply` for arithmetic operations.
+
+## Concept Knowledge
+- BigDecimal is a class used to represent decimal numbers exactly, to any precision needed.
+- It is crucial for calculations requiring precise decimal values, avoiding issues of binary floating-point representation.
+
+## Pattern Knowledge
+- BigDecimal is commonly used for storing and calculating monetary values to ensure precision and accuracy.
+- It is often instantiated using string representations of numbers to maintain precision.
+- A common pattern is to use `BigDecimal(String)` constructor to avoid precision issues with floating-point numbers like `Double`.
+
+## Directive Knowledge
+- Avoid using Double to instantiate BigDecimal due to precision loss; use String or integer types instead.
+- Use `compareTo` for equality testing to handle scale differences.
+- Avoid converting BigDecimal to Double using `doubleValue()` to prevent precision loss.
+- Ensure the result's scale matches the input scale using `setScale`.
+
+## Performance Knowledge
+- BigDecimal is less efficient than floating-point types in terms of performance, but the difference is not significant enough for applications requiring exact decimal values.
+
+## Environment Knowledge
+- BigDecimal is available in Java and Kotlin, with Kotlin offering operator overloading for more natural usage.
+
+## Alternative Knowledge
+- Alternatives to BigDecimal include storing values as Strings if no calculations are needed or scaling values to Ints or Longs for specific decimal places.
