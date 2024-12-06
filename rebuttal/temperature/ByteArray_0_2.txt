@@ -1,0 +1,29 @@
+## Functionality Knowledge
+- ByteArray is used to create a new array of bytes with a specified size, initializing all elements to zero.
+- It can read the entire contents of a file into memory using `File("filename").readBytes()`.
+- ByteArray can be used to read a file in chunks, which is useful for processing large files without loading them entirely into memory.
+- The `readFully` function of `RandomAccessFile` can read an exact number of bytes into a ByteArray.
+- ByteArray is commonly used for object serialization and deserialization in Kotlin.
+
+## Concept Knowledge
+- ByteArray in Kotlin is an array of bytes, equivalent to `byte[]` in Java when targeting the JVM.
+- It is represented as a simple primitive array with the JVM descriptor `[B`.
+- ByteArray can be wrapped into a ByteBuffer to decode bytes into primitive data types like Short in Kotlin.
+
+## Pattern Knowledge
+- Reading a file into a ByteArray is a common use case, requiring sufficient RAM.
+- ByteArray can be initialized with a specific size, and reading files in chunks into a ByteArray is a classic approach to handle large files efficiently.
+- Converting numeric types (Shorts, Ints, Longs) to a ByteArray by specifying the number of bytes.
+
+## Directive Knowledge
+- Ensure there is enough RAM available when reading a file into a ByteArray to accommodate the file size.
+- When using ByteArray in Kotlin, if you need to assign its size to a variable of type long, use the `.toLong()` method to convert the size from int to long.
+
+## Performance Knowledge
+- Reading a whole file into a ByteArray requires ensuring there is enough RAM in the heap, indicating potential memory inefficiency for large files.
+
+## Environment Knowledge
+- ByteArray in Kotlin/JVM compiles down to a simple primitive array, equivalent to `byte[]` in Java.
+
+## Alternative Knowledge
+- Alternatives to ByteArray include ByteBuffer for handling byte data and decoding it into primitive types.
